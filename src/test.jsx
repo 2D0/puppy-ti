@@ -6,6 +6,7 @@ function test() {
             <span>test</span>
             <span>test</span>
             <span>test</span>
+            <span>test</span>
         </div>
     );
 }
