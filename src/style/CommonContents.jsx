@@ -8,8 +8,9 @@ export const Wrap = styled.div`
     height: 100vh;
     margin: 0 auto;
     box-shadow: 0 0 15px rgb(0 0 0 / 15%);
-    background-color: #f4eeff;
     overflow-y: auto;
+    position: relative;
+    background-color: #f4eeff;
 `;
 //컨텐츠 이너
 export const ContentsInner = styled.div`
@@ -152,9 +153,16 @@ export const ContentsBack = styled.div`
     background-color: #c4a5fa;
     z-index: 1;
 `;
-//배경 박스
+//배경 박스 이미지
 export const BackImg = styled(BackGroundShadow)`
     width: 100%;
     margin-top: -1px;
     position: relative;
+`;
+//배경 박스 전체
+export const BackCont = styled.div`
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
 `;
