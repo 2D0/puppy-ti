@@ -42,6 +42,9 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'SpoqaHan';
         font-weight: 400;
     }
+    body{
+      background-color: #f4f2fa;
+    }
     input:focus, select:focus, textarea:focus {
         outline: none;
     }

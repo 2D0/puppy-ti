@@ -1,7 +1,17 @@
 import styled from 'styled-components';
 
 // **************** 컨텐츠 ****************
-//이너
+//컨텐츠 이너
+export const Wrap = styled.div`
+    width: 100%;
+    max-width: 750px;
+    height: 100vh;
+    margin: 0 auto;
+    box-shadow: 0 0 15px rgb(0 0 0 / 15%);
+    background-color: #f4eeff;
+    overflow-y: auto;
+`;
+//컨텐츠 이너
 export const ContentsInner = styled.div`
     width: calc(100% - 30px);
     margin: 0 auto;
@@ -18,18 +28,92 @@ export const A11yHidden = styled.span`
     white-space: nowrap;
 `;
 
-//원형
-export const CircleBox = `
-    border-radius: 50%;
-    overflow: hidden;
-`;
-
-// **************** 버튼 ****************
+// **************** 블럭 ****************
+//기본 버튼, 인풋 블럭
 export const CommonBox = `
     width: 100%;
     height: 60px;
     border-radius: 10px;
 `;
+
+//동그라미 블럭
+export const CircleBox = `
+    border-radius: 50%;
+    overflow: hidden;
+`;
+
+//반응형 정사각형
+export const Square = `
+    width: 100%;
+    height: fit-content;
+    position: relative;
+    
+    &:before {
+        content: '';
+        display:block;
+        width: 100%;
+        padding-bottom: 100%;
+    }
+`;
+export const SquareInner = `
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+`;
+
+//중앙정렬
+export const BoxCenter = `
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+`;
+
+//가로 중앙 정렬
+export const BoxCenterRow = `
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+`;
+
+//세로 중앙 정렬
+export const BoxCenterCol = `
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+`;
+
+//사진 띄우기
+export const PhotoCenter = `
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+`;
+
+//글자 자르기
+export const Split = `
+    display: block;
+    height:fit-content;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+    overflow:hidden;
+    text-overflow:ellipsis;
+`;
+export const SplitLine = `
+    display: -webkit-box;
+    height:fit-content;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+    overflow:hidden;
+    text-overflow:ellipsis;
+`;
+
+//기본 버튼
 export const CommonButton = `
     font-size: 22px;
     color: #fff;
@@ -54,9 +138,23 @@ export const SmallIconShadow = `
         -1px -1px 9px #FFFFFF,
         8px 6px 15px rgba(0, 0, 0, 0.11);
 `;
-export const BackGroundShadow = `
-    box-shadow: 
-        4px 4px 11px rgba(39, 0, 121, 0.07), 
-        -4px -4px 20px rgba(79, 0, 216, 0.3), 
-        10px 2px 36px rgba(219, 206, 242, 0.3);
+export const BackGroundShadow = styled.img`
+    filter: drop-shadow(4px 4px 11px rgba(39, 0, 121, 0.07)) drop-shadow(-4px -4px 20px rgba(79, 0, 216, 0.3))
+        drop-shadow(10px 2px 36px rgba(219, 206, 242, 0.3));
+`;
+
+// **************** 배경 ****************
+//컨텐츠 상단 배경
+export const ContentsBack = styled.div`
+    width: 100%;
+    height: 30vh;
+    position: relative;
+    background-color: #c4a5fa;
+    z-index: 1;
+`;
+//배경 박스
+export const BackImg = styled(BackGroundShadow)`
+    width: 100%;
+    margin-top: -1px;
+    position: relative;
 `;
