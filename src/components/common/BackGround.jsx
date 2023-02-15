@@ -1,15 +1,13 @@
 import React from 'react';
-import { BackCont, BackImg, ContentsBack } from '@/style/CommonContents.jsx';
+import * as S from '@/style/CommonContents.jsx';
 import Img from '@/assets/img/back/back-wave.svg';
 
-const BackGround = () => {
+const Background = () => {
     return (
-        <div>
-            <BackCont>
-                <ContentsBack></ContentsBack>
-                <BackImg src={Img} />
-            </BackCont>
-        </div>
+        <S.BackCont>
+            <S.ContentsBack />
+            <S.BackImg src={Img} />
+        </S.BackCont>
     );
 };
-export default BackGround;
+export default Background;
