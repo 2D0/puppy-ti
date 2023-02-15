@@ -65,7 +65,14 @@ export const SquareInner = `
     left: 0;
 `;
 
-//중앙정렬
+//상단 위치
+export const BoxTop = `
+    position: absolute;
+    top: 0;
+    left: 0;
+`;
+
+//중앙 정렬
 export const BoxCenter = `
     position: absolute;
     top: 50%;
@@ -151,18 +158,55 @@ export const ContentsBack = styled.div`
     height: 30vh;
     position: relative;
     background-color: #c4a5fa;
-    z-index: 1;
+    z-index: 2;
 `;
 //배경 박스 이미지
 export const BackImg = styled(BackGroundShadow)`
     width: 100%;
     margin-top: -1px;
+    z-index: 1;
     position: relative;
 `;
 //배경 박스 전체
 export const BackCont = styled.div`
     width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
+    ${BoxTop};
+`;
+
+// **************** 헤더 ****************
+export const HeaderCont = styled.header`
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: 70px;
+    position: relative;
+    z-index: 998;
+    padding-top: calc(env(safe-area-inset-bottom) + 10px);
+`;
+export const HeaderLogo = styled.h1`
+    width: auto;
+    height: 40px;
+    ${BoxCenter};
+`;
+export const HeaderLogoImg = styled.img`
+    display: block;
+    width: 100%;
+    height: 100%;
+`;
+export const HeaderSwitch = styled.div`
+    display: flex;
+    align-items: center;
+    width: fit-content;
+`;
+export const HeaderSwitchIcon = styled.button`
+    width: 40px;
+    height: 40px;
+    position: relative;
+`;
+export const HeaderSwitchImg = styled.img`
+    display: block;
+    width: 25px;
+    height: 25px;
+    ${BoxCenter};
 `;

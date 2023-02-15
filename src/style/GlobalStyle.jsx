@@ -52,11 +52,11 @@ const GlobalStyle = createGlobalStyle`
         display: block;
     }
     textarea {
-        resize: none
+        resize: none;
     }
     button {
         border: none;
-        background: none;
+        background-color: transparent;
         padding: 0;
         cursor: pointer;
         -webkit-appearance: none;

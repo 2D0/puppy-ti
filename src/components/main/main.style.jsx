@@ -7,6 +7,6 @@ export const MainTopImg = styled.img`
     width: 59.4%;
     height: auto;
     z-index: 10;
-    ${BoxCenterRow}
+    ${BoxCenterRow};
     top: 19vh;
 `;
