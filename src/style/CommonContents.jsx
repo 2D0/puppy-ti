@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
+import { Link } from 'react-router-dom';
 
 // **************** 컨텐츠 ****************
 //컨텐츠 이너
@@ -33,7 +34,7 @@ export const A11yHidden = styled.span`
 //기본 버튼, 인풋 블럭
 export const CommonBox = `
     width: 100%;
-    height: 60px;
+    height: 50px;
     border-radius: 10px;
 `;
 
@@ -60,13 +61,6 @@ export const SquareInner = `
     display: block;
     width: 100%;
     height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-`;
-
-//상단 위치
-export const BoxTop = `
     position: absolute;
     top: 0;
     left: 0;
@@ -141,13 +135,15 @@ export const IconShadow = `
         8px 6px 15px rgba(0, 0, 0, 0.11);
 `;
 export const SmallIconShadow = `
-    box-shadow: 
-        2px 2px 7px rgba(39, 0, 121, 0.07),
-        -1px -1px 9px #FFFFFF,
-        8px 6px 15px rgba(0, 0, 0, 0.11);
+    filter: 
+        drop-shadow(2px 2px 7px rgba(39, 0, 121, 0.07))
+        drop-shadow(-1px -1px 9px #FFFFFF)
+        drop-shadow(8px 6px 15px rgba(0, 0, 0, 0.11));
 `;
 export const BackGroundShadow = styled.img`
-    filter: drop-shadow(4px 4px 11px rgba(39, 0, 121, 0.07)) drop-shadow(-4px -4px 20px rgba(79, 0, 216, 0.3))
+    filter: 
+        drop-shadow(4px 4px 11px rgba(39, 0, 121, 0.07)) 
+        drop-shadow(-4px -4px 20px rgba(79, 0, 216, 0.3))
         drop-shadow(10px 2px 36px rgba(219, 206, 242, 0.3));
 `;
 
@@ -170,24 +166,70 @@ export const BackImg = styled(BackGroundShadow)`
 //배경 박스 전체
 export const BackCont = styled.div`
     width: 100%;
-    ${BoxTop};
+    position: absolute;
+    top: 0;
+    left: 0;
 `;
+
+export const CommonInput = styled.input`
+    ${CommonBox}
+    ${CommonShadow}
+`
+export const CommonBtn = styled.button`
+    background-color: #C4A5FA;
+    ${CommonBox}
+    ${CommonShadow}
+`
+
+// **************** 공유하기 ****************
+export const CommonShare = styled.div``
+export const CommonShareTit = styled.div``
+export const CommonShareIcon = styled.img``
+export const CommonSharetxt = styled.span``
+export const CommonSns = styled.ul`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0 15px;
+`
+export const CommonSnsIcon = styled.li``
+export const CommonSnsLink = styled(Link)`
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    ${IconShadow}
+`
+export const CommonSnsIconImg = styled.img`
+    border-radius: 50%;
+    overflow: hidden;
+    ${PhotoCenter}
+`
 
 // **************** 헤더 ****************
 export const HeaderCont = styled.header`
+    width: 100%;
+    max-width: 750px;
+    height: 60px;
+    position: fixed;
+    top:0;
+    left:50%;
+    transform: translate(-50%);
+    z-index: 998;
+    //padding-top: calc(env(safe-area-inset-bottom) + 10px);
+`;
+export const HeaderInner = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    width: 100%;
-    height: 70px;
-    position: relative;
-    z-index: 998;
-    padding-top: calc(env(safe-area-inset-bottom) + 10px);
-`;
+    width: calc(100% - 30px);
+    height: 100%;
+    margin:0 auto;
+`
 export const HeaderLogo = styled.h1`
     width: auto;
-    height: 40px;
-    ${BoxCenter};
+    height: 35px;
+    ${BoxCenter}
 `;
 export const HeaderLogoImg = styled.img`
     display: block;
@@ -208,5 +250,50 @@ export const HeaderSwitchImg = styled.img`
     display: block;
     width: 25px;
     height: 25px;
-    ${BoxCenter};
+    ${BoxCenter}
+    ${SmallIconShadow}
 `;
+
+// **************** 푸터 ****************
+export const Footer = styled.footer`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 85px;
+    background-color: #1C0E35;
+`;
+export const FooterTxt = `
+    font-size: 12px;
+    color: #F4EEFF;
+`
+export const FooterInfo = styled.ul`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+`
+export const FooterInfoList = styled.li`
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    
+    &:after{
+        content: '';
+        display: block;
+        width: 1px;
+        height: 10px;
+        background-color: #fff;
+    }
+    &:last-child:after{
+        display: none;
+    }
+`
+export const FooterInfoLink = styled(Link)`
+    padding: 3px 2px;
+    ${FooterTxt}
+`
+export const FooterCopy = styled.div`
+    ${FooterTxt}
+`
