@@ -3,6 +3,7 @@ export { default as FireWorkRed } from './ico-firework_red.png';
 export { default as FireWorkStar } from './ico-firework_star.png';
 export { default as Foot } from './ico-foot.svg';
 export { default as PercentChar } from './ico-percent_char.png';
+export { default as Share } from './ico-share.svg';
 export { default as SnsF } from './ico-sns1.svg';
 export { default as SnsK } from './ico-sns2.svg';
 export { default as SnsT } from './ico-sns3.svg';
