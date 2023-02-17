@@ -1,4 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+//컴포넌트
+import ShareCont from '@components/atoms/ShareCont.jsx';
 
 //스타일
 import * as C from '@/style/CommonContents';
@@ -6,21 +10,43 @@ import * as S from '@components/main/main.style.jsx';
 
 //이미지
 import { Intj } from '@/assets/img/mbti';
-import { Share, SnsF, SnsK, SnsT, SnsL } from '@/assets/img/icons';
+import { MainCont, MainInput, MainMiddle } from '@components/main/main.style.jsx';
 
 function Main() {
-    return(
+    const [startActive, setStartActive] = useState(false); //버튼 활성화
+    const [dogName, setDogName] = useState(''); //input value
+
+    //input에 글자가 1개 이상 입력될 경우 버튼 활성화
+    const onNameChange = e => {
+        const { value } = e.target;
+        setDogName(value);
+        setStartActive(value.length >= 1);
+    };
+    const navigate = useNavigate(); //react router 페이지 핸들링하는 함수
+    return (
         <C.Wrap>
-            <C.ContentsInner>
+            <S.MainCont>
                 <S.MainTop>
                     <S.MainChar src={Intj} alt="퍼피티아이 캐릭터" />
                     <S.MainTxt>나의 반려견은 어떤 성향일까?</S.MainTxt>
-                    <S.MainTit>퍼피티아이</S.MainTit>
+                    <S.MainTit>
+                        <S.MainTitPoint as="span">퍼피</S.MainTitPoint>티아이
+                    </S.MainTit>
                 </S.MainTop>
-                <S.MainCont>
-                    <C.CommonInput type="text" placeholder="반려견 이름을 적어주세요."/>
-                    <C.CommonBtn>시작하기</C.CommonBtn>
-                </S.MainCont>
+
+                <S.MainMiddle>
+                    <S.MainInput
+                        onChange={onNameChange}
+                        value={dogName}
+                        type="text"
+                        placeholder="반려견 이름을 적어주세요."
+                        maxlength="6"
+                    />
+                    <C.CommonBtn startActive={startActive} onClick={() => startActive && navigate('/check')}>
+                        시작하기
+                    </C.CommonBtn>
+                </S.MainMiddle>
+
                 <S.MainBottom>
                     <S.MainPlayCount>
                         <S.MainCountTit>참여 횟수</S.MainCountTit>
@@ -28,23 +54,12 @@ function Main() {
                             <S.MainCountNum>1,563</S.MainCountNum> 회
                         </S.MainCount>
                     </S.MainPlayCount>
-                    <C.CommonShare>
-                        <C.CommonShareTit>
-                            <C.CommonShareIcon src={Share} alt="공유하기"></C.CommonShareIcon>
-                            <C.CommonSharetxt>공유하기</C.CommonSharetxt>
-                        </C.CommonShareTit>
-                        <C.CommonSns>
-                            <C.CommonSnsIcon>
-                                <C.CommonSnsLink to='/'>
-                                    <C.CommonSnsIconImg src={Share} alt="공유하기" />
-                                </C.CommonSnsLink>
-                            </C.CommonSnsIcon>
-                        </C.CommonSns>
-                    </C.CommonShare>
+
+                    <ShareCont />
                 </S.MainBottom>
-            </C.ContentsInner>
+            </S.MainCont>
         </C.Wrap>
-    )
+    );
 }
 
 export default Main;
