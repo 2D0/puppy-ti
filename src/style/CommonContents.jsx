@@ -1,7 +1,7 @@
-import styled, {css} from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
-// **************** 컨텐츠 ****************
+// ******************** 컨텐츠 ********************
 //컨텐츠 이너
 export const Wrap = styled.div`
     width: 100%;
@@ -17,6 +17,8 @@ export const Wrap = styled.div`
 export const ContentsInner = styled.div`
     width: calc(100% - 30px);
     margin: 0 auto;
+    z-index: 3;
+    position: relative;
 `;
 
 //웹 접근성 : 텍스트 숨기기
@@ -30,12 +32,13 @@ export const A11yHidden = styled.span`
     white-space: nowrap;
 `;
 
-// **************** 블럭 ****************
+// ********************** 블럭 **********************
 //기본 버튼, 인풋 블럭
 export const CommonBox = `
     width: 100%;
     height: 50px;
     border-radius: 10px;
+    text-align : center;
 `;
 
 //동그라미 블럭
@@ -121,7 +124,7 @@ export const CommonButton = `
     color: #fff;
 `;
 
-// **************** 그림자 ****************
+// ******************** 그림자 ********************
 export const CommonShadow = `
     box-shadow: 
         4px 4px 7px rgba(0, 0, 255, 0.07), 
@@ -141,13 +144,11 @@ export const SmallIconShadow = `
         drop-shadow(8px 6px 15px rgba(0, 0, 0, 0.11));
 `;
 export const BackGroundShadow = styled.img`
-    filter: 
-        drop-shadow(4px 4px 11px rgba(39, 0, 121, 0.07)) 
-        drop-shadow(-4px -4px 20px rgba(79, 0, 216, 0.3))
+    filter: drop-shadow(4px 4px 11px rgba(39, 0, 121, 0.07)) drop-shadow(-4px -4px 20px rgba(79, 0, 216, 0.3))
         drop-shadow(10px 2px 36px rgba(219, 206, 242, 0.3));
 `;
 
-// **************** 배경 ****************
+// ********************** 배경 **********************
 //컨텐츠 상단 배경
 export const ContentsBack = styled.div`
     width: 100%;
@@ -174,46 +175,73 @@ export const BackCont = styled.div`
 export const CommonInput = styled.input`
     ${CommonBox}
     ${CommonShadow}
-`
+`;
 export const CommonBtn = styled.button`
-    background-color: #C4A5FA;
+    color: #fff;
     ${CommonBox}
     ${CommonShadow}
-`
+    ${props =>
+        props.startActive
+            ? css`
+                  background-color: #c4a5fa;
+              `
+            : css`
+                  background-color: #ccc;
+              `}
+`;
 
-// **************** 공유하기 ****************
-export const CommonShare = styled.div``
-export const CommonShareTit = styled.div``
-export const CommonShareIcon = styled.img``
-export const CommonSharetxt = styled.span``
+// ********************** 색상 **********************
+export const FontPurple = `
+    color: #7846D0;
+`;
+export const FontLightPurple = `
+    color: #C4A5FA;
+`;
+export const FontDarkPurple = `
+    color: #1C0E35;
+`;
+
+// ********************* 공유하기 ********************
+export const CommonShare = styled.div``;
+export const CommonShareTit = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0 8px;
+`;
+export const CommonShareIcon = styled.img`
+    width: 35px;
+    height: 35px;
+`;
+export const CommonSharetxt = styled.span``;
 export const CommonSns = styled.ul`
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0 15px;
-`
-export const CommonSnsIcon = styled.li``
+`;
+export const CommonSnsIcon = styled.li``;
 export const CommonSnsLink = styled(Link)`
     display: block;
     width: 40px;
     height: 40px;
     border-radius: 50%;
     ${IconShadow}
-`
+`;
 export const CommonSnsIconImg = styled.img`
     border-radius: 50%;
     overflow: hidden;
     ${PhotoCenter}
-`
+`;
 
-// **************** 헤더 ****************
+// ********************** 헤더 **********************
 export const HeaderCont = styled.header`
     width: 100%;
     max-width: 750px;
     height: 60px;
     position: fixed;
-    top:0;
-    left:50%;
+    top: 0;
+    left: 50%;
     transform: translate(-50%);
     z-index: 998;
     //padding-top: calc(env(safe-area-inset-bottom) + 10px);
@@ -224,11 +252,11 @@ export const HeaderInner = styled.div`
     justify-content: flex-end;
     width: calc(100% - 30px);
     height: 100%;
-    margin:0 auto;
-`
+    margin: 0 auto;
+`;
 export const HeaderLogo = styled.h1`
     width: auto;
-    height: 35px;
+    height: 60%;
     ${BoxCenter}
 `;
 export const HeaderLogoImg = styled.img`
@@ -254,7 +282,11 @@ export const HeaderSwitchImg = styled.img`
     ${SmallIconShadow}
 `;
 
-// **************** 푸터 ****************
+// ********************** 푸터 **********************
+export const FooterTxt = `
+    font-size: 12px;
+    color: #F4EEFF;
+`;
 export const Footer = styled.footer`
     display: flex;
     flex-direction: column;
@@ -262,38 +294,34 @@ export const Footer = styled.footer`
     justify-content: center;
     width: 100%;
     height: 85px;
-    background-color: #1C0E35;
+    background-color: #1c0e35;
 `;
-export const FooterTxt = `
-    font-size: 12px;
-    color: #F4EEFF;
-`
 export const FooterInfo = styled.ul`
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 6px;
-`
+`;
 export const FooterInfoList = styled.li`
     display: flex;
     align-items: center;
     gap: 6px;
-    
-    &:after{
+
+    &:after {
         content: '';
         display: block;
         width: 1px;
         height: 10px;
         background-color: #fff;
     }
-    &:last-child:after{
+    &:last-child:after {
         display: none;
     }
-`
+`;
 export const FooterInfoLink = styled(Link)`
     padding: 3px 2px;
     ${FooterTxt}
-`
+`;
 export const FooterCopy = styled.div`
     ${FooterTxt}
-`
+`;
