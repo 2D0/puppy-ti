@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { FontPurple, FontLightPurple, FontDarkPurple, ContentsInner, CommonInput } from '@/style/CommonContents.jsx';
+import { FontPurple, FontLightPurple, FontDarkPurple, ContentsInner, CommonInput, FontSmallSize } from '@/style/CommonContents.jsx';
 
 // ******************** 컨텐츠 ********************
-
+//공통
 export const MainCont = styled(ContentsInner)`
     display: flex;
     flex-direction: column;
@@ -11,30 +11,29 @@ export const MainCont = styled(ContentsInner)`
     gap: 40px 0;
     height: 100%;
 `;
-export const MainFont = styled.span`
-    font-size: 12px;
-`;
-export const MainTop = styled.div`
+export const MainCover = styled.div`
     text-align: center;
 `;
 export const MainChar = styled.img`
-    width: 59.4%;
+    width: 46%;
     height: auto;
+    margin-bottom: 20px;
 `;
 export const MainTxt = styled.p`
     font-family: 'gugi';
+    font-size: 32px;
     ${FontLightPurple}
 `;
 export const MainTit = styled.h2`
     display: inline-block;
     font-family: 'gugi';
-    font-size: 55px;
+    font-size: 90px;
     ${FontPurple}
 `;
 export const MainTitPoint = styled(MainTit)`
     ${FontDarkPurple}
 `;
-export const MainMiddle = styled.div`
+export const MainStart = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -44,14 +43,14 @@ export const MainMiddle = styled.div`
 export const MainInput = styled(CommonInput)`
     border: none;
 `;
-export const MainBottom = styled.div``;
 export const MainPlayCount = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0 6px;
-    font-size: 14px;
+    ${FontSmallSize}
 `;
+export const MainShare = styled.div``;
 export const MainCountTit = styled.span`
     display: flex;
     align-items: center;
@@ -65,11 +64,11 @@ export const MainCountTit = styled.span`
         height: 10px;
         background-color: #333;
     }
-    ${MainFont}
+    ${FontSmallSize}
 `;
 export const MainCount = styled.span`
-    ${MainFont}
+    ${FontSmallSize}
 `;
 export const MainCountNum = styled.i`
-    ${MainFont}
+    ${FontSmallSize}
 `;

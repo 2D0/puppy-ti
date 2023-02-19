@@ -43,7 +43,9 @@ const GlobalStyle = createGlobalStyle`
         font-weight: 400;
     }
     body{
-      background-color: #f4f2fa;
+        min-height: 1000px;
+        overflow-y: auto;
+        background-color: #f4f2fa;
     }
     input:focus, select:focus, textarea:focus {
         outline: none;

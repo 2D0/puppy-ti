@@ -1,17 +1,21 @@
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
+import device from './Device.jsx';
 
 // ******************** 컨텐츠 ********************
-//컨텐츠 이너
+//컨텐츠
 export const Wrap = styled.div`
     width: 100%;
     max-width: 750px;
-    height: 100vh;
+    height: calc(100vh - 95px);
     margin: 0 auto;
     box-shadow: 0 0 15px rgb(0 0 0 / 15%);
-    overflow-y: auto;
     position: relative;
     background-color: #f4eeff;
+
+    @media ${device.MaxHeightS} {
+        min-height: 1000px;
+    }
 `;
 //컨텐츠 이너
 export const ContentsInner = styled.div`
@@ -21,22 +25,13 @@ export const ContentsInner = styled.div`
     position: relative;
 `;
 
-//웹 접근성 : 텍스트 숨기기
-export const A11yHidden = styled.span`
-    display: block;
-    width: 1px;
-    height: 1px;
-    margin-left: -1px;
-    text-indent: -9999px;
-    overflow: hidden;
-    white-space: nowrap;
-`;
-
 // ********************** 블럭 **********************
 //기본 버튼, 인풋 블럭
 export const CommonBox = `
-    width: 100%;
-    height: 50px;
+    width: 65%;
+    height: 60px;
+    margin:0 auto;
+    font-size: 20px;
     border-radius: 10px;
     text-align : center;
 `;
@@ -124,6 +119,24 @@ export const CommonButton = `
     color: #fff;
 `;
 
+// ********************* 폰트 ********************
+export const FontSmallSize = `
+    font-size: 17px;
+`;
+export const FontMediumSize = `
+    font-size: 70px;
+`;
+//웹 접근성 : 텍스트 숨기기
+export const A11yHidden = styled.span`
+    display: block;
+    width: 1px;
+    height: 1px;
+    margin-left: -1px;
+    text-indent: -9999px;
+    overflow: hidden;
+    white-space: nowrap;
+`;
+
 // ******************** 그림자 ********************
 export const CommonShadow = `
     box-shadow: 
@@ -152,10 +165,14 @@ export const BackGroundShadow = styled.img`
 //컨텐츠 상단 배경
 export const ContentsBack = styled.div`
     width: 100%;
-    height: 30vh;
+    height: calc(42vh - 250px);
     position: relative;
     background-color: #c4a5fa;
     z-index: 2;
+
+    @media ${device.MaxHeightS} {
+        height: 200px;
+    }
 `;
 //배경 박스 이미지
 export const BackImg = styled(BackGroundShadow)`
@@ -180,11 +197,12 @@ export const BackCont = styled.div`
                   display: none;
               `}
 `;
-
-export const CommonInput = styled.input`
+//공통 input
+export const CommonInput = styled.input.attrs({ maxLength: 6 })`
     ${CommonBox}
     ${CommonShadow}
 `;
+//공통 버튼
 export const CommonBtn = styled.button`
     color: #fff;
     ${CommonBox}
@@ -217,12 +235,13 @@ export const CommonShareTit = styled.div`
     align-items: center;
     justify-content: center;
     gap: 0 8px;
+    margin-bottom: 15px;
 `;
 export const CommonShareIcon = styled.img`
-    width: 35px;
-    height: 35px;
+    width: 20px;
+    height: 20px;
 `;
-export const CommonSharetxt = styled.span``;
+export const CommonShareTxt = styled.span``;
 export const CommonSns = styled.ul`
     display: flex;
     align-items: center;
@@ -247,7 +266,7 @@ export const CommonSnsIconImg = styled.img`
 export const HeaderCont = styled.header`
     width: 100%;
     max-width: 750px;
-    height: 60px;
+    height: 85px;
     position: fixed;
     top: 0;
     left: 50%;
@@ -277,6 +296,7 @@ export const HeaderSwitch = styled.div`
     display: flex;
     align-items: center;
     width: fit-content;
+    gap: 0 12px;
 `;
 export const HeaderSwitchIcon = styled.button`
     width: 40px;
@@ -285,16 +305,16 @@ export const HeaderSwitchIcon = styled.button`
 `;
 export const HeaderSwitchImg = styled.img`
     display: block;
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
     ${BoxCenter}
     ${SmallIconShadow}
 `;
 
 // ********************** 푸터 **********************
 export const FooterTxt = `
-    font-size: 12px;
     color: #F4EEFF;
+    ${FontSmallSize}
 `;
 export const Footer = styled.footer`
     display: flex;
@@ -302,25 +322,25 @@ export const Footer = styled.footer`
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 85px;
+    height: 95px;
     background-color: #1c0e35;
 `;
 export const FooterInfo = styled.ul`
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    gap: 8px;
 `;
 export const FooterInfoList = styled.li`
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
 
     &:after {
         content: '';
         display: block;
         width: 1px;
-        height: 10px;
+        height: 14px;
         background-color: #fff;
     }
     &:last-child:after {
