@@ -170,6 +170,15 @@ export const BackCont = styled.div`
     position: absolute;
     top: 0;
     left: 0;
+    overflow: hidden;
+    ${({ purpleBg }) =>
+        purpleBg
+            ? css`
+                  display: block;
+              `
+            : css`
+                  display: none;
+              `}
 `;
 
 export const CommonInput = styled.input`
