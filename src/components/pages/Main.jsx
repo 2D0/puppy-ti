@@ -6,11 +6,10 @@ import ShareCont from '@components/atoms/ShareCont.jsx';
 
 //스타일
 import * as C from '@/style/CommonContents';
-import * as S from '@components/main/main.style.jsx';
+import * as S from '@components/main/Main.style.jsx';
 
 //이미지
 import { Intj } from '@/assets/img/mbti';
-import { MainCont, MainInput, MainMiddle } from '@components/main/main.style.jsx';
 
 function Main() {
     const [startActive, setStartActive] = useState(false); //버튼 활성화
@@ -26,40 +25,32 @@ function Main() {
     return (
         <C.Wrap>
             <S.MainCont>
-                <S.MainTop>
+                <S.MainCover>
                     <S.MainChar src={Intj} alt="퍼피티아이 캐릭터" />
                     <S.MainTxt>나의 반려견은 어떤 성향일까?</S.MainTxt>
                     <S.MainTit>
                         <S.MainTitPoint as="span">퍼피</S.MainTitPoint>티아이
                     </S.MainTit>
-                </S.MainTop>
+                </S.MainCover>
 
-                <S.MainMiddle>
-                    <S.MainInput
-                        onChange={onNameChange}
-                        value={dogName}
-                        type="text"
-                        placeholder="반려견 이름을 적어주세요."
-                        maxlength="6"
-                    />
+                <S.MainStart>
+                    <S.MainInput onChange={onNameChange} value={dogName} type="text" placeholder="반려견 이름을 적어주세요." />
                     <C.CommonBtn startActive={startActive} onClick={() => startActive && navigate('/check')}>
                         시작하기
                     </C.CommonBtn>
-                </S.MainMiddle>
+                </S.MainStart>
+                <S.MainPlayCount>
+                    <S.MainCountTit>참여 횟수</S.MainCountTit>
+                    <S.MainCount>
+                        <S.MainCountNum>1,563</S.MainCountNum> 회
+                    </S.MainCount>
+                </S.MainPlayCount>
 
-                <S.MainBottom>
-                    <S.MainPlayCount>
-                        <S.MainCountTit>참여 횟수</S.MainCountTit>
-                        <S.MainCount>
-                            <S.MainCountNum>1,563</S.MainCountNum> 회
-                        </S.MainCount>
-                    </S.MainPlayCount>
-
+                <S.MainShare>
                     <ShareCont />
-                </S.MainBottom>
+                </S.MainShare>
             </S.MainCont>
         </C.Wrap>
     );
 }
-
 export default Main;
