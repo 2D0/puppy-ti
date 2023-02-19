@@ -7,7 +7,7 @@ const ShareCont = () => {
         <C.CommonShare>
             <C.CommonShareTit>
                 <C.CommonShareIcon src={Share} alt="공유하기"></C.CommonShareIcon>
-                <C.CommonSharetxt>공유하기</C.CommonSharetxt>
+                <C.CommonShareTxt>공유하기</C.CommonShareTxt>
             </C.CommonShareTit>
             <C.CommonSns>
                 <C.CommonSnsIcon>
