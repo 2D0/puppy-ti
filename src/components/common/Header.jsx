@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 //스타일
 import * as C from '@/style/CommonContents';
@@ -7,15 +8,14 @@ import * as C from '@/style/CommonContents';
 import { LogoBlack, LogoWhite } from '@/assets/img/logo';
 import { TransEn, TransKo } from '@/assets/img/icons';
 
-const Header = () => {
-    //더미 데이터
-    const BackOn = true;
-
+const Header = ({ setPurpleBg }) => {
     return (
         <C.HeaderCont>
             <C.HeaderInner>
                 <C.HeaderLogo>
-                    <C.HeaderLogoImg src={BackOn ? LogoWhite : LogoBlack} />
+                    <Link to={'/'}>
+                        <C.HeaderLogoImg src={setPurpleBg ? LogoBlack : LogoWhite} />
+                    </Link>
                 </C.HeaderLogo>
                 <C.HeaderSwitch>
                     <C.HeaderSwitchIcon>

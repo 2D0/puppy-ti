@@ -13,14 +13,14 @@ function App() {
 
     return (
         <C.Wrap>
-            <Header />
+            <Header setPurpleBg={setPurpleBg} />
 
             {purpleBg && <Background />}
 
             <Routes>
                 <Route path="/" element={<Main />}></Route>
                 <Route path="/check" element={<Check setPurpleBg={setPurpleBg} />}></Route>
-                <Route path="/result" element={<Result />}></Route>
+                <Route path="/result" element={<Result setPurpleBg={setPurpleBg} />}></Route>
                 <Route path="/team_member" element={<TeamMember />}></Route>
                 <Route path="/inquiry" element={<Inquiry />}></Route>
                 <Route path="/source_license" element={<SourceLicense />}></Route>

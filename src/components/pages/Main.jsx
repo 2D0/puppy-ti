@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 //컴포넌트
@@ -23,7 +23,7 @@ function Main() {
     };
     const navigate = useNavigate(); //react router 페이지 핸들링하는 함수
     return (
-        <C.Wrap>
+        <C.Content>
             <S.MainCont>
                 <S.MainCover>
                     <S.MainChar src={Intj} alt="퍼피티아이 캐릭터" />
@@ -35,7 +35,7 @@ function Main() {
 
                 <S.MainStart>
                     <S.MainInput onChange={onNameChange} value={dogName} type="text" placeholder="반려견 이름을 적어주세요." />
-                    <C.CommonBtn startActive={startActive} onClick={() => startActive && navigate('/check')}>
+                    <C.CommonBtn startActive={startActive} onClick={() => startActive && navigate('/check')} type="submit">
                         시작하기
                     </C.CommonBtn>
                 </S.MainStart>
@@ -50,7 +50,7 @@ function Main() {
                     <ShareCont />
                 </S.MainShare>
             </S.MainCont>
-        </C.Wrap>
+        </C.Content>
     );
 }
 export default Main;
