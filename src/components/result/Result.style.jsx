@@ -4,8 +4,8 @@ import device from '@/style/Device.jsx';
 
 // ******************** 컨텐츠 ********************
 //컨텐츠
-export const CheckCont = styled.div``;
-export const ResultBtn = styled.div`
+export const ResultCont = styled.div``;
+export const RestartBtn = styled.div`
     display: flex;
     justify-content: center;
 `;

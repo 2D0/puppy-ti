@@ -7,15 +7,19 @@ import device from './Device.jsx';
 export const Wrap = styled.div`
     width: 100%;
     max-width: 750px;
-    height: calc(100vh - 95px);
+    min-height: 100vh;
     margin: 0 auto;
+    padding: 85px 0 95px;
     box-shadow: 0 0 15px rgb(0 0 0 / 15%);
     position: relative;
     background-color: #f4eeff;
 
     @media ${device.MaxHeightS} {
-        min-height: 1000px;
+        min-height: 1200px;
     }
+`;
+export const Content = styled.div`
+    height: 100%;
 `;
 //컨텐츠 이너
 export const ContentsInner = styled.div`
@@ -165,7 +169,7 @@ export const BackGroundShadow = styled.img`
 //컨텐츠 상단 배경
 export const ContentsBack = styled.div`
     width: 100%;
-    height: calc(42vh - 250px);
+    height: calc(35vh - 250px);
     position: relative;
     background-color: #c4a5fa;
     z-index: 2;
@@ -188,14 +192,6 @@ export const BackCont = styled.div`
     top: 0;
     left: 0;
     overflow: hidden;
-    ${({ purpleBg }) =>
-        purpleBg
-            ? css`
-                  display: block;
-              `
-            : css`
-                  display: none;
-              `}
 `;
 //공통 input
 export const CommonInput = styled.input.attrs({ maxLength: 6 })`
@@ -204,6 +200,9 @@ export const CommonInput = styled.input.attrs({ maxLength: 6 })`
 `;
 //공통 버튼
 export const CommonBtn = styled.button`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: #fff;
     ${CommonBox}
     ${CommonShadow}
@@ -323,6 +322,9 @@ export const Footer = styled.footer`
     justify-content: center;
     width: 100%;
     height: 95px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
     background-color: #1c0e35;
 `;
 export const FooterInfo = styled.ul`
