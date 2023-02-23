@@ -3,7 +3,7 @@ const size = {
     MaxWidthS: '375px',
     MaxWidthM: '425px',
     MaxWidthL: '500px',
-    MaxHeightS: '1000px',
+    MaxHeightS: '1200px',
 };
 const device = {
     MaxWidthS: `(max-width: ${size.MaxWidthS})`,
