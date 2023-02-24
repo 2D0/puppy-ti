@@ -11,6 +11,7 @@ const Result = ({ resultProps }) => {
             resultProps.setPurpleBg(true); //페이지 언마운트시 배경 on
         };
     }, []);
+
     return (
         <C.Content>
             <S.ResultCont>

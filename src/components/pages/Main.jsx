@@ -28,6 +28,7 @@ function Main({ setName }) {
         dogName !== '' && setName(dogName);
         startActive && navigate('/check');
     };
+
     return (
         <C.Content>
             <S.MainCont>

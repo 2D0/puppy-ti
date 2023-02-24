@@ -17,6 +17,7 @@ function App() {
         setPurpleBg: setPurpleBg, //배경 On Off
         name: name, //강아지 이름
     };
+
     return (
         <C.Wrap>
             <Header setPurpleBg={setPurpleBg} />
