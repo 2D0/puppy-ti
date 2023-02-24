@@ -29,6 +29,32 @@ export const ContentsInner = styled.div`
     position: relative;
 `;
 
+// ********************** 색상 **********************
+export const FontPurple = `
+    color: #7846D0;
+`;
+export const FontLightPurple = `
+    color: #C4A5FA;
+`;
+export const FontDarkPurple = `
+    color: #1C0E35;
+`;
+export const BackWhite = `
+    background-color: #fff;
+`;
+export const BackPurple = `
+    background-color: #7846D0;
+`;
+export const BackLightPurple = `
+    background-color: #C4A5FA;
+`;
+export const BackDarkPurple = `
+    background-color: #1C0E35;
+`;
+export const BackUnable = `
+    background-color: #ccc;
+`;
+
 // ********************** 블럭 **********************
 //기본 버튼, 인풋 블럭
 export const CommonBox = `
@@ -160,7 +186,7 @@ export const SmallIconShadow = `
         drop-shadow(-1px -1px 9px #FFFFFF)
         drop-shadow(8px 6px 15px rgba(0, 0, 0, 0.11));
 `;
-export const BackGroundShadow = styled.img`
+export const BackGroundShadow = `
     filter: drop-shadow(4px 4px 11px rgba(39, 0, 121, 0.07)) drop-shadow(-4px -4px 20px rgba(79, 0, 216, 0.3))
         drop-shadow(10px 2px 36px rgba(219, 206, 242, 0.3));
 `;
@@ -171,19 +197,20 @@ export const ContentsBack = styled.div`
     width: 100%;
     height: calc(45vh - 250px);
     position: relative;
-    background-color: #c4a5fa;
     z-index: 2;
+    ${BackLightPurple}
 
     @media ${device.MaxHeightS} {
         height: 280px;
     }
 `;
 //배경 박스 이미지
-export const BackImg = styled(BackGroundShadow)`
+export const BackImg = styled.img`
     width: 100%;
     margin-top: -1px;
     z-index: 1;
     position: relative;
+    ${BackGroundShadow}
 `;
 //배경 박스 전체
 export const BackCont = styled.div`
@@ -209,22 +236,31 @@ export const CommonBtn = styled.button`
     ${props =>
         props.startActive
             ? css`
-                  background-color: #c4a5fa;
+                  ${BackLightPurple}
               `
             : css`
-                  background-color: #ccc;
+                  ${BackUnable}
               `}
 `;
 
-// ********************** 색상 **********************
-export const FontPurple = `
-    color: #7846D0;
+// ********************* 퍼센트 바 ********************
+export const PercentBar = styled.div`
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    ${CommonShadow}
+    ${BackWhite}
 `;
-export const FontLightPurple = `
-    color: #C4A5FA;
-`;
-export const FontDarkPurple = `
-    color: #1C0E35;
+export const PercentBarFill = styled.span`
+    width: ${({ percent }) => percent}%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.3s;
+    ${BackLightPurple}
 `;
 
 // ********************* 공유하기 ********************
@@ -325,7 +361,7 @@ export const Footer = styled.footer`
     position: absolute;
     left: 0;
     bottom: 0;
-    background-color: #1c0e35;
+    ${BackDarkPurple}
 `;
 export const FooterInfo = styled.ul`
     display: flex;
