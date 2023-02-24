@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
 import device from './Device.jsx';
 
@@ -253,13 +253,13 @@ export const PercentBar = styled.div`
     ${CommonShadow}
     ${BackWhite}
 `;
-export const PercentBarFill = styled.span`
+export const PercentBarFill = styled.div`
     width: ${({ percent }) => percent}%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
     ${BackLightPurple}
 `;
 
