@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import device from '@/style/Device.jsx';
 import { FontPurple, FontLightPurple, FontDarkPurple, ContentsInner, CommonInput, FontSmallSize } from '@/style/CommonContents.jsx';
 
 // ******************** 컨텐츠 ********************
@@ -9,7 +10,11 @@ export const MainCont = styled(ContentsInner)`
     align-items: center;
     justify-content: center;
     gap: 40px 0;
-    height: 100%;
+    height: calc(100vh - 180px);
+
+    @media ${device.MaxHeightS} {
+        min-height: 1000px;
+    }
 `;
 export const MainCover = styled.div`
     text-align: center;

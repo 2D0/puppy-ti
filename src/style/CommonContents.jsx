@@ -15,7 +15,7 @@ export const Wrap = styled.div`
     background-color: #f4eeff;
 
     @media ${device.MaxHeightS} {
-        min-height: 1200px;
+        min-height: 1000px;
     }
 `;
 export const Content = styled.div`
@@ -169,13 +169,13 @@ export const BackGroundShadow = styled.img`
 //컨텐츠 상단 배경
 export const ContentsBack = styled.div`
     width: 100%;
-    height: calc(35vh - 250px);
+    height: calc(45vh - 250px);
     position: relative;
     background-color: #c4a5fa;
     z-index: 2;
 
     @media ${device.MaxHeightS} {
-        height: 200px;
+        height: 280px;
     }
 `;
 //배경 박스 이미지
