@@ -8,24 +8,23 @@ import * as S from '@components/check/Check.style.jsx';
 //이미지
 import { FireWorkGreen, FireWorkRed, FireWorkStar, PercentChar } from '@/assets/img/icons';
 
-const Check = ({ checkProps }) => {
+const Check = ({ setBgColor }) => {
     const navigate = useNavigate(); //react router 페이지 핸들링하는 함수
-    const [percent, setPercent] = useState(90); //문항 체크 퍼센트
+    const [percent, setPercent] = useState(100); //문항 체크 퍼센트
 
     useEffect(() => {
-        checkProps.setPurpleBg(false); //페이지 마운트시 배경 off
+        setBgColor('noPurple'); //페이지 마운트시 배경 off
         return () => {
-            checkProps.setPurpleBg(true); //페이지 언마운트시 배경 on
+            setBgColor('purple'); //페이지 언마운트시 배경 on
         };
     }, []);
 
     useEffect(() => {
-        console.log('backOn');
-        checkProps.setBlackBack(true);
+        percent === 100 && setBgColor('black');
         return () => {
-            checkProps.setBlackBack(false); //페이지 언마운트시 배경 on
+            setBgColor('black'); //페이지 언마운트시 배경 on
         };
-    }, [percent === 100]);
+    }, [percent]);
     return (
         <S.CheckCont percent={percent}>
             <S.CheckTop>
@@ -46,6 +45,7 @@ const Check = ({ checkProps }) => {
                         </S.CheckTopLeft>
                         <S.CheckTopCharImg src={PercentChar} />
                     </S.CheckTopChar>
+                    {percent}
                     <S.CheckTopBar>
                         <C.PercentBar>
                             <C.PercentBarFill percent={percent}>
@@ -58,8 +58,7 @@ const Check = ({ checkProps }) => {
             <S.ResultBtn>
                 <C.CommonBtn
                     onClick={() => {
-                        setPercent(100); //효과 테스트용 임시 이벤트
-                        //navigate('/result');
+                        navigate('/result');
                     }}
                     type="submit"
                 >

@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 import device from './Device.jsx';
 
@@ -15,23 +15,26 @@ export const FontDarkPurple = `
 export const FontWhite = `
     color: #fff;
 `;
-export const BackCommon = `
+export const BgCommon = `
     background-color: #f4eeff;
 `;
-export const BackWhite = `
+export const BgWhite = `
     background-color: #fff;
 `;
-export const BackPurple = `
+export const BgPurple = `
     background-color: #7846D0;
 `;
-export const BackLightPurple = `
+export const BgLightPurple = `
     background-color: #C4A5FA;
 `;
-export const BackDarkPurple = `
+export const BgDarkPurple = `
     background-color: #1C0E35;
 `;
-export const BackUnable = `
+export const BgUnable = `
     background-color: #ccc;
+`;
+export const BgBlack = `
+    background-color: #333;
 `;
 
 // ********************** 블럭 **********************
@@ -180,7 +183,7 @@ export const Wrap = styled.div`
     padding: 85px 0 95px;
     box-shadow: 0 0 15px rgb(0 0 0 / 15%);
     position: relative;
-    ${BackCommon}
+    ${BgCommon}
 
     @media ${device.MaxHeightS} {
         min-height: 1000px;
@@ -204,7 +207,7 @@ export const ContentsBack = styled.div`
     height: calc(45vh - 250px);
     position: relative;
     z-index: 2;
-    ${BackLightPurple}
+    ${BgLightPurple}
 
     @media ${device.MaxHeightS} {
         height: 280px;
@@ -242,10 +245,10 @@ export const CommonBtn = styled.button`
     ${({ startActive }) =>
         startActive
             ? css`
-                  ${BackLightPurple}
+                  ${BgLightPurple}
               `
             : css`
-                  ${BackUnable}
+                  ${BgUnable}
               `}
 `;
 
@@ -257,7 +260,7 @@ export const PercentBar = styled.div`
     overflow: hidden;
     position: relative;
     ${CommonShadow}
-    ${BackWhite}
+    ${BgWhite}
 `;
 export const PercentBarFill = styled.div`
     width: ${({ percent }) => percent}%;
@@ -266,7 +269,7 @@ export const PercentBarFill = styled.div`
     top: 0;
     left: 0;
     transition: all 0.3s ease;
-    ${BackLightPurple}
+    ${BgLightPurple}
 `;
 
 // ********************* 공유하기 ********************
@@ -315,7 +318,18 @@ export const HeaderCont = styled.header`
     z-index: 998;
     //padding-top: calc(env(safe-area-inset-bottom) + 10px);
 
-    ${({ headerBack }) => headerBack && BackCommon}
+    ${({ bgColor }) => {
+        return () => {
+            switch (bgColor) {
+                case 'purple':
+                    BgCommon;
+                    break;
+                case 'black':
+                    BgBlack;
+                    break;
+            }
+        };
+    }}
 `;
 export const HeaderInner = styled.div`
     display: flex;
@@ -369,7 +383,7 @@ export const Footer = styled.footer`
     position: absolute;
     left: 0;
     bottom: 0;
-    ${BackDarkPurple}
+    ${BgDarkPurple}
 `;
 export const FooterInfo = styled.ul`
     display: flex;
@@ -387,7 +401,7 @@ export const FooterInfoList = styled.li`
         display: block;
         width: 1px;
         height: 14px;
-        ${BackWhite}
+        ${BgWhite}
     }
     &:last-child:after {
         display: none;
