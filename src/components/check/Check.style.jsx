@@ -1,14 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
-import {
-    FontPurple,
-    FontLightPurple,
-    FontDarkPurple,
-    ContentsInner,
-    FontSmallSize,
-    BoxCenterRow,
-    BoxCenterCol,
-    Wrap,
-} from '@/style/CommonContents.jsx';
+import { ContentsInner, FontSmallSize, BoxCenterRow, BoxCenterCol, Wrap } from '@/style/CommonContents.jsx';
 import device from '@/style/Device.jsx';
 
 // ******************** 컨텐츠 ********************
@@ -205,7 +196,17 @@ export const CheckTopStarL3 = styled.img`
         `}
 `;
 
-// ******************** 상단 ********************
+// ******************** 질문 ********************
+export const CheckQABox = styled.div``;
+export const CheckQATop = styled.div``;
+export const CheckQATit = styled.span``;
+export const CheckQACont = styled.div``;
+export const CheckQATxt = styled.span``;
+export const CheckQASelect = styled.div``;
+export const CheckQABtns = styled.ul``;
+export const CheckQABtnList = styled.li``;
+export const CheckQABtn = styled.button``;
+export const CheckQABtnImg = styled.button``;
 
 // ******************** 하단 ********************
 export const ResultBtn = styled.div`
