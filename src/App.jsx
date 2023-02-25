@@ -9,7 +9,7 @@ import { Header, Footer, Background } from '@/components/common';
 import { Main, Check, Result, TeamMember, Inquiry, SourceLicense } from '@/components/pages';
 
 function App() {
-    const [bgColor, setBgColor] = useState('purple');
+    const [bgColor, setBgColor] = useState('purple'); //전제 배경 색상
     const [name, setName] = useState(''); //강아지 이름
 
     return (

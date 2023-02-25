@@ -10,8 +10,9 @@ import { FireWorkGreen, FireWorkRed, FireWorkStar, PercentChar } from '@/assets/
 
 const Check = ({ setBgColor }) => {
     const navigate = useNavigate(); //react router 페이지 핸들링하는 함수
-    const [percent, setPercent] = useState(100); //문항 체크 퍼센트
+    const [percent, setPercent] = useState(10); //문항 체크 퍼센트
 
+    //기본 배경 보라색 없음
     useEffect(() => {
         setBgColor('noPurple'); //페이지 마운트시 배경 off
         return () => {
@@ -19,6 +20,7 @@ const Check = ({ setBgColor }) => {
         };
     }, []);
 
+    //100%일 경우 배경 검정색
     useEffect(() => {
         percent === 100 && setBgColor('black');
         return () => {
@@ -45,7 +47,6 @@ const Check = ({ setBgColor }) => {
                         </S.CheckTopLeft>
                         <S.CheckTopCharImg src={PercentChar} />
                     </S.CheckTopChar>
-                    {percent}
                     <S.CheckTopBar>
                         <C.PercentBar>
                             <C.PercentBarFill percent={percent}>

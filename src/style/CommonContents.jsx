@@ -322,14 +322,19 @@ export const HeaderCont = styled.header`
         return () => {
             switch (bgColor) {
                 case 'purple':
-                    BgCommon;
-                    break;
+                    return BgLightPurple;
                 case 'black':
-                    BgBlack;
-                    break;
+                    return BgBlack;
+                case 'noPurple':
+                    return BgCommon;
             }
         };
     }}
+    ${({ scrollHeader }) =>
+        scrollHeader &&
+        css`
+            box-shadow: 0 0 7px #dcd5e8;
+        `};
 `;
 export const HeaderInner = styled.div`
     display: flex;

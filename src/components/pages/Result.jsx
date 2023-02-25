@@ -5,6 +5,7 @@ import * as S from '@components/result/Result.style.jsx';
 import ShareCont from '@components/atoms/ShareCont.jsx';
 
 const Result = ({ setBgColor, name }) => {
+    //기본 배경 보라색 없음
     useEffect(() => {
         setBgColor('noPurple'); //페이지 마운트시 배경 off
         return () => {
