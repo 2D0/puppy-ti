@@ -2,33 +2,6 @@ import styled, { css, keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
 import device from './Device.jsx';
 
-// ******************** 컨텐츠 ********************
-//컨텐츠
-export const Wrap = styled.div`
-    width: 100%;
-    max-width: 750px;
-    min-height: 100vh;
-    margin: 0 auto;
-    padding: 85px 0 95px;
-    box-shadow: 0 0 15px rgb(0 0 0 / 15%);
-    position: relative;
-    background-color: #f4eeff;
-
-    @media ${device.MaxHeightS} {
-        min-height: 1000px;
-    }
-`;
-export const Content = styled.div`
-    height: 100%;
-`;
-//컨텐츠 이너
-export const ContentsInner = styled.div`
-    width: calc(100% - 30px);
-    margin: 0 auto;
-    z-index: 3;
-    position: relative;
-`;
-
 // ********************** 색상 **********************
 export const FontPurple = `
     color: #7846D0;
@@ -38,6 +11,12 @@ export const FontLightPurple = `
 `;
 export const FontDarkPurple = `
     color: #1C0E35;
+`;
+export const FontWhite = `
+    color: #fff;
+`;
+export const BackCommon = `
+    background-color: #f4eeff;
 `;
 export const BackWhite = `
     background-color: #fff;
@@ -146,7 +125,7 @@ export const SplitLine = `
 //기본 버튼
 export const CommonButton = `
     font-size: 22px;
-    color: #fff;
+    ${FontWhite}
 `;
 
 // ********************* 폰트 ********************
@@ -191,6 +170,33 @@ export const BackGroundShadow = `
         drop-shadow(10px 2px 36px rgba(219, 206, 242, 0.3));
 `;
 
+// ******************** 컨텐츠 ********************
+//컨텐츠
+export const Wrap = styled.div`
+    width: 100%;
+    max-width: 750px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 85px 0 95px;
+    box-shadow: 0 0 15px rgb(0 0 0 / 15%);
+    position: relative;
+    ${BackCommon}
+
+    @media ${device.MaxHeightS} {
+        min-height: 1000px;
+    }
+`;
+export const Content = styled.div`
+    height: 100%;
+`;
+//컨텐츠 이너
+export const ContentsInner = styled.div`
+    width: calc(100% - 30px);
+    margin: 0 auto;
+    z-index: 3;
+    position: relative;
+`;
+
 // ********************** 배경 **********************
 //컨텐츠 상단 배경
 export const ContentsBack = styled.div`
@@ -230,11 +236,11 @@ export const CommonBtn = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
+    ${FontWhite}
     ${CommonBox}
     ${CommonShadow}
-    ${props =>
-        props.startActive
+    ${({ startActive }) =>
+        startActive
             ? css`
                   ${BackLightPurple}
               `
@@ -308,6 +314,8 @@ export const HeaderCont = styled.header`
     transform: translate(-50%);
     z-index: 998;
     //padding-top: calc(env(safe-area-inset-bottom) + 10px);
+
+    ${({ headerBack }) => headerBack && BackCommon}
 `;
 export const HeaderInner = styled.div`
     display: flex;
@@ -348,7 +356,7 @@ export const HeaderSwitchImg = styled.img`
 
 // ********************** 푸터 **********************
 export const FooterTxt = `
-    color: #F4EEFF;
+    ${FontWhite}
     ${FontSmallSize}
 `;
 export const Footer = styled.footer`
@@ -379,7 +387,7 @@ export const FooterInfoList = styled.li`
         display: block;
         width: 1px;
         height: 14px;
-        background-color: #fff;
+        ${BackWhite}
     }
     &:last-child:after {
         display: none;

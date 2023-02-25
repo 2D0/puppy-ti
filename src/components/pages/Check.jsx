@@ -8,16 +8,24 @@ import * as S from '@components/check/Check.style.jsx';
 //이미지
 import { FireWorkGreen, FireWorkRed, FireWorkStar, PercentChar } from '@/assets/img/icons';
 
-const Check = ({ setPurpleBg }) => {
+const Check = ({ checkProps }) => {
     const navigate = useNavigate(); //react router 페이지 핸들링하는 함수
-    const [percent, setPercent] = useState(50); //문항 체크 퍼센트
+    const [percent, setPercent] = useState(90); //문항 체크 퍼센트
 
     useEffect(() => {
-        setPurpleBg(false); //페이지 마운트시 배경 off
+        checkProps.setPurpleBg(false); //페이지 마운트시 배경 off
         return () => {
-            setPurpleBg(true); //페이지 언마운트시 배경 on
+            checkProps.setPurpleBg(true); //페이지 언마운트시 배경 on
         };
     }, []);
+
+    useEffect(() => {
+        console.log('backOn');
+        checkProps.setBlackBack(true);
+        return () => {
+            checkProps.setBlackBack(false); //페이지 언마운트시 배경 on
+        };
+    }, [percent === 100]);
     return (
         <S.CheckCont percent={percent}>
             <S.CheckTop>

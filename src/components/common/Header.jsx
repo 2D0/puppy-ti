@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 //스타일
@@ -8,13 +8,28 @@ import * as C from '@/style/CommonContents';
 import { LogoBlack, LogoWhite } from '@/assets/img/logo';
 import { TransEn, TransKo } from '@/assets/img/icons';
 
-const Header = ({ setPurpleBg }) => {
+const Header = ({ headerProps }) => {
+    const [headerBack, setHeaderBack] = useState(false);
+
+    const handleScroll = () => {
+        const scrollPosition = window.scrollY; //스크롤 위치
+        scrollPosition > 50 ? setHeaderBack(true) : setHeaderBack(false);
+    };
+
+    useEffect(() => {
+        handleScroll();
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
-        <C.HeaderCont>
+        <C.HeaderCont headerBack={headerBack}>
             <C.HeaderInner>
                 <C.HeaderLogo>
                     <Link to={'/'}>
-                        <C.HeaderLogoImg src={setPurpleBg ? LogoBlack : LogoWhite} />
+                        <C.HeaderLogoImg src={headerProps.setPurpleBg ? LogoBlack : LogoWhite} />
                     </Link>
                 </C.HeaderLogo>
                 <C.HeaderSwitch>

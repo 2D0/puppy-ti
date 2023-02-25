@@ -11,6 +11,19 @@ import { Main, Check, Result, TeamMember, Inquiry, SourceLicense } from '@/compo
 function App() {
     const [purpleBg, setPurpleBg] = useState(true); //보라색 배경 on off 상태
     const [name, setName] = useState(''); //강아지 이름
+    const [blackBack, setBlackBack] = useState(false); //100%시 검정배경
+
+    //헤더 프롭스 전달
+    const headerProps = {
+        setPurpleBg: setPurpleBg, //배경 On Off
+        blackBack: blackBack, //배경 검정
+    };
+
+    //체크 페이지 프롭스 전달
+    const checkProps = {
+        setPurpleBg: setPurpleBg, //배경 On Off
+        setBlackBack: setBlackBack, //100%시 검정배경
+    };
 
     //결과 페이지 프롭스 전달
     const resultProps = {
@@ -20,13 +33,13 @@ function App() {
 
     return (
         <C.Wrap>
-            <Header setPurpleBg={setPurpleBg} />
+            <Header headerProps={headerProps} />
 
             {purpleBg && <Background />}
 
             <Routes>
                 <Route path="/" element={<Main setName={setName} />}></Route>
-                <Route path="/check" element={<Check setPurpleBg={setPurpleBg} />}></Route>
+                <Route path="/check" element={<Check checkProps={checkProps} />}></Route>
                 <Route path="/result" element={<Result resultProps={resultProps} />}></Route>
                 <Route path="/team_member" element={<TeamMember />}></Route>
                 <Route path="/inquiry" element={<Inquiry />}></Route>
