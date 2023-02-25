@@ -14,6 +14,7 @@ import device from '@/style/Device.jsx';
 // ******************** 컨텐츠 ********************
 //컨텐츠
 export const CheckCont = styled(Wrap)`
+    box-shadow: none;
     transition: all 0.3s ease;
     ${({ percent }) =>
         percent === 100 &&
@@ -29,23 +30,6 @@ export const CheckTopInner = styled(ContentsInner)`
 `;
 
 // ********************** 애니메이션 **********************
-export const FadeOut = keyframes`
-    0% {
-        opacity: 1;
-    }
-    25%{
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    75%{
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-`;
 export const FadeIn = keyframes`
     0% {
         opacity: 0;
@@ -130,7 +114,7 @@ export const CheckTopFireRed = styled.img`
         percent === 100 &&
         css`
             display: block;
-            animation: ${FadeOut} 5s 1s infinite linear alternate;
+            animation: ${FadeIn} 5s 2s infinite linear alternate;
         `}
 `;
 
@@ -143,7 +127,7 @@ export const CheckTopStarR1 = styled.img`
         percent === 100 &&
         css`
             display: block;
-            animation: ${FadeOut} 4s 0s infinite linear alternate;
+            animation: ${FadeIn} 3s 0s infinite linear alternate;
         `}
 `;
 export const CheckTopStarR2 = styled.img`
@@ -154,7 +138,7 @@ export const CheckTopStarR2 = styled.img`
         percent === 100 &&
         css`
             display: block;
-            animation: ${FadeIn} 6s 1s infinite linear alternate;
+            animation: ${FadeIn} 5s 3s infinite linear alternate;
         `}
 `;
 export const CheckTopStarR3 = styled.img`
@@ -165,7 +149,7 @@ export const CheckTopStarR3 = styled.img`
         percent === 100 &&
         css`
             display: block;
-            animation: ${FadeOut} 4s 1s infinite linear alternate;
+            animation: ${FadeIn} 4s 0s infinite linear alternate;
         `}
 `;
 export const CheckTopStarR4 = styled.img`
@@ -176,7 +160,7 @@ export const CheckTopStarR4 = styled.img`
         percent === 100 &&
         css`
             display: block;
-            animation: ${FadeIn} 3s 0s infinite linear alternate;
+            animation: ${FadeIn} 3s 2s infinite linear alternate;
         `}
 `;
 
@@ -206,7 +190,7 @@ export const CheckTopStarL2 = styled.img`
         percent === 100 &&
         css`
             display: block;
-            animation: ${FadeOut} 5s 2s infinite linear alternate;
+            animation: ${FadeIn} 5s 3s infinite linear alternate;
         `}
 `;
 export const CheckTopStarL3 = styled.img`
@@ -217,7 +201,7 @@ export const CheckTopStarL3 = styled.img`
         percent === 100 &&
         css`
             display: block;
-            animation: ${FadeIn} 4s 1s infinite linear alternate;
+            animation: ${FadeIn} 4s 0s infinite linear alternate;
         `}
 `;
 
