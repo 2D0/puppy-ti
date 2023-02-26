@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+//컴포넌트
+import CheckQuestion from '@/components/atoms/CheckQuestion.jsx';
+
 //스타일
 import * as C from '@/style/CommonContents';
 import * as S from '@components/check/Check.style.jsx';
@@ -24,7 +27,7 @@ const Check = ({ setBgColor }) => {
     useEffect(() => {
         percent === 100 && setBgColor('black');
         return () => {
-            setBgColor('black'); //페이지 언마운트시 배경 on
+            setBgColor('purple'); //페이지 언마운트시 배경 on
         };
     }, [percent]);
     return (
@@ -56,7 +59,11 @@ const Check = ({ setBgColor }) => {
                     </S.CheckTopBar>
                 </S.CheckTopInner>
             </S.CheckTop>
-            <S.ResultBtn>
+            <S.ChecQAkCont>
+                <CheckQuestion />
+                <CheckQuestion />
+            </S.ChecQAkCont>
+            <S.CheckBtn>
                 <C.CommonBtn
                     onClick={() => {
                         navigate('/result');
@@ -65,7 +72,7 @@ const Check = ({ setBgColor }) => {
                 >
                     결과보기
                 </C.CommonBtn>
-            </S.ResultBtn>
+            </S.CheckBtn>
         </S.CheckCont>
     );
 };
