@@ -178,7 +178,9 @@ export const SmallIconShadow = `
         drop-shadow(8px 6px 15px rgba(0, 0, 0, 0.11));
 `;
 export const BackGroundShadow = `
-    filter: drop-shadow(4px 4px 11px rgba(39, 0, 121, 0.07)) drop-shadow(-4px -4px 20px rgba(79, 0, 216, 0.3))
+    filter: 
+        drop-shadow(4px 4px 11px rgba(39, 0, 121, 0.07)) 
+        drop-shadow(-4px -4px 20px rgba(79, 0, 216, 0.3))
         drop-shadow(10px 2px 36px rgba(219, 206, 242, 0.3));
 `;
 

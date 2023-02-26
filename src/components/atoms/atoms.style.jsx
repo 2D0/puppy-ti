@@ -1,7 +1,9 @@
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
-import device from '@/style/Device.jsx';
+import { ReactComponent as Foot } from '@/assets/img/icons/ico-foot.svg';
+
 import { BgPink, BgPurple, BgWhite, FontMediumSize, FontSmallSize, FontWhite, IconShadow, PhotoCenter } from '@/style/CommonContents.jsx';
+import { FontLMediumSize } from '../../style/CommonContents.jsx';
 
 // ********************* 공유하기 ********************
 export const CommonShare = styled.div``;
@@ -68,14 +70,57 @@ export const CheckQACont = styled.div`
     ${BgWhite}
 `;
 export const CheckQATxt = styled.span`
-    ${FontSmallSize}
+    ${FontLMediumSize}
 `;
-export const CheckQABtns = styled.ul`
+export const CheckQABtns = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0 45px;
+    gap: 0 25px;
 `;
-export const CheckQABtnList = styled.li``;
 export const CheckQABtn = styled.button``;
-export const CheckQABtnImg = styled.img``;
+export const CheckFootShape = `
+    display: block;
+    width: auto;
+    height: 70px;
+
+    > path {
+        display: block;
+        width: auto;
+        height: 100%;
+        fill: #9e446f;
+        /*stroke: #9e446f;
+        stroke-width: 6px;
+        fill: transparent;*/
+        ${IconShadow}
+    }
+
+`;
+export const CheckFootL = styled(Foot)`
+    ${CheckFootShape}
+    > path {
+        fill: #9e446f;
+        ${IconShadow}/*stroke: #9e446f;
+        stroke-width: 6px;
+        fill: transparent;*/
+    }
+`;
+export const CheckFootR = styled(Foot)`
+    ${CheckFootShape}
+    > path {
+        fill: #7846d0;
+        ${IconShadow}/*stroke: #9e446f;
+        stroke-width: 6px;
+        fill: transparent;*/
+    }
+`;
+export const CheckFootCenter = styled(Foot)`
+    ${CheckFootShape};
+    height: 55px;
+    > path {
+        fill: #999;
+        ${IconShadow}/*stroke: #9e446f;
+        stroke-width: 6px;
+        fill: transparent;*/
+    }
+`;
