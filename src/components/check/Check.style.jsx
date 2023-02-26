@@ -1,5 +1,15 @@
 import styled, { css, keyframes } from 'styled-components';
-import { ContentsInner, FontSmallSize, BoxCenterRow, BoxCenterCol, Wrap } from '@/style/CommonContents.jsx';
+import {
+    ContentsInner,
+    FontSmallSize,
+    BoxCenterRow,
+    BoxCenterCol,
+    Wrap,
+    FontWhite,
+    FontMediumSize,
+    BgPink,
+    BgPurple,
+} from '@/style/CommonContents.jsx';
 import device from '@/style/Device.jsx';
 
 // ******************** 컨텐츠 ********************
@@ -14,6 +24,7 @@ export const CheckCont = styled(Wrap)`
         `}
 `;
 export const CheckTop = styled.article`
+    margin-bottom: 90px;
     overflow: hidden;
 `;
 export const CheckTopInner = styled(ContentsInner)`
@@ -196,20 +207,16 @@ export const CheckTopStarL3 = styled.img`
         `}
 `;
 
-// ******************** 질문 ********************
-export const CheckQABox = styled.div``;
-export const CheckQATop = styled.div``;
-export const CheckQATit = styled.span``;
-export const CheckQACont = styled.div``;
-export const CheckQATxt = styled.span``;
-export const CheckQASelect = styled.div``;
-export const CheckQABtns = styled.ul``;
-export const CheckQABtnList = styled.li``;
-export const CheckQABtn = styled.button``;
-export const CheckQABtnImg = styled.button``;
+// ******************** 질문 박스 ********************
+export const ChecQAkCont = styled.div`
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 90px 0;
+    margin-bottom: 90px;
+`;
 
 // ******************** 하단 ********************
-export const ResultBtn = styled.div`
+export const CheckBtn = styled.div`
     display: flex;
     justify-content: center;
 `;

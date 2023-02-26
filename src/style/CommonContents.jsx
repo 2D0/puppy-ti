@@ -36,6 +36,33 @@ export const BgUnable = `
 export const BgBlack = `
     background-color: #333;
 `;
+export const BgPink = `
+    background-color: #9E446F;
+`;
+
+// ********************* 폰트 ********************
+export const FontSmallSize = `
+    font-size: 17px;
+`;
+export const FontMediumSize = `
+    font-size: 20px;
+`;
+export const FontLMediumSize = `
+    font-size: 28px;
+`;
+export const FontBigSize = `
+    font-size: 70px;
+`;
+//웹 접근성 : 텍스트 숨기기
+export const A11yHidden = styled.span`
+    display: block;
+    width: 1px;
+    height: 1px;
+    margin-left: -1px;
+    text-indent: -9999px;
+    overflow: hidden;
+    white-space: nowrap;
+`;
 
 // ********************** 블럭 **********************
 //기본 버튼, 인풋 블럭
@@ -43,9 +70,9 @@ export const CommonBox = `
     width: 65%;
     height: 60px;
     margin:0 auto;
-    font-size: 20px;
     border-radius: 10px;
     text-align : center;
+    ${FontMediumSize}
 `;
 
 //동그라미 블럭
@@ -127,26 +154,8 @@ export const SplitLine = `
 
 //기본 버튼
 export const CommonButton = `
-    font-size: 22px;
+    ${FontMediumSize}
     ${FontWhite}
-`;
-
-// ********************* 폰트 ********************
-export const FontSmallSize = `
-    font-size: 17px;
-`;
-export const FontMediumSize = `
-    font-size: 70px;
-`;
-//웹 접근성 : 텍스트 숨기기
-export const A11yHidden = styled.span`
-    display: block;
-    width: 1px;
-    height: 1px;
-    margin-left: -1px;
-    text-indent: -9999px;
-    overflow: hidden;
-    white-space: nowrap;
 `;
 
 // ******************** 그림자 ********************
@@ -270,40 +279,6 @@ export const PercentBarFill = styled.div`
     left: 0;
     transition: all 0.3s ease;
     ${BgLightPurple}
-`;
-
-// ********************* 공유하기 ********************
-export const CommonShare = styled.div``;
-export const CommonShareTit = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0 8px;
-    margin-bottom: 15px;
-`;
-export const CommonShareIcon = styled.img`
-    width: 20px;
-    height: 20px;
-`;
-export const CommonShareTxt = styled.span``;
-export const CommonSns = styled.ul`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0 15px;
-`;
-export const CommonSnsIcon = styled.li``;
-export const CommonSnsLink = styled(Link)`
-    display: block;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    ${IconShadow}
-`;
-export const CommonSnsIconImg = styled.img`
-    border-radius: 50%;
-    overflow: hidden;
-    ${PhotoCenter}
 `;
 
 // ********************** 헤더 **********************
