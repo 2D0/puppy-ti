@@ -1,20 +1,13 @@
-import { Foot } from '@/assets/img/icons';
+import React from 'react';
 
-svgr({
-    exportAsDefault: false,
+//스타일
+import * as A from '@components/atoms/atoms.style.jsx';
 
-    // svgr options: https://react-svgr.com/docs/options/
-    svgrOptions: {
-        // ...
-    },
-
-    // esbuild options, to transform jsx to js
-    esbuildOptions: {
-        // ...
-    },
-
-    //  A minimatch pattern, or array of patterns, which specifies the files in the build the plugin should include. By default all svg files will be included.
-    include: '**/*.svg',
-
-    exclude: '',
-});
+const CheckButton = () => {
+    return (
+        <>
+            <A.CheckFoot />
+        </>
+    );
+};
+export default CheckButton;
