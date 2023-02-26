@@ -1,8 +1,12 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
+//컴포넌트
+import ShareCont from '@components/atoms/ShareCont.jsx';
+
+//스타일
 import * as C from '@/style/CommonContents.jsx';
 import * as S from '@components/result/Result.style.jsx';
-import ShareCont from '@components/atoms/ShareCont.jsx';
 
 const Result = ({ setBgColor, name }) => {
     //기본 배경 보라색 없음

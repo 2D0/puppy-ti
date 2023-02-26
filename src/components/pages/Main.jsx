@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 //컴포넌트
@@ -6,7 +6,7 @@ import ShareCont from '@components/atoms/ShareCont.jsx';
 
 //스타일
 import * as C from '@/style/CommonContents';
-import * as S from '@components/main/Main.style.jsx';
+import * as S from '@components/main/main.style.jsx';
 
 //이미지
 import { Intj } from '@/assets/img/mbti';
