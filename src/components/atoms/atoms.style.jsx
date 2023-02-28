@@ -1,9 +1,17 @@
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
-import { ReactComponent as Foot } from '@/assets/img/icons/ico-foot.svg';
 
-import { BgPink, BgPurple, BgWhite, FontMediumSize, FontSmallSize, FontWhite, IconShadow, PhotoCenter } from '@/style/CommonContents.jsx';
-import { FontLMediumSize } from '../../style/CommonContents.jsx';
+import {
+    BgPink,
+    BgPurple,
+    BgWhite,
+    FontSmallSize,
+    FontMediumSize,
+    FontLargeSize,
+    FontWhite,
+    IconShadow,
+    PhotoCenter,
+} from '@/style/CommonContents.jsx';
 
 // ********************* 공유하기 ********************
 export const CommonShare = styled.div``;
@@ -70,7 +78,7 @@ export const CheckQACont = styled.div`
     ${BgWhite}
 `;
 export const CheckQATxt = styled.span`
-    ${FontLMediumSize}
+    ${FontMediumSize}
 `;
 export const CheckQABtns = styled.div`
     display: flex;
@@ -83,44 +91,70 @@ export const CheckFootShape = `
     display: block;
     width: auto;
     height: 70px;
+    stroke-width: 4px;
+    fill: transparent;
 
     > path {
         display: block;
         width: auto;
         height: 100%;
         fill: #9e446f;
-        /*stroke: #9e446f;
-        stroke-width: 6px;
-        fill: transparent;*/
         ${IconShadow}
     }
-
 `;
-export const CheckFootL = styled(Foot)`
-    ${CheckFootShape}
-    > path {
-        fill: #9e446f;
-        ${IconShadow}/*stroke: #9e446f;
-        stroke-width: 6px;
-        fill: transparent;*/
+export const CheckFootBlank = `
+    stroke-width: 4px;
+    fill: transparent;
+`;
+export const CheckFootLeft = styled.span`
+    svg {
+        ${CheckFootShape}
+        > path {
+            stroke: #9e446f;
+            ${({ checkState }) =>
+                checkState
+                    ? css`
+                          fill: #9e446f;
+                      `
+                    : css`
+                          stroke: #9e446f;
+                          ${CheckFootBlank}
+                      `}
+        }
     }
 `;
-export const CheckFootR = styled(Foot)`
-    ${CheckFootShape}
-    > path {
-        fill: #7846d0;
-        ${IconShadow}/*stroke: #9e446f;
-        stroke-width: 6px;
-        fill: transparent;*/
+export const CheckFootRight = styled.span`
+    svg {
+        ${CheckFootShape}
+        > path {
+            stroke: #7846d0;
+            ${({ checkState }) =>
+                checkState
+                    ? css`
+                          fill: #7846d0;
+                      `
+                    : css`
+                          stroke: #7846d0;
+                          ${CheckFootBlank}
+                      `}
+        }
     }
 `;
-export const CheckFootCenter = styled(Foot)`
-    ${CheckFootShape};
-    height: 55px;
-    > path {
-        fill: #999;
-        ${IconShadow}/*stroke: #9e446f;
-        stroke-width: 6px;
-        fill: transparent;*/
+export const CheckFootCenter = styled.span`
+    svg {
+        ${CheckFootShape};
+        height: 55px;
+        > path {
+            stroke: #999;
+            ${({ footCenter }) =>
+                footCenter
+                    ? css`
+                          fill: #999;
+                      `
+                    : css`
+                          stroke: #999;
+                          ${CheckFootBlank}
+                      `}
+        }
     }
 `;
