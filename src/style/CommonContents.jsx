@@ -47,7 +47,7 @@ export const FontSmallSize = `
 export const FontMediumSize = `
     font-size: 20px;
 `;
-export const FontLMediumSize = `
+export const FontLargeSize = `
     font-size: 28px;
 `;
 export const FontBigSize = `
