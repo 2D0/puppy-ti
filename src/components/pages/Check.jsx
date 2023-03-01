@@ -11,15 +11,17 @@ import * as S from '@components/check/Check.style.jsx';
 //이미지
 import { FireWorkGreen, FireWorkRed, FireWorkStar, PercentChar } from '@/assets/img/icons';
 
-const Check = ({ setBgColor }) => {
+const Check = ({ setBgColor, setPageName, scrollHeader }) => {
     const navigate = useNavigate(); //react router 페이지 핸들링하는 함수
-    const [percent, setPercent] = useState(10); //문항 체크 퍼센트
+    const [percent, setPercent] = useState(100); //문항 체크 퍼센트
 
     //기본 배경 보라색 없음
     useEffect(() => {
         setBgColor('noPurple'); //페이지 마운트시 배경 off
+        setPageName('checkPage'); //체크 페이지 네임 전달
         return () => {
             setBgColor('purple'); //페이지 언마운트시 배경 on
+            setPageName(''); //페이지 언마운트시 페이지 이름 리셋
         };
     }, []);
 
@@ -30,9 +32,10 @@ const Check = ({ setBgColor }) => {
             setBgColor('purple'); //페이지 언마운트시 배경 on
         };
     }, [percent]);
+
     return (
         <S.CheckCont percent={percent}>
-            <S.CheckTop>
+            <S.CheckTop percent={percent} scrollHeader={scrollHeader}>
                 <S.CheckTopInner>
                     <S.CheckTopChar percent={percent}>
                         <S.CheckTopRight>
@@ -60,11 +63,11 @@ const Check = ({ setBgColor }) => {
                 </S.CheckTopInner>
             </S.CheckTop>
             <S.ChecQAkCont>
-                <CheckQuestion />
-                <CheckQuestion />
+                <CheckQuestion setPercent={setPercent} />
             </S.ChecQAkCont>
             <S.CheckBtn>
                 <C.CommonBtn
+                    percent={percent}
                     onClick={() => {
                         navigate('/result');
                     }}
