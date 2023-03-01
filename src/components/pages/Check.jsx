@@ -10,6 +10,7 @@ import * as S from '@components/check/Check.style.jsx';
 
 //이미지
 import { FireWorkGreen, FireWorkRed, FireWorkStar, PercentChar } from '@/assets/img/icons';
+import { CheckQACont } from '../check/Check.style.jsx';
 
 const Check = ({ setBgColor, setPageName, scrollHeader }) => {
     const navigate = useNavigate(); //react router 페이지 핸들링하는 함수
@@ -62,9 +63,9 @@ const Check = ({ setBgColor, setPageName, scrollHeader }) => {
                     </S.CheckTopBar>
                 </S.CheckTopInner>
             </S.CheckTop>
-            <S.ChecQAkCont>
+            <S.CheckQACont>
                 <CheckQuestion setPercent={setPercent} />
-            </S.ChecQAkCont>
+            </S.CheckQACont>
             <S.CheckBtn>
                 <C.CommonBtn
                     percent={percent}

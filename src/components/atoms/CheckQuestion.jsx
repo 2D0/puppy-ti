@@ -6,31 +6,34 @@ import { ReactComponent as Foot } from '@/assets/img/icons/ico-foot.svg';
 import * as A from '@components/atoms/atoms.style.jsx';
 
 const CheckQuestion = () => {
-    const { question } = questionData; //질문 데이터
-
-    const [questionIdx, setQuestionIdx] = useState(0); //질문 index
-    const [leftIdx, setLeftIdx] = useState(2); //아니다 index
-    const [rightIdx, setRightIdx] = useState(-1); //그렇다 index
+    const leftFoot = [1, 2, 3];
+    const [question, setQuestion] = useState(questionData.question); //질문 index
     const [footCenter, setFootCenter] = useState(false); //센터 선택 여부
+    //const [itemType, setItemType ] = useState('center');
 
-    const footState = (type, idx) => {
+    const idxToScore = {
+        0: 3,
+        1: 2,
+        2: 1,
+    };
+
+    const scoreToIdx = {
+        3: 0,
+        2: 1,
+        1: 2,
+    };
+
+    const footState = (type, itemIdx, idx) => {
         //아니다, 그렇다 index 초기화 및 센터 무조건 선택
-        setRightIdx(-1);
-        setLeftIdx(2);
         setFootCenter(true);
-
+        //setItemType(type);
         //아니다, 그렇다 선택할 경우 각 조건에 따라 index 선택한 위치 값으로 변경
-        if (type === 'left') {
-            setLeftIdx(idx);
-        } else if (type === 'right') {
-            setRightIdx(idx);
-        }
+        setQuestion(question.map(item => (item.id === itemIdx ? { ...item, state: { type, score: idxToScore[idx] } } : item)));
     };
     return (
         <div>
-            {question.map(item => (
+            {question.map((item, itemIdx) => (
                 <A.CheckQABox key={item.id}>
-                    {questionIdx}
                     <A.CheckQATop>
                         <A.CheckQATitL>아니다</A.CheckQATitL>
                         <A.CheckQATitR>그렇다</A.CheckQATitR>
@@ -38,15 +41,15 @@ const CheckQuestion = () => {
                     <A.CheckQACont>
                         <A.CheckQATxt>질문 들어갈 부분 {item.id}</A.CheckQATxt>
                         <A.CheckQABtns>
-                            {[item.score].map((item, idx) => (
+                            {leftFoot.map((footItem, idx) => (
                                 <A.CheckQABtn
-                                    key={item}
+                                    key={footItem}
                                     onClick={() => {
-                                        footState('left', idx - 1);
+                                        footState('no', itemIdx, idx);
                                     }}
                                     type="button"
                                 >
-                                    <A.CheckFootLeft checkState={idx > leftIdx}>
+                                    <A.CheckFootLeft checkState={idx >= scoreToIdx[item.state.score]}>
                                         <Foot />
                                     </A.CheckFootLeft>
                                 </A.CheckQABtn>
@@ -63,16 +66,15 @@ const CheckQuestion = () => {
                                 </A.CheckFootCenter>
                             </A.CheckQABtn>
 
-                            {[item.score].map((item, idx) => (
+                            {leftFoot.map((footItem, idx) => (
                                 <A.CheckQABtn
-                                    key={item}
+                                    key={footItem}
                                     onClick={() => {
-                                        console.log(`low:${item.low}, middle:${item.middle}`);
-                                        footState('right', idx + 1);
+                                        footState('yes', itemIdx, idx);
                                     }}
                                     type="button"
                                 >
-                                    <A.CheckFootRight checkState={idx < rightIdx}>
+                                    <A.CheckFootRight checkState={idx <= scoreToIdx[item.state.score]}>
                                         <Foot />
                                     </A.CheckFootRight>
                                 </A.CheckQABtn>
