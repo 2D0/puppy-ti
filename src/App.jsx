@@ -4,9 +4,6 @@ import { Route, Routes } from 'react-router-dom';
 //스타일
 import * as C from '@/style/CommonContents.jsx';
 
-//이미지
-import { LogoWhite } from '@/assets/img/logo';
-
 //컴포넌트
 import { Header, Footer, Background } from '@/components/common';
 import { Main, Check, Result, TeamMember, Inquiry, SourceLicense } from '@/components/pages';
