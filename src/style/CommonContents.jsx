@@ -2,31 +2,66 @@ import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 import device from './Device.jsx';
 
-// ******************** 컨텐츠 ********************
-//컨텐츠
-export const Wrap = styled.div`
-    width: 100%;
-    max-width: 750px;
-    min-height: 100vh;
-    margin: 0 auto;
-    padding: 85px 0 95px;
-    box-shadow: 0 0 15px rgb(0 0 0 / 15%);
-    position: relative;
+// ********************** 색상 **********************
+export const FontPurple = `
+    color: #7846D0;
+`;
+export const FontLightPurple = `
+    color: #C4A5FA;
+`;
+export const FontDarkPurple = `
+    color: #1C0E35;
+`;
+export const FontWhite = `
+    color: #fff;
+`;
+export const BgCommon = `
     background-color: #f4eeff;
+`;
+export const BgWhite = `
+    background-color: #fff;
+`;
+export const BgPurple = `
+    background-color: #7846D0;
+`;
+export const BgLightPurple = `
+    background-color: #C4A5FA;
+`;
+export const BgDarkPurple = `
+    background-color: #1C0E35;
+`;
+export const BgUnable = `
+    background-color: #ccc;
+`;
+export const BgBlack = `
+    background-color: #333;
+`;
+export const BgPink = `
+    background-color: #9E446F;
+`;
 
-    @media ${device.MaxHeightS} {
-        min-height: 1000px;
-    }
+// ********************* 폰트 ********************
+export const FontSmallSize = `
+    font-size: 17px;
 `;
-export const Content = styled.div`
-    height: 100%;
+export const FontMediumSize = `
+    font-size: 20px;
 `;
-//컨텐츠 이너
-export const ContentsInner = styled.div`
-    width: calc(100% - 30px);
-    margin: 0 auto;
-    z-index: 3;
-    position: relative;
+export const FontLargeSize = `
+    font-size: 28px;
+`;
+export const FontBigSize = `
+    font-size: 70px;
+`;
+//웹 접근성 : 텍스트 숨기기
+export const A11yHidden = styled.span`
+    display: block;
+    width: 1px;
+    height: 1px;
+    margin-left: -1px;
+    text-indent: -9999px;
+    overflow: hidden;
+    white-space: nowrap;
 `;
 
 // ********************** 블럭 **********************
@@ -35,9 +70,9 @@ export const CommonBox = `
     width: 65%;
     height: 60px;
     margin:0 auto;
-    font-size: 20px;
     border-radius: 10px;
     text-align : center;
+    ${FontMediumSize}
 `;
 
 //동그라미 블럭
@@ -74,6 +109,14 @@ export const BoxCenter = `
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+`;
+export const flexItemCenter = `
+    display: flex;
+    align-items: center;
+`;
+export const flexCenter = `
+    ${flexItemCenter}
+    justify-content: center;
 `;
 
 //가로 중앙 정렬
@@ -119,26 +162,8 @@ export const SplitLine = `
 
 //기본 버튼
 export const CommonButton = `
-    font-size: 22px;
-    color: #fff;
-`;
-
-// ********************* 폰트 ********************
-export const FontSmallSize = `
-    font-size: 17px;
-`;
-export const FontMediumSize = `
-    font-size: 70px;
-`;
-//웹 접근성 : 텍스트 숨기기
-export const A11yHidden = styled.span`
-    display: block;
-    width: 1px;
-    height: 1px;
-    margin-left: -1px;
-    text-indent: -9999px;
-    overflow: hidden;
-    white-space: nowrap;
+    ${FontMediumSize}
+    ${FontWhite}
 `;
 
 // ******************** 그림자 ********************
@@ -160,9 +185,38 @@ export const SmallIconShadow = `
         drop-shadow(-1px -1px 9px #FFFFFF)
         drop-shadow(8px 6px 15px rgba(0, 0, 0, 0.11));
 `;
-export const BackGroundShadow = styled.img`
-    filter: drop-shadow(4px 4px 11px rgba(39, 0, 121, 0.07)) drop-shadow(-4px -4px 20px rgba(79, 0, 216, 0.3))
+export const BackGroundShadow = `
+    filter: 
+        drop-shadow(4px 4px 11px rgba(39, 0, 121, 0.07)) 
+        drop-shadow(-4px -4px 20px rgba(79, 0, 216, 0.3))
         drop-shadow(10px 2px 36px rgba(219, 206, 242, 0.3));
+`;
+
+// ******************** 컨텐츠 ********************
+//컨텐츠
+export const Wrap = styled.div`
+    width: 100%;
+    max-width: 750px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 85px 0 95px;
+    box-shadow: 0 0 15px rgb(0 0 0 / 15%);
+    position: relative;
+    ${BgCommon}
+
+    @media ${device.MaxHeightS} {
+        min-height: 1000px;
+    }
+`;
+export const Content = styled.div`
+    height: 100%;
+`;
+//컨텐츠 이너
+export const ContentsInner = styled.div`
+    width: calc(100% - 30px);
+    margin: 0 auto;
+    z-index: 3;
+    position: relative;
 `;
 
 // ********************** 배경 **********************
@@ -171,19 +225,20 @@ export const ContentsBack = styled.div`
     width: 100%;
     height: calc(45vh - 250px);
     position: relative;
-    background-color: #c4a5fa;
     z-index: 2;
+    ${BgLightPurple}
 
     @media ${device.MaxHeightS} {
         height: 280px;
     }
 `;
 //배경 박스 이미지
-export const BackImg = styled(BackGroundShadow)`
+export const BackImg = styled.img`
     width: 100%;
     margin-top: -1px;
     z-index: 1;
     position: relative;
+    ${BackGroundShadow}
 `;
 //배경 박스 전체
 export const BackCont = styled.div`
@@ -200,65 +255,40 @@ export const CommonInput = styled.input.attrs({ maxLength: 6 })`
 `;
 //공통 버튼
 export const CommonBtn = styled.button`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
+    ${flexCenter}
+    ${FontWhite}
     ${CommonBox}
     ${CommonShadow}
-    ${props =>
-        props.startActive
+    
+    ${({ startActive, percent }) => {
+        return startActive || percent === 100
             ? css`
-                  background-color: #c4a5fa;
+                  ${BgLightPurple}
               `
             : css`
-                  background-color: #ccc;
-              `}
+                  ${BgUnable}
+              `;
+    }}
 `;
 
-// ********************** 색상 **********************
-export const FontPurple = `
-    color: #7846D0;
-`;
-export const FontLightPurple = `
-    color: #C4A5FA;
-`;
-export const FontDarkPurple = `
-    color: #1C0E35;
-`;
-
-// ********************* 공유하기 ********************
-export const CommonShare = styled.div``;
-export const CommonShareTit = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0 8px;
-    margin-bottom: 15px;
-`;
-export const CommonShareIcon = styled.img`
-    width: 20px;
-    height: 20px;
-`;
-export const CommonShareTxt = styled.span``;
-export const CommonSns = styled.ul`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0 15px;
-`;
-export const CommonSnsIcon = styled.li``;
-export const CommonSnsLink = styled(Link)`
-    display: block;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    ${IconShadow}
-`;
-export const CommonSnsIconImg = styled.img`
-    border-radius: 50%;
+// ********************* 퍼센트 바 ********************
+export const PercentBar = styled.div`
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
     overflow: hidden;
-    ${PhotoCenter}
+    position: relative;
+    ${CommonShadow}
+    ${BgWhite}
+`;
+export const PercentBarFill = styled.div`
+    width: ${({ percent }) => percent}%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.3s ease;
+    ${BgLightPurple}
 `;
 
 // ********************** 헤더 **********************
@@ -272,14 +302,32 @@ export const HeaderCont = styled.header`
     transform: translate(-50%);
     z-index: 998;
     //padding-top: calc(env(safe-area-inset-bottom) + 10px);
+
+    ${({ bgColor }) => {
+        switch (bgColor) {
+            case 'purple':
+                return BgLightPurple;
+            case 'black':
+                return BgBlack;
+            case 'noPurple':
+                return BgCommon;
+        }
+    }}
+    ${({ scrollHeader, pageName }) =>
+        scrollHeader && pageName !== 'checkPage'
+            ? css`
+                  box-shadow: 0 0 7px #dcd5e8;
+              `
+            : css`
+                  box-shadow: none;
+              `};
 `;
 export const HeaderInner = styled.div`
-    display: flex;
-    align-items: center;
     justify-content: flex-end;
     width: calc(100% - 30px);
     height: 100%;
     margin: 0 auto;
+    ${flexItemCenter}
 `;
 export const HeaderLogo = styled.h1`
     width: auto;
@@ -292,10 +340,9 @@ export const HeaderLogoImg = styled.img`
     height: 100%;
 `;
 export const HeaderSwitch = styled.div`
-    display: flex;
-    align-items: center;
     width: fit-content;
     gap: 0 12px;
+    ${flexItemCenter}
 `;
 export const HeaderSwitchIcon = styled.button`
     width: 40px;
@@ -312,26 +359,22 @@ export const HeaderSwitchImg = styled.img`
 
 // ********************** 푸터 **********************
 export const FooterTxt = `
-    color: #F4EEFF;
+    ${FontWhite}
     ${FontSmallSize}
 `;
 export const Footer = styled.footer`
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     width: 100%;
     height: 95px;
     position: absolute;
     left: 0;
     bottom: 0;
-    background-color: #1c0e35;
+    ${flexCenter}
+    ${BgDarkPurple}
 `;
 export const FooterInfo = styled.ul`
-    display: flex;
-    align-items: center;
-    justify-content: center;
     gap: 8px;
+    ${flexCenter}
 `;
 export const FooterInfoList = styled.li`
     display: flex;
@@ -343,7 +386,7 @@ export const FooterInfoList = styled.li`
         display: block;
         width: 1px;
         height: 14px;
-        background-color: #fff;
+        ${BgWhite}
     }
     &:last-child:after {
         display: none;

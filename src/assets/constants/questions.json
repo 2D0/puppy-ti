@@ -1,0 +1,94 @@
+{
+  "question" : [
+    {
+      "id": 0,
+      "mbti": "1",
+      "text": "질문들어갈 부분",
+      "state" : {
+        "type" : "",
+        "score" : 0
+      }
+    },
+    {
+      "id": 1,
+      "mbti": "3",
+      "text": "질문들어갈 부분",
+      "state" : {
+        "type" : "",
+        "score" : 0
+      }
+    },
+    {
+      "id": 2,
+      "mbti": "2",
+      "text": "질문들어갈 부분",
+      "state" : {
+        "type" : "",
+        "score" : 0
+      }
+    },
+    {
+      "id": 3,
+      "mbti": "1",
+      "text": "질문들어갈 부분",
+      "state" : {
+        "type" : "",
+        "score" : 0
+      }
+    },
+    {
+      "id": 4,
+      "mbti": "4",
+      "text": "질문들어갈 부분",
+      "state" : {
+        "type" : "",
+        "score" : 0
+      }
+    },
+    {
+      "id": 5,
+      "mbti": "3",
+      "text": "질문들어갈 부분",
+      "state" : {
+        "type" : "",
+        "score" : 0
+      }
+    },
+    {
+      "id": 6,
+      "mbti": "2",
+      "text": "질문들어갈 부분",
+      "state" : {
+        "type" : "",
+        "score" : 0
+      }
+    },
+    {
+      "id": 7,
+      "mbti": "3",
+      "text": "질문들어갈 부분",
+      "state" : {
+        "type" : "",
+        "score" : 0
+      }
+    },
+    {
+      "id": 8,
+      "mbti": "1",
+      "text": "질문들어갈 부분",
+      "state" : {
+        "type" : "",
+        "score" : 0
+      }
+    },
+    {
+      "id": 9,
+      "mbti": "4",
+      "text": "질문들어갈 부분",
+      "state" : {
+        "type" : "",
+        "score" : 0
+      }
+    }
+  ]
+}

@@ -1,16 +1,22 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import device from '@/style/Device.jsx';
-import { FontPurple, FontLightPurple, FontDarkPurple, ContentsInner, CommonInput, FontSmallSize } from '@/style/CommonContents.jsx';
+import {
+    flexCenter,
+    FontPurple,
+    FontLightPurple,
+    FontDarkPurple,
+    ContentsInner,
+    CommonInput,
+    FontSmallSize,
+} from '@/style/CommonContents.jsx';
 
 // ******************** 컨텐츠 ********************
 //공통
 export const MainCont = styled(ContentsInner)`
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     gap: 40px 0;
     height: calc(100vh - 180px);
+    ${flexCenter}
 
     @media ${device.MaxHeightS} {
         min-height: 1000px;
@@ -27,7 +33,7 @@ export const MainChar = styled.img`
 export const MainTxt = styled.p`
     font-family: 'gugi';
     font-size: 32px;
-    ${FontLightPurple}
+    ${FontLightPurple};
 `;
 export const MainTit = styled.h2`
     display: inline-block;
@@ -49,19 +55,16 @@ export const MainInput = styled(CommonInput)`
     border: none;
 `;
 export const MainPlayCount = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
     gap: 0 6px;
+    ${flexCenter}
     ${FontSmallSize}
 `;
 export const MainShare = styled.div``;
 export const MainCountTit = styled.span`
-    display: flex;
-    align-items: center;
-    justify-content: center;
     gap: 0 6px;
-
+    ${flexCenter}
+    ${FontSmallSize}
+    
     &:after {
         content: '';
         display: block;
@@ -69,7 +72,6 @@ export const MainCountTit = styled.span`
         height: 10px;
         background-color: #333;
     }
-    ${FontSmallSize}
 `;
 export const MainCount = styled.span`
     ${FontSmallSize}
