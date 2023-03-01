@@ -1,26 +1,14 @@
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import {
-    BgPink,
-    BgPurple,
-    BgWhite,
-    FontSmallSize,
-    FontMediumSize,
-    FontLargeSize,
-    FontWhite,
-    IconShadow,
-    PhotoCenter,
-} from '@/style/CommonContents.jsx';
+import { BgPink, BgPurple, BgWhite, FontMediumSize, FontWhite, IconShadow, PhotoCenter, flexCenter } from '@/style/CommonContents.jsx';
 
 // ********************* 공유하기 ********************
 export const CommonShare = styled.div``;
 export const CommonShareTit = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
     gap: 0 8px;
     margin-bottom: 15px;
+    ${flexCenter}
 `;
 export const CommonShareIcon = styled.img`
     width: 20px;
@@ -28,10 +16,8 @@ export const CommonShareIcon = styled.img`
 `;
 export const CommonShareTxt = styled.span``;
 export const CommonSns = styled.ul`
-    display: flex;
-    align-items: center;
-    justify-content: center;
     gap: 0 15px;
+    ${flexCenter}
 `;
 export const CommonSnsIcon = styled.li``;
 export const CommonSnsLink = styled(Link)`
@@ -54,11 +40,9 @@ export const CheckQATop = styled.ul`
     height: 40px;
 `;
 export const CheckQATit = styled.li`
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 50%;
     height: inherit;
+    ${flexCenter}
     ${FontMediumSize}
     ${FontWhite}
 `;
@@ -81,10 +65,8 @@ export const CheckQATxt = styled.span`
     ${FontMediumSize}
 `;
 export const CheckQABtns = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
     gap: 0 25px;
+    ${flexCenter}
 `;
 export const CheckQABtn = styled.button``;
 export const CheckFootShape = `

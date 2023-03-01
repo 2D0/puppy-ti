@@ -110,6 +110,14 @@ export const BoxCenter = `
     left: 50%;
     transform: translate(-50%, -50%);
 `;
+export const flexItemCenter = `
+    display: flex;
+    align-items: center;
+`;
+export const flexCenter = `
+    ${flexItemCenter}
+    justify-content: center;
+`;
 
 //가로 중앙 정렬
 export const BoxCenterRow = `
@@ -247,20 +255,20 @@ export const CommonInput = styled.input.attrs({ maxLength: 6 })`
 `;
 //공통 버튼
 export const CommonBtn = styled.button`
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    ${flexCenter}
     ${FontWhite}
     ${CommonBox}
     ${CommonShadow}
-    ${({ startActive }) =>
-        startActive
+    
+    ${({ startActive, percent }) => {
+        return startActive || percent === 100
             ? css`
                   ${BgLightPurple}
               `
             : css`
                   ${BgUnable}
-              `}
+              `;
+    }}
 `;
 
 // ********************* 퍼센트 바 ********************
@@ -296,30 +304,30 @@ export const HeaderCont = styled.header`
     //padding-top: calc(env(safe-area-inset-bottom) + 10px);
 
     ${({ bgColor }) => {
-        return () => {
-            switch (bgColor) {
-                case 'purple':
-                    return BgLightPurple;
-                case 'black':
-                    return BgBlack;
-                case 'noPurple':
-                    return BgCommon;
-            }
-        };
+        switch (bgColor) {
+            case 'purple':
+                return BgLightPurple;
+            case 'black':
+                return BgBlack;
+            case 'noPurple':
+                return BgCommon;
+        }
     }}
-    ${({ scrollHeader }) =>
-        scrollHeader &&
-        css`
-            box-shadow: 0 0 7px #dcd5e8;
-        `};
+    ${({ scrollHeader, pageName }) =>
+        scrollHeader && pageName !== 'checkPage'
+            ? css`
+                  box-shadow: 0 0 7px #dcd5e8;
+              `
+            : css`
+                  box-shadow: none;
+              `};
 `;
 export const HeaderInner = styled.div`
-    display: flex;
-    align-items: center;
     justify-content: flex-end;
     width: calc(100% - 30px);
     height: 100%;
     margin: 0 auto;
+    ${flexItemCenter}
 `;
 export const HeaderLogo = styled.h1`
     width: auto;
@@ -332,10 +340,9 @@ export const HeaderLogoImg = styled.img`
     height: 100%;
 `;
 export const HeaderSwitch = styled.div`
-    display: flex;
-    align-items: center;
     width: fit-content;
     gap: 0 12px;
+    ${flexItemCenter}
 `;
 export const HeaderSwitchIcon = styled.button`
     width: 40px;
@@ -356,22 +363,18 @@ export const FooterTxt = `
     ${FontSmallSize}
 `;
 export const Footer = styled.footer`
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     width: 100%;
     height: 95px;
     position: absolute;
     left: 0;
     bottom: 0;
+    ${flexCenter}
     ${BgDarkPurple}
 `;
 export const FooterInfo = styled.ul`
-    display: flex;
-    align-items: center;
-    justify-content: center;
     gap: 8px;
+    ${flexCenter}
 `;
 export const FooterInfoList = styled.li`
     display: flex;
