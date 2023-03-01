@@ -1,54 +1,104 @@
 {
   "question" : [
     {
+      "id": 0,
+      "mbti": "1",
+      "text": "질문들어갈 부분",
+      "score": {
+        "low": 1,
+        "middle": 2,
+        "high": 3
+      }
+    },
+    {
       "id": 1,
-      "mbti": "i",
-      "text": "질문들어갈 부분1"
+      "mbti": "3",
+      "text": "질문들어갈 부분",
+      "score": {
+        "low": 1,
+        "middle": 2,
+        "high": 3
+      }
     },
     {
       "id": 2,
-      "mbti": "s",
-      "text": "질문들어갈 부분2"
+      "mbti": "2",
+      "text": "질문들어갈 부분",
+      "score": {
+        "low": 1,
+        "middle": 2,
+        "high": 3
+      }
     },
     {
       "id": 3,
-      "mbti": "f",
-      "text": "질문들어갈 부분"
+      "mbti": "1",
+      "text": "질문들어갈 부분",
+      "score": {
+        "low": 1,
+        "middle": 2,
+        "high": 3
+      }
     },
     {
       "id": 4,
-      "mbti": "e",
-      "text": "질문들어갈 부분"
+      "mbti": "4",
+      "text": "질문들어갈 부분",
+      "score": {
+        "low": 1,
+        "middle": 2,
+        "high": 3
+      }
     },
     {
       "id": 5,
-      "mbti": "t",
-      "text": "질문들어갈 부분"
+      "mbti": "3",
+      "text": "질문들어갈 부분",
+      "score": {
+        "low": 1,
+        "middle": 2,
+        "high": 3
+      }
     },
     {
       "id": 6,
-      "mbti": "n",
-      "text": "질문들어갈 부분"
+      "mbti": "2",
+      "text": "질문들어갈 부분",
+      "score": {
+        "low": 1,
+        "middle": 2,
+        "high": 3
+      }
     },
     {
       "id": 7,
-      "mbti": "i",
-      "text": "질문들어갈 부분"
+      "mbti": "3",
+      "text": "질문들어갈 부분",
+      "score": {
+        "low": 1,
+        "middle": 2,
+        "high": 3
+      }
     },
     {
       "id": 8,
-      "mbti": "s",
-      "text": "질문들어갈 부분"
+      "mbti": "1",
+      "text": "질문들어갈 부분",
+      "score": {
+        "low": 1,
+        "middle": 2,
+        "high": 3
+      }
     },
     {
       "id": 9,
-      "mbti": "t",
-      "text": "질문들어갈 부분"
-    },
-    {
-      "id": 10,
-      "mbti": "n",
-      "text": "질문들어갈 부분"
+      "mbti": "4",
+      "text": "질문들어갈 부분",
+      "score": {
+        "low": 1,
+        "middle": 2,
+        "high": 3
+      }
     }
   ]
 }
