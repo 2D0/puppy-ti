@@ -6,7 +6,7 @@
       "text": "질문들어갈 부분",
       "state" : {
         "type" : "",
-        "score" : 0
+        "score" : null
       }
     },
     {
@@ -15,7 +15,7 @@
       "text": "질문들어갈 부분",
       "state" : {
         "type" : "",
-        "score" : 0
+        "score" : null
       }
     },
     {
@@ -24,7 +24,7 @@
       "text": "질문들어갈 부분",
       "state" : {
         "type" : "",
-        "score" : 0
+        "score" : null
       }
     },
     {
@@ -33,7 +33,7 @@
       "text": "질문들어갈 부분",
       "state" : {
         "type" : "",
-        "score" : 0
+        "score" : null
       }
     },
     {
@@ -42,7 +42,7 @@
       "text": "질문들어갈 부분",
       "state" : {
         "type" : "",
-        "score" : 0
+        "score" : null
       }
     },
     {
@@ -51,7 +51,7 @@
       "text": "질문들어갈 부분",
       "state" : {
         "type" : "",
-        "score" : 0
+        "score" : null
       }
     },
     {
@@ -60,7 +60,7 @@
       "text": "질문들어갈 부분",
       "state" : {
         "type" : "",
-        "score" : 0
+        "score" : null
       }
     },
     {
@@ -69,7 +69,7 @@
       "text": "질문들어갈 부분",
       "state" : {
         "type" : "",
-        "score" : 0
+        "score" : null
       }
     },
     {
@@ -78,7 +78,7 @@
       "text": "질문들어갈 부분",
       "state" : {
         "type" : "",
-        "score" : 0
+        "score" : null
       }
     },
     {
@@ -87,8 +87,45 @@
       "text": "질문들어갈 부분",
       "state" : {
         "type" : "",
-        "score" : 0
+        "score" : null
       }
+    }
+  ],
+  "scoreType" : [
+    {
+      "id" : 1,
+      "type": "yes",
+      "score": 1
+    },
+    {
+      "id" : 2,
+      "type": "yes",
+      "score": 2
+    },
+    {
+      "id" : 3,
+      "type": "yes",
+      "score": 3
+    },
+    {
+      "id" : 4,
+      "type": "center",
+      "score": 1
+    },
+    {
+      "id" : 5,
+      "type": "no",
+      "score": 1
+    },
+    {
+      "id" : 6,
+      "type": "no",
+      "score": 2
+    },
+    {
+      "id" : 7,
+      "type": "no",
+      "score": 3
     }
   ]
 }
