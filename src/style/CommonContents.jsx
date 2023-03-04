@@ -202,9 +202,7 @@ export const Wrap = styled.div`
     padding: 85px 0 95px;
     box-shadow: 0 0 15px rgb(0 0 0 / 15%);
     position: relative;
-    ${BgCommon}
-
-    @media ${device.MaxHeightS} {
+    ${BgCommon} @media ${device.MaxHeightS} {
         min-height: 1000px;
     }
 `;
@@ -226,9 +224,7 @@ export const ContentsBack = styled.div`
     height: calc(45vh - 250px);
     position: relative;
     z-index: 2;
-    ${BgLightPurple}
-
-    @media ${device.MaxHeightS} {
+    ${BgLightPurple} @media ${device.MaxHeightS} {
         height: 280px;
     }
 `;
@@ -259,7 +255,7 @@ export const CommonBtn = styled.button`
     ${FontWhite}
     ${CommonBox}
     ${CommonShadow}
-    
+
     ${({ startActive, percent }) => {
         return startActive || percent === 100
             ? css`
@@ -388,6 +384,7 @@ export const FooterInfoList = styled.li`
         height: 14px;
         ${BgWhite}
     }
+
     &:last-child:after {
         display: none;
     }

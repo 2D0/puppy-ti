@@ -88,55 +88,30 @@ export const CheckFootBlank = `
     stroke-width: 4px;
     fill: transparent;
 `;
-export const CheckFootLeft = styled.span`
+export const CheckFoot = styled.span`
     svg {
         ${CheckFootShape}
         > path {
-            stroke: #9e446f;
-            ${({ checkState }) =>
-                checkState
-                    ? css`
-                          fill: #9e446f;
-                      `
-                    : css`
-                          stroke: #9e446f;
-                          ${CheckFootBlank}
-                      `}
-        }
-    }
-`;
-export const CheckFootRight = styled.span`
-    svg {
-        ${CheckFootShape}
-        > path {
-            stroke: #7846d0;
-            ${({ checkState }) =>
-                checkState
-                    ? css`
-                          fill: #7846d0;
-                      `
-                    : css`
-                          stroke: #7846d0;
-                          ${CheckFootBlank}
-                      `}
-        }
-    }
-`;
-export const CheckFootCenter = styled.span`
-    svg {
-        ${CheckFootShape};
-        height: 55px;
-        > path {
-            stroke: #999;
-            ${({ footCenter }) =>
-                footCenter
-                    ? css`
-                          fill: #999;
-                      `
-                    : css`
-                          stroke: #999;
-                          ${CheckFootBlank}
-                      `}
+            ${CheckFootBlank};
+
+            ${({ checkState }) => {
+                if (checkState === 4) {
+                    return css`
+                        stroke: #999;
+                        //fill: #999;
+                    `;
+                } else if (checkState <= 4) {
+                    return css`
+                        stroke: #7846d0;
+                        //fill: #7846d0;
+                    `;
+                } else if (checkState >= 2) {
+                    return css`
+                        stroke: #9e446f;
+                        //fill: #9e446f;
+                    `;
+                }
+            }}
         }
     }
 `;
