@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import questionData from '@/assets/constants/questions.json';
 import { ReactComponent as Foot } from '@/assets/img/icons/ico-foot.svg';
 
@@ -7,11 +7,14 @@ import * as A from '@components/atoms/atoms.style.jsx';
 
 const CheckQuestion = () => {
     const [question, setQuestion] = useState(questionData.question); //질문 index
-    const [typeState, setTypeState] = useState('');
-    const [scoreState, setScoreState] = useState(null);
+    const [btnStateId, setBtnStateId] = useState(null); //선택한 점수의 id
+    const [typeState, setTypeState] = useState(''); //아니다 혹은 그렇다
+    const [scoreState, setScoreState] = useState(null); //점수
+    const [scoreBtnIdx, setScoreBtnIdx] = useState(null);
+    const [questionId, setQuestionId] = useState(null);
 
-    const stateEffect = useCallback(() => {
-        switch (scoreState) {
+    const switchScore = () => {
+        switch (btnStateId) {
             case 1:
                 setTypeState('no');
                 setScoreState(3);
@@ -43,29 +46,35 @@ const CheckQuestion = () => {
             default:
                 return false;
         }
-        setQuestion(
-            question.map(item => {
-                return {
-                    ...item,
-                    state: {
-                        type: typeState,
-                        score: scoreState,
-                    },
-                };
-            }),
-        );
-    }, []);
-    useEffect(() => {
-        stateEffect();
-    }, [scoreState]);
-
-    const checkState = (itemIdx, scoreId) => {
-        setScoreState(scoreId);
-        console.log(scoreState);
-        //console.log('typeState:', typeState, 'scoreState:', scoreState);
     };
+
+    useEffect(() => {
+        switchScore();
+    }, [btnStateId]);
+
+    const checkState = (itemId, btnIdx, btnId) => {
+        setQuestionId(itemId); //문항의 고유 아이디 값
+        setScoreBtnIdx(btnIdx); //점수의 인덱스 값
+        setBtnStateId(btnId); //점수의 고유 id 값
+        switchScore();
+        setQuestion(
+            question.map(item =>
+                item.id === itemId
+                    ? {
+                          ...item,
+                          state: {
+                              type: typeState,
+                              score: scoreState,
+                          },
+                      }
+                    : item,
+            ),
+        );
+    };
+
     return (
         <div>
+            {`type : ${typeState}, scoreState : ${scoreState}`}
             {question.map((item, itemIdx) => (
                 <A.CheckQABox key={item.id}>
                     <A.CheckQATop>
@@ -73,18 +82,20 @@ const CheckQuestion = () => {
                         <A.CheckQATitR>그렇다</A.CheckQATitR>
                     </A.CheckQATop>
                     <A.CheckQACont>
-                        <A.CheckQATxt>질문 들어갈 부분 {item.id}</A.CheckQATxt>
+                        <A.CheckQATxt>
+                            {item.id} = {questionId}번 째 질문 /{typeState} 점수:{scoreState}점
+                        </A.CheckQATxt>
                         <A.CheckQABtns>
-                            {questionData.scoreType.map(score => (
+                            {questionData.scoreType.map((scoreBtn, scoreBtnIdx) => (
                                 <A.CheckQABtn
-                                    key={score.id}
+                                    key={scoreBtn.id}
                                     onClick={() => {
-                                        checkState(itemIdx, score.id);
+                                        checkState(itemIdx, scoreBtnIdx, scoreBtn.id);
                                     }}
                                     type="button"
                                 >
-                                    {score.id}
-                                    <A.CheckFoot checkState={score.id}>
+                                    {scoreBtn.id}
+                                    <A.CheckFoot defaultState={scoreBtn.id} checkState={questionId === item.id}>
                                         <Foot />
                                     </A.CheckFoot>
                                 </A.CheckQABtn>

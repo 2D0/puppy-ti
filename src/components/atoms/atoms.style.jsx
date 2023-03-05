@@ -94,21 +94,34 @@ export const CheckFoot = styled.span`
         > path {
             ${CheckFootBlank};
 
-            ${({ checkState }) => {
-                if (checkState === 4) {
-                    return css`
-                        stroke: #999;
-                        //fill: #999;
+            ${({ defaultState, checkState }) => {
+                if (defaultState === 4) {
+                    return `
+                        ${
+                            checkState
+                                ? css`
+                                      fill: #999;
+                                  `
+                                : `stroke: #999`
+                        }
                     `;
-                } else if (checkState <= 4) {
+                }
+                if (defaultState <= 4) {
                     return css`
-                        stroke: #7846d0;
-                        //fill: #7846d0;
+                        ${checkState
+                            ? css`
+                                  fill: #7846d0;
+                              `
+                            : `stroke: #7846d0`}
                     `;
-                } else if (checkState >= 2) {
+                }
+                if (defaultState >= 2) {
                     return css`
-                        stroke: #9e446f;
-                        //fill: #9e446f;
+                        ${checkState
+                            ? css`
+                                  fill: #9e446f;
+                              `
+                            : `stroke: #9e446f`}
                     `;
                 }
             }}
