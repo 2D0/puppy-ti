@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import questionData from '@/assets/constants/questions.json';
 import { ReactComponent as Foot } from '@/assets/img/icons/ico-foot.svg';
 
@@ -8,76 +8,39 @@ import * as A from '@components/atoms/atoms.style.jsx';
 const CheckQuestion = () => {
     const leftFoot = [1, 2, 3];
     const [question, setQuestion] = useState(questionData.question); //질문 index
-    const [scoreData, setScoreData] = useState(0);
-    const [typeData, setTypeData] = useState('');
-    const [idxData, setIdxData] = useState(null);
+    const [footCenter, setFootCenter] = useState(false); //센터 선택 여부
+    //const [itemType, setItemType ] = useState('center');
 
-    const noIdxToScore = {
-        0: 1,
-        1: 2,
-        2: 3,
-    };
-    const noScoreToIdx = {
-        3: 0,
-        2: 1,
-        1: 2,
-    };
-    const yesIdxToScore = {
+    const idxToScore = {
         0: 3,
         1: 2,
         2: 1,
     };
-    const yesScoreToIdx = {
+
+    const scoreToIdx = {
         3: 0,
         2: 1,
         1: 2,
     };
 
-    useEffect(() => {
-        if (idxData) {
-            switch (typeData) {
-                case 'yes':
-                    setScoreData(yesIdxToScore[idxData]);
-                    break;
-                case 'no':
-                    setScoreData(noIdxToScore[idxData]);
-                    break;
-                case 'center':
-                    setScoreData(0);
-                    break;
-            }
-        }
-    }, [idxData]);
-
-    useEffect(() => {
-        if (typeData) {
-            console.log(typeData);
-        }
-    }, [typeData]);
-
-    useEffect(() => {
-        if (!scoreData) return;
+    const footState = (type, itemIdx, idx) => {
+        //아니다, 그렇다 index 초기화 및 센터 무조건 선택
+        setFootCenter(true);
+        //setItemType(type);
         //아니다, 그렇다 선택할 경우 각 조건에 따라 index 선택한 위치 값으로 변경
         setQuestion(
-            question.map(item => {
-                return {
-                    ...item,
-                    state: {
-                        type: typeData,
-                        score: scoreData,
-                    },
-                };
-            }),
+            question.map(item =>
+                item.id === itemIdx
+                    ? {
+                          ...item,
+                          state: {
+                              type,
+                              score: idxToScore[idx],
+                          },
+                      }
+                    : item,
+            ),
         );
-    }, [scoreData]);
-
-    const footState = (type, itemIdx, idx) => {
-        /*console.log('type', type);
-        console.log('itemIdx', itemIdx);
-        console.log('idx', idx);*/
-
-        setTypeData(type);
-        setIdxData(idx);
     };
     return (
         <div>
@@ -88,7 +51,7 @@ const CheckQuestion = () => {
                         <A.CheckQATitR>그렇다</A.CheckQATitR>
                     </A.CheckQATop>
                     <A.CheckQACont>
-                        <A.CheckQATxt>질문 들어갈 부분 {item.state.score}</A.CheckQATxt>
+                        <A.CheckQATxt>질문 들어갈 부분 {item.id}</A.CheckQATxt>
                         <A.CheckQABtns>
                             {leftFoot.map((footItem, idx) => (
                                 <A.CheckQABtn
@@ -98,7 +61,7 @@ const CheckQuestion = () => {
                                     }}
                                     type="button"
                                 >
-                                    <A.CheckFootLeft checkState={typeData === 'no' && idx >= noScoreToIdx[item.state.score]}>
+                                    <A.CheckFootLeft checkState={idx >= scoreToIdx[item.state.score]}>
                                         <Foot />
                                     </A.CheckFootLeft>
                                 </A.CheckQABtn>
@@ -106,11 +69,11 @@ const CheckQuestion = () => {
 
                             <A.CheckQABtn
                                 onClick={() => {
-                                    footState('center', itemIdx, 0);
+                                    footState('center');
                                 }}
                                 type="button"
                             >
-                                <A.CheckFootCenter checkState={0 === item.state.score}>
+                                <A.CheckFootCenter footCenter={footCenter}>
                                     <Foot />
                                 </A.CheckFootCenter>
                             </A.CheckQABtn>
@@ -123,7 +86,7 @@ const CheckQuestion = () => {
                                     }}
                                     type="button"
                                 >
-                                    <A.CheckFootRight checkState={typeData === 'yes' && idx <= yesScoreToIdx[item.state.score]}>
+                                    <A.CheckFootRight checkState={idx <= scoreToIdx[item.state.score]}>
                                         <Foot />
                                     </A.CheckFootRight>
                                 </A.CheckQABtn>
