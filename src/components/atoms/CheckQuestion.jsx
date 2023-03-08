@@ -10,7 +10,7 @@ const CheckQuestion = () => {
     const [btnStateId, setBtnStateId] = useState(null); //선택한 점수의 id
     const [typeState, setTypeState] = useState(''); //아니다 혹은 그렇다
     const [scoreState, setScoreState] = useState(null); //점수
-    const [scoreBtnIdx, setScoreBtnIdx] = useState(null);
+    const [scoreBtnId, setScoreBtnId] = useState(null);
     const [questionId, setQuestionId] = useState(null);
 
     const switchScore = () => {
@@ -46,20 +46,10 @@ const CheckQuestion = () => {
             default:
                 return false;
         }
-    };
 
-    useEffect(() => {
-        switchScore();
-    }, [btnStateId]);
-
-    const checkState = (itemId, btnIdx, btnId) => {
-        setQuestionId(itemId); //문항의 고유 아이디 값
-        setScoreBtnIdx(btnIdx); //점수의 인덱스 값
-        setBtnStateId(btnId); //점수의 고유 id 값
-        switchScore();
         setQuestion(
-            question.map(item =>
-                item.id === itemId
+            /*question.map(item =>
+                item.id === questionId
                     ? {
                           ...item,
                           state: {
@@ -68,13 +58,33 @@ const CheckQuestion = () => {
                           },
                       }
                     : item,
-            ),
+            ),*/
+            question[questionId]({
+                ...question,
+                state: {
+                    type: typeState,
+                    score: scoreState,
+                },
+            }),
         );
+    };
+
+    useEffect(() => {
+        question.id = questionId && switchScore();
+        console.log(question[questionId]);
+    }, [btnStateId]);
+
+    const checkState = (itemId, btnIdx, btnId) => {
+        setQuestionId(itemId); //문항의 고유 아이디 값
+        setScoreBtnId(btnIdx); //점수의 인덱스 값
+        setBtnStateId(btnId); //점수의 고유 id 값
+
+        questionId === itemId && switchScore();
     };
 
     return (
         <div>
-            {`type : ${typeState}, scoreState : ${scoreState}`}
+            {`btnId : ${question[questionId]}, type : ${typeState}, scoreState : ${scoreState}`}
             {question.map((item, itemIdx) => (
                 <A.CheckQABox key={item.id}>
                     <A.CheckQATop>
@@ -95,7 +105,15 @@ const CheckQuestion = () => {
                                     type="button"
                                 >
                                     {scoreBtn.id}
-                                    <A.CheckFoot defaultState={scoreBtn.id} checkState={questionId === item.id}>
+                                    <A.CheckFoot
+                                        defaultState={scoreBtn.id}
+                                        scoreBtnId={scoreBtnId}
+                                        btnId={scoreBtn.id === btnStateId}
+                                        btnStateId={btnStateId}
+                                        checkState={questionId === item.id}
+                                        scoreState={scoreState}
+                                        typeState={typeState}
+                                    >
                                         <Foot />
                                     </A.CheckFoot>
                                 </A.CheckQABtn>
