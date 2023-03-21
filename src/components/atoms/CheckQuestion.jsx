@@ -47,8 +47,9 @@ const CheckQuestion = () => {
                 return false;
         }
 
+        console.log(typeState, scoreState);
         setQuestion(
-            /*question.map(item =>
+            question.map(item =>
                 item.id === questionId
                     ? {
                           ...item,
@@ -58,20 +59,19 @@ const CheckQuestion = () => {
                           },
                       }
                     : item,
-            ),*/
-            question[questionId]({
+            ),
+            /*question[questionId]({
                 ...question,
                 state: {
                     type: typeState,
                     score: scoreState,
                 },
-            }),
+            }),*/
         );
     };
 
     useEffect(() => {
         question.id = questionId && switchScore();
-        console.log(question[questionId]);
     }, [btnStateId]);
 
     const checkState = (itemId, btnIdx, btnId) => {
@@ -79,12 +79,14 @@ const CheckQuestion = () => {
         setScoreBtnId(btnIdx); //점수의 인덱스 값
         setBtnStateId(btnId); //점수의 고유 id 값
 
-        questionId === itemId && switchScore();
+        //questionId === itemId && switchScore();
+        switchScore();
     };
 
     return (
         <div>
-            {`btnId : ${question[questionId]}, type : ${typeState}, scoreState : ${scoreState}`}
+            {`선택한 점수의 아이디 : ${btnStateId}, 점수 아이디 - 4 : ${btnStateId - 4}, 선택한 점수 : ${scoreState},`}
+            {`문항 : ${console.log(question[questionId])}, 타입 : ${typeState}`}
             {question.map((item, itemIdx) => (
                 <A.CheckQABox key={item.id}>
                     <A.CheckQATop>
@@ -93,7 +95,7 @@ const CheckQuestion = () => {
                     </A.CheckQATop>
                     <A.CheckQACont>
                         <A.CheckQATxt>
-                            {item.id} = {questionId}번 째 질문 /{typeState} 점수:{scoreState}점
+                            {questionId}번 째 /{typeState} {scoreState}점{item.text}
                         </A.CheckQATxt>
                         <A.CheckQABtns>
                             {questionData.scoreType.map((scoreBtn, scoreBtnIdx) => (
@@ -104,7 +106,15 @@ const CheckQuestion = () => {
                                     }}
                                     type="button"
                                 >
-                                    {scoreBtn.id}
+                                    scoreBtnIdx : {scoreBtnIdx}
+                                    <br />
+                                    scoreBtn.id : {scoreBtn.id}
+                                    <br />
+                                    btnStateId : {btnStateId}
+                                    <br />
+                                    scoreBtnId : {scoreBtnId}
+                                    <br />
+                                    scoreState : {scoreState}
                                     <A.CheckFoot
                                         defaultState={scoreBtn.id}
                                         scoreBtnId={scoreBtnId}

@@ -62,6 +62,9 @@ export const CheckQACont = styled.div`
     ${BgWhite}
 `;
 export const CheckQATxt = styled.span`
+    width: 90%;
+    white-space: break-spaces;
+    text-align: center;
     ${FontMediumSize}
 `;
 export const CheckQABtns = styled.div`
@@ -140,13 +143,11 @@ export const CheckFoot = styled.span`
                     default:
                     //console.log('end');
                 }
-                console.log(scoreState, scoreBtnId);
-
                 if (checkState) {
-                    //console.log(scoreBtnId);
                     switch (typeState) {
                         case 'yes':
                             if (scoreState >= scoreBtnId) {
+                                console.log(scoreState, scoreBtnId);
                                 return css`
                                     fill: #999;
                                 `;
