@@ -26,7 +26,7 @@ export const MainCover = styled.div`
     text-align: center;
 `;
 export const MainChar = styled.img`
-    width: 46%;
+    width: 72%;
     height: auto;
     margin-bottom: 20px;
 `;
