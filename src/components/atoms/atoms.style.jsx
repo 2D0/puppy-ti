@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { BgPink, BgPurple, BgWhite, FontMediumSize, FontWhite, IconShadow, PhotoCover, flexCenter } from '@/style/CommonContents.jsx';
+import { BgPink, BgPurple, BgWhite, FontMediumSize, FontWhite, IconShadow, PhotoCenter, flexCenter } from '@/style/CommonContents.jsx';
 
 // ********************* 공유하기 ********************
 export const CommonShare = styled.div``;
@@ -11,12 +11,10 @@ export const CommonShareTit = styled.div`
     ${flexCenter}
 `;
 export const CommonShareIcon = styled.img`
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
 `;
-export const CommonShareTxt = styled.span`
-    ${FontMediumSize}
-`;
+export const CommonShareTxt = styled.span``;
 export const CommonSns = styled.ul`
     gap: 0 15px;
     ${flexCenter}
@@ -32,7 +30,7 @@ export const CommonSnsLink = styled(Link)`
 export const CommonSnsIconImg = styled.img`
     border-radius: 50%;
     overflow: hidden;
-    ${PhotoCover}
+    ${PhotoCenter}
 `;
 
 // ******************** 질문 박스 ********************
@@ -55,10 +53,12 @@ export const CheckQATitR = styled(CheckQATit)`
     ${BgPurple}
 `;
 export const CheckQACont = styled.div`
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 30px 0;
     padding: 30px 0;
-    ${flexCenter}
     ${BgWhite}
 `;
 export const CheckQATxt = styled.span`

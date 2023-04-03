@@ -2,19 +2,17 @@ import styled from 'styled-components';
 import device from '@/style/Device.jsx';
 import {
     flexCenter,
-    FontFamilySub,
     FontPurple,
     FontLightPurple,
     FontDarkPurple,
     ContentsInner,
     CommonInput,
     FontSmallSize,
-    Wrap,
 } from '@/style/CommonContents.jsx';
 
 // ******************** 컨텐츠 ********************
 //공통
-export const MainCont = styled(Wrap)`
+export const MainCont = styled(ContentsInner)`
     flex-direction: column;
     gap: 40px 0;
     height: calc(100vh - 180px);
@@ -33,13 +31,14 @@ export const MainChar = styled.img`
     margin-bottom: 20px;
 `;
 export const MainTxt = styled.p`
+    font-family: 'gugi';
     font-size: 32px;
     ${FontLightPurple};
 `;
 export const MainTit = styled.h2`
     display: inline-block;
+    font-family: 'gugi';
     font-size: 90px;
-    ${FontFamilySub}
     ${FontPurple}
 `;
 export const MainTitPoint = styled(MainTit)`

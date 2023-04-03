@@ -31,9 +31,8 @@ export const CheckTop = styled.article`
             box-shadow: 0 0 7px #dcd5e8;
         `}
 `;
-export const CheckTopInner = styled.div`
+export const CheckTopInner = styled(ContentsInner)`
     padding-top: 185px;
-    ${ContentsInner}
 `;
 
 // ********************** 애니메이션 **********************
