@@ -1,1 +1,16 @@
-export { default as Intj } from './intj.png';
+export { default as istj } from './mbti-istj.png';
+export { default as istp } from './mbti-istp.png';
+export { default as isfj } from './mbti-isfj.png';
+export { default as isfp } from './mbti-isfp.png';
+export { default as intj } from './mbit-intj.png';
+export { default as intp } from './mbti-intp.png';
+export { default as infj } from './mbti-infj.png';
+export { default as infp } from './mbti-infp.png';
+export { default as estj } from './mbti-estj.png';
+export { default as estp } from './mbti-estp.png';
+export { default as esfj } from './mbti-esfj.png';
+export { default as esfp } from './mbti-esfp.png';
+export { default as entj } from './mbti-entj.png';
+export { default as entp } from './mbti-entp.png';
+export { default as enfp } from './mbti-enfp.png';
+export { default as enfj } from './mbti-enfj.png';

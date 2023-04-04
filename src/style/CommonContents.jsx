@@ -15,6 +15,9 @@ export const FontDarkPurple = `
 export const FontWhite = `
     color: #fff;
 `;
+export const FontUnable = `
+    color: #666;
+`;
 export const BgCommon = `
     background-color: #f4eeff;
 `;
@@ -41,6 +44,9 @@ export const BgPink = `
 `;
 
 // ********************* 폰트 ********************
+export const FontFamilySub = `
+    font-family: 'gugi';
+`;
 export const FontSmallSize = `
     font-size: 17px;
 `;
@@ -51,7 +57,13 @@ export const FontLargeSize = `
     font-size: 28px;
 `;
 export const FontBigSize = `
+    font-size: 40px;
+`;
+export const FontExtraSize = `
     font-size: 70px;
+`;
+export const FontExBigSize = `
+    font-size: 90px;
 `;
 //웹 접근성 : 텍스트 숨기기
 export const A11yHidden = styled.span`
@@ -134,10 +146,15 @@ export const BoxCenterCol = `
 `;
 
 //사진 띄우기
-export const PhotoCenter = `
+export const PhotoCover = `
     width: 100%;
     height: 100%;
     object-fit: cover;
+`;
+export const PhotoContain = `
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 `;
 
 //글자 자르기
@@ -202,21 +219,25 @@ export const Wrap = styled.div`
     padding: 85px 0 95px;
     box-shadow: 0 0 15px rgb(0 0 0 / 15%);
     position: relative;
-    ${BgCommon}
-
-    @media ${device.MaxHeightS} {
+    ${BgCommon} @media ${device.MaxHeightS} {
         min-height: 1000px;
     }
 `;
-export const Content = styled.div`
+export const Content = styled(Wrap)`
     height: 100%;
 `;
 //컨텐츠 이너
-export const ContentsInner = styled.div`
-    width: calc(100% - 30px);
+export const ContentsInner = `
+    width: calc(100% - 50px);
     margin: 0 auto;
     z-index: 3;
     position: relative;
+`;
+export const subContMargin = `
+    margin-bottom: 40px;
+`;
+export const defaultContMargin = `
+    margin-bottom: 80px;
 `;
 
 // ********************** 배경 **********************
@@ -226,9 +247,7 @@ export const ContentsBack = styled.div`
     height: calc(45vh - 250px);
     position: relative;
     z-index: 2;
-    ${BgLightPurple}
-
-    @media ${device.MaxHeightS} {
+    ${BgLightPurple} @media ${device.MaxHeightS} {
         height: 280px;
     }
 `;
@@ -259,7 +278,7 @@ export const CommonBtn = styled.button`
     ${FontWhite}
     ${CommonBox}
     ${CommonShadow}
-    
+
     ${({ startActive, percent }) => {
         return startActive || percent === 100
             ? css`
@@ -282,13 +301,25 @@ export const PercentBar = styled.div`
     ${BgWhite}
 `;
 export const PercentBarFill = styled.div`
-    width: ${({ percent }) => percent}%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    transition: all 0.3s ease;
+    transition: all 0.6s ease;
     ${BgLightPurple}
+
+    ${({ typePercent }) =>
+        typePercent >= 100 - typePercent
+            ? css`
+                  left: 0;
+                  right: initial;
+                  width: ${typePercent}%;
+              `
+            : css`
+                  left: initial;
+                  right: 0;
+                  width: ${100 - typePercent}%;
+              `};
 `;
 
 // ********************** 헤더 **********************
@@ -388,6 +419,7 @@ export const FooterInfoList = styled.li`
         height: 14px;
         ${BgWhite}
     }
+
     &:last-child:after {
         display: none;
     }

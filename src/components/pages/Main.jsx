@@ -9,7 +9,7 @@ import * as C from '@/style/CommonContents';
 import * as S from '@components/main/main.style.jsx';
 
 //이미지
-import { Intj } from '@/assets/img/mbti';
+import { mainImg } from '@/assets/img/main';
 
 function Main({ setName }) {
     const [startActive, setStartActive] = useState(false); //버튼 활성화
@@ -33,7 +33,7 @@ function Main({ setName }) {
         <C.Content>
             <S.MainCont>
                 <S.MainCover>
-                    <S.MainChar src={Intj} alt="퍼피티아이 캐릭터" />
+                    <S.MainChar src={mainImg} alt="퍼피티아이" />
                     <S.MainTxt>나의 반려견은 어떤 성향일까?</S.MainTxt>
                     <S.MainTit>
                         <S.MainTitPoint as="span">퍼피</S.MainTitPoint>티아이

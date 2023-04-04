@@ -1,0 +1,202 @@
+{
+  "result" : [
+    {
+      "id" : "1111",
+      "mbti" : "ISTJ",
+      "img": "/assets/img/mbti/mbti-istj.png",
+      "msg" : {
+        "interpretation" : "결과 내용\n결과 내용\n결과 내용\n",
+        "advice" : "독립심이 강한 이 강아지는 어쩌면 자신의 방어에 공격적일 수 있습니다.\nINTJ 성향을 가진 반려 견이라면 보호자가 훈련이나 개인기를 가르칠 때 체계적으로 가르쳐야 합니다.\n자신이 배운 훈련이나 개인기가 여러 개라면 순서를 외워 견주의 다음 행동을 예측하고 있을 가능성이 높아 자신이 생각하는 순서가 아니라면 혼란스러워할 수 있습니다.\n또, 강압적인 훈련은 이 강아지의 공격성을 띄울 수 있습니다.\n자신의 공간이 있어야 하고, 자신의 공간에 혼자 휴식을 취하는 시간도 필요합니다.\n굉장히 예리한 성격을 가지고 있습니다.\n쌀쌀맞고 무뚝뚝해 보이지만 사실 사람을 좋아하고 보호자의 기분을 잘 헤아려주는 배려심 깊은 강아지입니다.\n"
+      }
+    },
+    {
+      "id" : "1112",
+      "mbti" : "ISTP",
+      "img": "/assets/img/mbti/mbti-istp.png",
+      "msg" : {
+        "interpretation" : "결과 내용\n결과 내용\n결과 내용\n",
+        "advice" : "조언 내용\n조언 내용\n조언 내용\n"
+      }
+    },
+    {
+      "id" : "1121",
+      "mbti" : "ISFJ",
+      "img": "/assets/img/mbti/mbti-isfj.png",
+      "msg" : {
+        "interpretation" : "결과 내용\n결과 내용\n결과 내용\n",
+        "advice" : "조언 내용\n조언 내용\n조언 내용\n"
+      }
+    },
+    {
+      "id" : "1122",
+      "mbti" : "ISFP",
+      "img": "/assets/img/mbti/mbti-isfp.png",
+      "msg" : {
+        "interpretation" : "결과 내용\n결과 내용\n결과 내용\n",
+        "advice" : "조언 내용\n조언 내용\n조언 내용\n"
+      }
+    },
+    {
+      "id" : "1211",
+      "mbti" : "INTJ",
+      "img": "/assets/img/mbti/mbti-intj.png",
+      "msg" : {
+        "interpretation" : "결과 내용\n결과 내용\n결과 내용\n",
+        "advice" : "조언 내용\n조언 내용\n조언 내용\n"
+      }
+    },
+    {
+      "id" : "1212",
+      "mbti" : "INTP",
+      "img": "/assets/img/mbti/mbti-intp.png",
+      "msg" : {
+        "interpretation" : "결과 내용\n결과 내용\n결과 내용\n",
+        "advice" : "조언 내용\n조언 내용\n조언 내용\n"
+      }
+    },
+    {
+      "id" : "1221",
+      "mbti" : "INFJ",
+      "img": "/assets/img/mbti/mbti-infj.png",
+      "msg" : {
+        "interpretation" : "결과 내용\n결과 내용\n결과 내용\n",
+        "advice" : "조언 내용\n조언 내용\n조언 내용\n"
+      }
+    },
+    {
+      "id" : "1222",
+      "mbti" : "INFP",
+      "img": "/assets/img/mbti/mbti-infp.png",
+      "msg" : {
+        "interpretation" : "결과 내용\n결과 내용\n결과 내용\n",
+        "advice" : "조언 내용\n조언 내용\n조언 내용\n"
+      }
+    },
+    {
+      "id" : "2111",
+      "mbti" : "ESTJ",
+      "img": "/assets/img/mbti/mbti-estj.png",
+      "msg" : {
+        "interpretation" : "결과 내용\n결과 내용\n결과 내용\n",
+        "advice" : "높은 집중력과 강한 인내심을 가진 반려견입니다.\n개체별로 다르지만 대체로 똑똑한 편이에요. \n책임감이 강한 강아지입니다.\n활력적이고 민첩하며 의욕적이고 친구들에게 다정한 댕댕이!\n혼자서 무언가를 하는 것을 좋아하는 강아지이며 책임감이 강한 강아지예요 .\n"
+      }
+    },
+    {
+      "id" : "2112",
+      "mbti" : "ESTP",
+      "img": "/assets/img/mbti/mbti-estp.png",
+      "msg" : {
+        "interpretation" : "결과 내용\n결과 내용\n결과 내용\n",
+        "advice" : "조언 내용\n조언 내용\n조언 내용\n"
+      }
+    },
+    {
+      "id" : "2121",
+      "mbti" : "ESFJ",
+      "img": "/assets/img/mbti/mbti-esfj.png",
+      "msg" : {
+        "interpretation" : "결과 내용\n결과 내용\n결과 내용\n",
+        "advice" : "조언 내용\n조언 내용\n조언 내용\n"
+      }
+    },
+    {
+      "id" : "2122",
+      "mbti" : "ESFP",
+      "img": "/assets/img/mbti/mbti-esfp.png",
+      "msg" : {
+        "interpretation" : "결과 내용\n결과 내용\n결과 내용\n",
+        "advice" : "뛰어놀기 좋아하는 강아지입니다. \n지칠 때까지 쉬지 않고 친구들과 뛰어놀기를 좋아합니다.\n다른 강아지가 뛰는 걸 보면 자기도 모르게 같이 뛰고 있을지 모릅니다.\n다정한 성격에 자신감이 넘치는 긍정적인 성격의 친절한 강아지 \n남들 앞에 나서는 걸 꺼리지 않는 리더십 스타일이며\n낙천적이고 인싸 기질이 있습니다. \n"
+      }
+    },
+    {
+      "id" : "2211",
+      "mbti" : "ENTJ",
+      "img": "/assets/img/mbti/mbti-entj.png",
+      "msg" : {
+        "interpretation" : "결과 내용\n결과 내용\n결과 내용\n",
+        "advice" : "조언 내용\n조언 내용\n조언 내용\n"
+      }
+    },
+    {
+      "id" : "2212",
+      "mbti" : "ENTP",
+      "img": "/assets/img/mbti/mbti-entp.png",
+      "msg" : {
+        "interpretation" : "결과 내용\n결과 내용\n결과 내용\n",
+        "advice" : "산책할 때는 활발하게 집에서는 혼자서 조용히 휴식을 취하는 늠름한 댕댕이에요.\nENTP 댕댕이는 매우 영리하고, 밖에서도 친구들과 사이좋게 지내는 인싸 댕댕이로 엄청난 매력을 가지고 있어요.\n독립심이 강하고, 자기주장도 강해 낯선 곳에서 적응을 잘하는편입니다.\n자신감에 차있으며, 두려움을 잘 느끼지 않는 늠름하고 멋진 강아지!\n어디서나 당당한 성격이라서 누군가 공격을 해오거나, 위협을 느낀다면 공격형 자기방어를 할 수 있어요.\n그렇기 때문에 강압적인 훈련은 절대 금지이며 동기부여 훈련을 통해 큰 효과를 볼 수 있어요. \n"
+      }
+    },
+    {
+      "id" : "2221",
+      "mbti" : "ENFJ",
+      "img": "/assets/img/mbti/mbti-enfj.png",
+      "msg" : {
+        "interpretation" : "결과 내용\n결과 내용\n결과 내용\n",
+        "advice" : "독립심이 강아며 세심하고 친밀하며 명랑한 성격의 보유자!\n긍정적인 에너지가 넘치며 적응력이 뛰어나고 호기심이 많고 자신감이 넘치는 강아지입니다.\n대신 고집이 센 경우가 있어요. \n사교계의 별이라고 불리는 댕댕이는 어떠한 친구들과 잘 어울려 어딜 가나 인기쟁이입니다.\n하지만 우유부단한 모습 때문에  자기감정에 치우치는 모습을 보여주기도 합니다.\n가끔은 누군가 말려주는 이들이 필요할 수 있습니다.\n애정 표현에 과감한 편이기 때문에 다른 강아지들에게 부담으로 다가갈 수 있으니 매너 있는 강아지가 될 수 있게 훈련을 통해 댕댕이에게 올바른 표현을 알려주세요.\n"
+      }
+    },
+    {
+      "id" : "2222",
+      "mbti" : "ENFP",
+      "img": "/assets/img/mbti/mbti-enfp.png",
+      "msg" : {
+        "interpretation" : "결과 내용\n결과 내용\n결과 내용\n",
+        "advice" : "조언 내용\n조언 내용\n조언 내용\n"
+      }
+    }
+  ],
+  "resultDetail" : [
+    {
+      "id" : 1,
+      "type": {
+        "energy" : "",
+        "information" : "",
+        "decisions" : "",
+        "lifestyle" : ""
+      },
+      "percent" : {
+        "i": "",
+        "e": ""
+      }
+    },
+    {
+      "id" : 2,
+      "type": {
+        "energy" : "",
+        "information" : "",
+        "decisions" : "",
+        "lifestyle" : ""
+      },
+      "percent" : {
+        "s": "",
+        "n": ""
+      }
+    },
+    {
+      "id" : 3,
+      "type": {
+        "energy" : "",
+        "information" : "",
+        "decisions" : "",
+        "lifestyle" : ""
+      },
+      "percent" : {
+        "t": "",
+        "f": ""
+      }
+    },
+    {
+      "id" : 4,
+      "type": {
+        "energy" : "",
+        "information" : "",
+        "decisions" : "",
+        "lifestyle" : ""
+      },
+      "percent" : {
+        "j": "",
+        "p": ""
+      }
+    }
+  ]
+}

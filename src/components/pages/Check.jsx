@@ -10,11 +10,10 @@ import * as S from '@components/check/Check.style.jsx';
 
 //이미지
 import { FireWorkGreen, FireWorkRed, FireWorkStar, PercentChar } from '@/assets/img/icons';
-import { CheckQACont } from '../check/Check.style.jsx';
 
 const Check = ({ setBgColor, setPageName, scrollHeader }) => {
     const navigate = useNavigate(); //react router 페이지 핸들링하는 함수
-    const [percent, setPercent] = useState(100); //문항 체크 퍼센트
+    const [percent, setPercent] = useState(90); //문항 체크 퍼센트
 
     //기본 배경 보라색 없음
     useEffect(() => {

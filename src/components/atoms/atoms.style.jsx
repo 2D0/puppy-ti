@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { BgPink, BgPurple, BgWhite, FontMediumSize, FontWhite, IconShadow, PhotoCenter, flexCenter } from '@/style/CommonContents.jsx';
+import { BgPink, BgPurple, BgWhite, FontMediumSize, FontWhite, IconShadow, PhotoCover, flexCenter } from '@/style/CommonContents.jsx';
 
 // ********************* 공유하기 ********************
 export const CommonShare = styled.div``;
@@ -11,10 +11,12 @@ export const CommonShareTit = styled.div`
     ${flexCenter}
 `;
 export const CommonShareIcon = styled.img`
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
 `;
-export const CommonShareTxt = styled.span``;
+export const CommonShareTxt = styled.span`
+    ${FontMediumSize}
+`;
 export const CommonSns = styled.ul`
     gap: 0 15px;
     ${flexCenter}
@@ -30,7 +32,7 @@ export const CommonSnsLink = styled(Link)`
 export const CommonSnsIconImg = styled.img`
     border-radius: 50%;
     overflow: hidden;
-    ${PhotoCenter}
+    ${PhotoCover}
 `;
 
 // ******************** 질문 박스 ********************
@@ -53,15 +55,16 @@ export const CheckQATitR = styled(CheckQATit)`
     ${BgPurple}
 `;
 export const CheckQACont = styled.div`
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     gap: 30px 0;
     padding: 30px 0;
+    ${flexCenter}
     ${BgWhite}
 `;
 export const CheckQATxt = styled.span`
+    width: 90%;
+    white-space: break-spaces;
+    text-align: center;
     ${FontMediumSize}
 `;
 export const CheckQABtns = styled.div`
@@ -88,55 +91,87 @@ export const CheckFootBlank = `
     stroke-width: 4px;
     fill: transparent;
 `;
-export const CheckFootLeft = styled.span`
+export const CheckFoot = styled.span`
     svg {
         ${CheckFootShape}
         > path {
-            stroke: #9e446f;
-            ${({ checkState }) =>
-                checkState
-                    ? css`
-                          fill: #9e446f;
-                      `
-                    : css`
-                          stroke: #9e446f;
-                          ${CheckFootBlank}
-                      `}
-        }
-    }
-`;
-export const CheckFootRight = styled.span`
-    svg {
-        ${CheckFootShape}
-        > path {
-            stroke: #7846d0;
-            ${({ checkState }) =>
-                checkState
-                    ? css`
-                          fill: #7846d0;
-                      `
-                    : css`
-                          stroke: #7846d0;
-                          ${CheckFootBlank}
-                      `}
-        }
-    }
-`;
-export const CheckFootCenter = styled.span`
-    svg {
-        ${CheckFootShape};
-        height: 55px;
-        > path {
-            stroke: #999;
-            ${({ footCenter }) =>
-                footCenter
-                    ? css`
-                          fill: #999;
-                      `
-                    : css`
-                          stroke: #999;
-                          ${CheckFootBlank}
-                      `}
+            ${CheckFootBlank};
+
+            //버튼 기본 디자인
+            ${({ defaultState }) => {
+                if (defaultState === 4) {
+                    return css`
+                        stroke: #999;
+                    `;
+                }
+                if (defaultState <= 4) {
+                    return css`
+                        stroke: #7846d0;
+                    `;
+                }
+                if (defaultState >= 2) {
+                    return css`
+                        stroke: #9e446f;
+                    `;
+                }
+            }}
+
+            ${({ scoreState, scoreBtnId, typeState, checkState, btnStateId, defaultState }) => {
+                //console.log(scoreBtnId);
+                switch (btnStateId) {
+                    case 1:
+                        scoreBtnId = 3;
+                        break;
+                    case 2:
+                        scoreBtnId = 2;
+                        break;
+                    case 3:
+                        scoreBtnId = 1;
+                        break;
+                    case 4:
+                        scoreBtnId = 0;
+                        break;
+                    case 5:
+                        scoreBtnId = 1;
+                        break;
+                    case 6:
+                        scoreBtnId = 2;
+                        break;
+                    case 7:
+                        scoreBtnId = 3;
+                        break;
+                    default:
+                    //console.log('end');
+                }
+                if (checkState) {
+                    switch (typeState) {
+                        case 'yes':
+                            if (scoreState >= scoreBtnId) {
+                                console.log(scoreState, scoreBtnId);
+                                return css`
+                                    fill: #999;
+                                `;
+                            }
+                            break;
+                        case 'center':
+                            if (scoreState === 0) {
+                                return css`
+                                    fill: #7846d0;
+                                `;
+                            }
+                            break;
+                        case 'no':
+                            if (scoreState >= scoreBtnId) {
+                                return css`
+                                    fill: #9e446f;
+                                `;
+                            }
+                            break;
+                        default:
+                            return false;
+                    }
+                }
+            }}
         }
     }
 `;
