@@ -137,7 +137,7 @@ const Result = ({ setBgColor, name }) => {
                         <S.ResultCont key={item.id}>
                             <S.ResultPuppyName>
                                 <S.ResultPuppyNamePoint>
-                                    &quot;<span>{name}라나</span>&quot;
+                                    &quot;<span>{name}</span>&quot;
                                 </S.ResultPuppyNamePoint>
                                 는(은)
                             </S.ResultPuppyName>
