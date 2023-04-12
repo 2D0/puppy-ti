@@ -132,7 +132,6 @@ const Result = ({ setBgColor, name }) => {
         <C.Content>
             {resultData.result.map(item => {
                 if (item.mbti === mbtiName) {
-                    console.log(mbtiName);
                     return (
                         <S.ResultCont key={item.id}>
                             <S.ResultPuppyName>
