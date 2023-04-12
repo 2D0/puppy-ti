@@ -7,6 +7,8 @@ import * as C from '@/style/CommonContents.jsx';
 //컴포넌트
 import { Header, Footer, Background } from '@/components/common';
 import { Main, Check, Result, TeamMember, Inquiry, SourceLicense } from '@/components/pages';
+import * as S from '@/style/CommonContents.jsx';
+import { Lines } from '@/assets/img/background/index.js';
 
 function App() {
     const [bgColor, setBgColor] = useState('purple'); //전제 배경 색상
@@ -22,7 +24,6 @@ function App() {
     //스크롤 이벤트 감지
     useEffect(() => {
         handleScroll();
-
         window.addEventListener('scroll', handleScroll);
         return () => {
             window.removeEventListener('scroll', handleScroll);
@@ -46,6 +47,8 @@ function App() {
                 <Route path="/source_license" element={<SourceLicense />}></Route>
             </Routes>
 
+            <S.BackImgLinesTop src={Lines} />
+            <S.BackImgLinesBottom src={Lines} />
             <Footer />
         </C.Wrap>
     );
