@@ -1,3 +1,4 @@
+export { default as Back } from './ico-back.svg';
 export { default as FireWorkGreen } from './ico-firework_green.png';
 export { default as FireWorkRed } from './ico-firework_red.png';
 export { default as FireWorkStar } from './ico-firework_star.png';
