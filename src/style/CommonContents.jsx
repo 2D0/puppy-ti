@@ -16,7 +16,10 @@ export const FontWhite = `
     color: #fff;
 `;
 export const FontUnable = `
-    color: #666;
+    color: #ccc;
+`;
+export const FontGray = `
+    color: #888;
 `;
 export const BgCommon = `
     background-color: #f4eeff;
@@ -54,13 +57,13 @@ export const FontMediumSize = `
     font-size: 20px;
 `;
 export const FontLargeSize = `
-    font-size: 28px;
+    font-size: 25px;
 `;
 export const FontBigSize = `
     font-size: 40px;
 `;
 export const FontExtraSize = `
-    font-size: 70px;
+    font-size: 60px;
 `;
 export const FontExBigSize = `
     font-size: 90px;
@@ -160,21 +163,21 @@ export const PhotoContain = `
 //글자 자르기
 export const Split = `
     display: block;
-    height:fit-content;
+    height: fit-content;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     word-break: break-all;
-    overflow:hidden;
-    text-overflow:ellipsis;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `;
 export const SplitLine = `
     display: -webkit-box;
-    height:fit-content;
+    height: fit-content;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     word-break: break-all;
-    overflow:hidden;
-    text-overflow:ellipsis;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `;
 
 //기본 버튼
@@ -196,6 +199,11 @@ export const IconShadow = `
         -2px -2px 9px #FFFFFF, 
         8px 6px 15px rgba(0, 0, 0, 0.11);
 `;
+export const ContShadow = `
+        box-shadow: 10px 2px 36px 0px rgba(219, 206, 242, 0.3),
+        10px 2px 36px 0px rgba(219, 206, 242, 0.3),
+        4px 4px 11px 0px rgba(39, 0, 121, 0.07);
+`;
 export const SmallIconShadow = `
     filter: 
         drop-shadow(2px 2px 7px rgba(39, 0, 121, 0.07))
@@ -214,17 +222,17 @@ export const BackGroundShadow = `
 export const Wrap = styled.div`
     width: 100%;
     max-width: 750px;
-    min-height: 100vh;
     margin: 0 auto;
-    padding: 85px 0 95px;
+    padding-top: 85px;
     box-shadow: 0 0 15px rgb(0 0 0 / 15%);
     position: relative;
-    ${BgCommon} @media ${device.MaxHeightS} {
-        min-height: 1000px;
-    }
+    overflow: hidden;
 `;
-export const Content = styled(Wrap)`
-    height: 100%;
+export const Content = styled.div`
+    height: calc(100vh - 85px);
+    overflow: overlay;
+    padding: 85px 0 95px;
+    ${BgCommon}
 `;
 //컨텐츠 이너
 export const ContentsInner = `
@@ -252,7 +260,22 @@ export const ContentsBack = styled.div`
     }
 `;
 //배경 박스 이미지
-export const BackImg = styled.img`
+export const BackImgLines = `
+    width: 83%;
+    position: absolute;
+    z-index: 2;
+`;
+export const BackImgLinesTop = styled.img`
+    top: -10%;
+    right: -20%;
+    ${BackImgLines}
+`;
+export const BackImgLinesBottom = styled.img`
+    bottom: -10%;
+    left: -20%;
+    ${BackImgLines}
+`;
+export const BackImgWave = styled.img`
     width: 100%;
     margin-top: -1px;
     z-index: 1;
@@ -305,7 +328,7 @@ export const PercentBarFill = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    transition: all 0.6s ease;
+    transition: all 1s ease;
     ${BgLightPurple}
 
     ${({ typePercent }) =>
@@ -397,9 +420,8 @@ export const Footer = styled.footer`
     flex-direction: column;
     width: 100%;
     height: 95px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
+    position: relative;
+    z-index: 3;
     ${flexCenter}
     ${BgDarkPurple}
 `;

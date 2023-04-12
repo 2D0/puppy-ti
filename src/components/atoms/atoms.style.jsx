@@ -1,7 +1,26 @@
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { BgPink, BgPurple, BgWhite, FontMediumSize, FontWhite, IconShadow, PhotoCover, flexCenter } from '@/style/CommonContents.jsx';
+import {
+    BgPink,
+    BgPurple,
+    BgWhite,
+    FontMediumSize,
+    FontWhite,
+    IconShadow,
+    PhotoCover,
+    flexCenter,
+    FontSmallSize,
+    FontLargeSize,
+    flexItemCenter,
+    subContMargin,
+    FontExtraSize,
+    FontFamilySub,
+    FontDarkPurple,
+    ContShadow,
+    BgUnable,
+    FontUnable,
+} from '@/style/CommonContents.jsx';
 
 // ********************* 공유하기 ********************
 export const CommonShare = styled.div``;
@@ -33,6 +52,77 @@ export const CommonSnsIconImg = styled.img`
     border-radius: 50%;
     overflow: hidden;
     ${PhotoCover}
+`;
+
+// ******************* 이름 커버 *******************
+export const CoverName = styled.h2`
+    ${subContMargin}
+`;
+export const CoverNameChar = styled.img`
+    display: block;
+    width: 125px;
+    margin-left: auto;
+`;
+export const CoverNameTit = styled.span`
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    text-align: center;
+    ${FontExtraSize}
+    ${FontFamilySub}
+    ${FontWhite}
+`;
+export const CoverNameTitPoint = styled.span`
+    ${FontFamilySub}
+    ${FontDarkPurple}
+`;
+
+// ******************* 텍스트 박스 ******************
+export const TextBox = styled.ul`
+    width: 100%;
+    height: 400px;
+    flex-direction: column;
+    ${flexCenter}
+    ${ContShadow}
+    ${BgWhite}
+`;
+export const TextBoxList = styled.li`
+    width: 100%;
+    height: fit-content;
+    line-height: 2em;
+    text-align: center;
+    ${FontLargeSize}
+`;
+export const TextBoxWrite = styled.li`
+    display: block;
+    width: 100%;
+    height: 100%;
+`;
+export const TextBoxinput = styled.textarea`
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 30px 20px;
+    text-align: center;
+    border: none;
+    ${FontLargeSize}
+
+    &::placeholder {
+        ${FontUnable}
+    }
+`;
+export const TextBoxTit = styled.span``;
+export const TextBoxName = styled(TextBoxTit)``;
+
+// ******************* 뒤로가기 버튼 ******************
+export const CommonBackBtn = styled(Link)`
+    padding: 10px;
+    gap: 0 10px;
+    ${flexItemCenter}
+    ${FontLargeSize}
+`;
+export const CommonBackImg = styled.img`
+    width: 25px;
 `;
 
 // ******************** 질문 박스 ********************

@@ -6,7 +6,8 @@ import { BgCommon } from '../../style/CommonContents.jsx';
 // ******************** 컨텐츠 ********************
 //컨텐츠
 export const CheckCont = styled(Wrap)`
-    padding: 0 0 95px;
+    padding-bottom: 95px;
+    padding-top: 0;
     box-shadow: none;
     transition: all 0.3s ease;
 
@@ -32,7 +33,7 @@ export const CheckTop = styled.article`
         `}
 `;
 export const CheckTopInner = styled.div`
-    padding-top: 185px;
+    padding-top: 130px;
     ${ContentsInner}
 `;
 

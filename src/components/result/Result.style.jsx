@@ -17,6 +17,7 @@ import {
     FontUnable,
     FontDarkPurple,
     flexItemCenter,
+    FontGray,
 } from '@/style/CommonContents.jsx';
 import device from '@/style/Device.jsx';
 
@@ -32,7 +33,7 @@ export const ResultPuppyName = styled.h2`
     ${FontBigSize}
     ${FontFamilySub}
 `;
-export const ResultPuppyNamePoint = styled.p`
+export const ResultPuppyNamePoint = styled.span`
     display: inline-block;
     ${FontExtraSize}
 
@@ -96,11 +97,11 @@ export const ResultPercentInfo = styled.div`
     z-index: 2;
 `;
 export const ResultPercentNames = styled.div`
-    ${flexItemCenter}
     gap: 0 10px;
+    ${flexItemCenter}
 
     > span {
-        ${FontUnable}
+        ${FontGray}
         
         ${({ resultType }) =>
             resultType &&

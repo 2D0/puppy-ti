@@ -4,20 +4,20 @@ import {
     flexCenter,
     FontFamilySub,
     FontPurple,
-    FontLightPurple,
     FontDarkPurple,
+    FontLightPurple,
     ContentsInner,
     CommonInput,
     FontSmallSize,
-    Wrap,
 } from '@/style/CommonContents.jsx';
 
 // ******************** 컨텐츠 ********************
 //공통
-export const MainCont = styled(Wrap)`
+export const MainCont = styled.div`
+    height: 100%;
     flex-direction: column;
     gap: 40px 0;
-    height: calc(100vh - 180px);
+    ${ContentsInner}
     ${flexCenter}
 
     @media ${device.MaxHeightS} {
@@ -34,7 +34,8 @@ export const MainChar = styled.img`
 `;
 export const MainTxt = styled.p`
     font-size: 32px;
-    ${FontLightPurple};
+    text-shadow: 0 0 4px #f4edff;
+    ${FontLightPurple}
 `;
 export const MainTit = styled.h2`
     display: inline-block;
@@ -42,7 +43,8 @@ export const MainTit = styled.h2`
     ${FontFamilySub}
     ${FontPurple}
 `;
-export const MainTitPoint = styled(MainTit)`
+export const MainTitPoint = styled.span`
+    ${FontFamilySub}
     ${FontDarkPurple}
 `;
 export const MainStart = styled.div`

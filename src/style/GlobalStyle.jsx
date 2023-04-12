@@ -43,7 +43,6 @@ const GlobalStyle = createGlobalStyle`
         font-weight: 400;
     }
     body{
-        min-height: 1000px;
         overflow-y: auto;
         background-color: #f4f2fa;
     }
