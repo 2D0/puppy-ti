@@ -1,0 +1,46 @@
+{
+  "teamMember" : [
+    {
+      "id": "1",
+      "tit" : "프로젝트 기획",
+      "name" : "이다영"
+    },
+    {
+      "id" : "2",
+      "tit" : "질문·결과 기획",
+      "name" : "윤희"
+    },
+    {
+      "id" : "3",
+      "tit" : "UI·UX 디자인",
+      "name" : "이다영"
+    },
+    {
+      "id" : "4",
+      "tit" : "일러스트 디자인",
+      "name" : "후련"
+    },
+    {
+      "id" : "5",
+      "tit" : "영어 번역",
+      "name" : "Eric"
+    },
+    {
+      "id" : "6",
+      "tit" : "프로젝트 개발",
+      "name" : "이다영"
+    }
+  ],
+  "sourceLicense" : [
+    {
+      "id": "1",
+      "tit" : "폭죽 아이콘",
+      "name" : "Freepik - Flaticon"
+    },
+    {
+      "id" : "2",
+      "tit" : "개 산책 아이콘",
+      "name" : "photo3idea_studio - Flaticon"
+    }
+  ]
+}
