@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 //컴포넌트
 import NameCover from '@components/atoms/NameCover.jsx';
 import TextBox from '@components/atoms/TextBox.jsx';
-import BackBtn from '@/components/atoms/BackBtn.jsx';
+import BackButton from '@components/atoms/BackButton.jsx';
 
 //스타일
 import * as C from '@/style/CommonContents';
@@ -19,7 +19,7 @@ const Inquiry = () => {
                 <NameCover pageName={pageName} />
                 <TextBox inquiryData={inquiryData} />
                 <C.CommonBtn type="submit">전송하기</C.CommonBtn>
-                <BackBtn />
+                <BackButton />
             </S.InquiryCont>
         </C.Content>
     );

@@ -6,7 +6,7 @@ import * as A from '@/components/atoms/atoms.style.jsx';
 //이미지
 import { Back } from '@/assets/img/icons/index.js';
 
-const BackBtn = () => {
+const BackButton = () => {
     return (
         <A.CommonBackBtn to="/">
             <A.CommonBackImg src={Back} alt="메인으로 가기" />
@@ -14,4 +14,4 @@ const BackBtn = () => {
         </A.CommonBackBtn>
     );
 };
-export default BackBtn;
+export default BackButton;
