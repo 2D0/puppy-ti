@@ -227,6 +227,7 @@ export const Wrap = styled.div`
     box-shadow: 0 0 15px rgb(0 0 0 / 15%);
     position: relative;
     overflow: hidden;
+    ${BgCommon}
 `;
 export const Content = styled.div`
     height: calc(100vh - 85px);
