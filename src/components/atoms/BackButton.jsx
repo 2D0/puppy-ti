@@ -1,7 +1,17 @@
 import React from 'react';
 
-const BackButton = () => {
-    return <div>test</div>;
-};
+//스타일
+import * as A from '@/components/atoms/atoms.style.jsx';
 
-export default BackButton;
+//이미지
+import { Back } from '@/assets/img/icons/index.js';
+
+const BackBtn = () => {
+    return (
+        <A.CommonBackBtn to="/">
+            <A.CommonBackImg src={Back} alt="메인으로 가기" />
+            메인으로 가기
+        </A.CommonBackBtn>
+    );
+};
+export default BackBtn;
