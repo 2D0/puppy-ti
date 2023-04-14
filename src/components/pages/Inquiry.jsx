@@ -10,13 +10,13 @@ import * as C from '@/style/CommonContents';
 import * as S from '@components/inquiry/Inquiry.style.jsx';
 
 const Inquiry = () => {
-    const [pageName, setPageName] = useState('광고 및 후원 문의');
+    const [coverName, setCoverName] = useState('광고 및 후원 문의');
     const [inquiryData, setInquiryData] = useState(null);
 
     return (
         <C.Content>
             <S.InquiryCont>
-                <NameCover pageName={pageName} />
+                <NameCover coverName={coverName} />
                 <TextBox inquiryData={inquiryData} />
                 <C.CommonBtn type="submit">전송하기</C.CommonBtn>
                 <BackButton />

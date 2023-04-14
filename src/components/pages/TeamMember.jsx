@@ -11,12 +11,13 @@ import * as C from '@/style/CommonContents';
 import * as S from '@components/inquiry/Inquiry.style.jsx';
 
 const TeamMember = () => {
-    const [pageName, setPageName] = useState('팀원 소개');
+    const [coverName, setCoverName] = useState('팀원 소개');
     const [inquiryData, setInquiryData] = useState(inquiry.teamMember);
+
     return (
         <C.Content>
             <S.InquiryCont>
-                <NameCover pageName={pageName} />
+                <NameCover coverName={coverName} />
                 <TextBox inquiryData={inquiryData} />
                 <BackButton />
             </S.InquiryCont>

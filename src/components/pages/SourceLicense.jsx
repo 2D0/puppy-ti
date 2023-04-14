@@ -11,12 +11,13 @@ import * as C from '@/style/CommonContents';
 import * as S from '@components/inquiry/Inquiry.style.jsx';
 
 const SourceLicense = () => {
-    const [pageName, setPageName] = useState('오픈 소스 라이센스');
+    const [coverName, setCoverName] = useState('오픈 소스 라이센스');
     const [inquiryData, setInquiryData] = useState(inquiry.sourceLicense);
+
     return (
         <C.Content>
             <S.InquiryCont>
-                <NameCover pageName={pageName} />
+                <NameCover coverName={coverName} />
                 <TextBox inquiryData={inquiryData} />
                 <BackButton />
             </S.InquiryCont>
