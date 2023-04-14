@@ -13,7 +13,7 @@ import * as S from '@components/result/Result.style.jsx';
 //이미지
 import { istj, istp, isfj, isfp, intj, intp, infj, infp, estj, estp, esfj, esfp, entj, entp, enfp, enfj } from '@/assets/img/mbti';
 
-const Result = ({ setBgColor, name }) => {
+const Result = ({ name }) => {
     //mbti 이름
     const [mbtiName, setMbtiName] = useState(null);
     const [mbtiImg, setMbtiImg] = useState(null);
@@ -25,48 +25,39 @@ const Result = ({ setBgColor, name }) => {
     const [lifestyle, setLifestyle] = useState(null);
 
     //mbti 왼쪽(내향형, 직관형, 사고형, 계획형) 퍼센트
-    const [energyPercent, setEnergyPercent] = useState(80);
-    const [informationPercent, setInformationPercent] = useState(33);
-    const [decisionsPercent, setDecisionsPercent] = useState(45);
-    const [lifestylePercent, setLifestylePercent] = useState(73);
-
-    //기본 배경 보라색 없음
-    useEffect(() => {
-        setBgColor('noPurple'); //페이지 마운트시 배경 off
-
-        return () => {
-            setBgColor('purple'); //페이지 언마운트시 배경 on
-        };
-    }, []);
+    const [percentEnergy, setPercentEnergy] = useState(80);
+    const [percentInformation, setPercentInformation] = useState(33);
+    const [percentIDecisions, setPercentIDecisions] = useState(45);
+    const [percentLifestyle, setPercentLifestyle] = useState(73);
 
     useEffect(() => {
-        mbtiNameHandler(); //mbti 결과 내용 핸들러
+        handlerMbtiName(); //mbti 결과 내용 핸들러
     }, [mbtiName]);
 
-    const mbtiNameHandler = () => {
+    const handlerMbtiName = () => {
         //내향형 or 외향형
-        if (energyPercent >= 100 - energyPercent) {
+        if (percentEnergy >= 100 - percentEnergy) {
             setEnergy('I');
         } else {
             setEnergy('E');
         }
 
         //직관형 or 감각형
-        if (informationPercent >= 100 - informationPercent) {
+        if (percentInformation >= 100 - percentInformation) {
             setInformation('S');
         } else {
             setInformation('N');
         }
 
         //사고형 & 감정형
-        if (decisionsPercent >= 100 - decisionsPercent) {
+        if (percentIDecisions >= 100 - percentIDecisions) {
             setDecisions('T');
         } else {
             setDecisions('F');
         }
 
         //계획형 & 탐색형
-        if (lifestylePercent >= 100 - lifestylePercent) {
+        if (percentLifestyle >= 100 - percentLifestyle) {
             setLifestyle('J');
         } else {
             setLifestyle('P');
@@ -157,10 +148,10 @@ const Result = ({ setBgColor, name }) => {
                                         <ResultDetail
                                             key={detailItem.id}
                                             detailItem={detailItem}
-                                            energyPercent={energyPercent}
-                                            informationPercent={informationPercent}
-                                            decisionsPercent={decisionsPercent}
-                                            lifestylePercent={lifestylePercent}
+                                            percentEnergy={percentEnergy}
+                                            percentInformation={percentInformation}
+                                            percentIDecisions={percentIDecisions}
+                                            percentLifestyle={percentLifestyle}
                                         />
                                     ))}
                                 </S.ResultPercentBox>
