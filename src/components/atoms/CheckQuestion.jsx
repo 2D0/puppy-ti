@@ -5,14 +5,19 @@ import { ReactComponent as Foot } from '@/assets/img/icons/ico-foot.svg';
 //스타일
 import * as A from '@components/atoms/atoms.style.jsx';
 
-const CheckQuestion = () => {
+const CheckQuestion = ({ setPercent }) => {
     const [question, setQuestion] = useState(questionData.question); //질문 index
     const [btnStateId, setBtnStateId] = useState(null); //선택한 점수의 id
     const [typeState, setTypeState] = useState(''); //아니다 혹은 그렇다
     const [scoreState, setScoreState] = useState(null); //점수
     const [scoreBtnId, setScoreBtnId] = useState(null);
     const [questionId, setQuestionId] = useState(null);
+    const [checkPercent, setCheckPercent] = useState(90);
 
+    //배경 색상 변경 감지
+    useEffect(() => {
+        setPercent(checkPercent);
+    }, [checkPercent]);
     const switchScore = () => {
         switch (btnStateId) {
             case 1:
@@ -47,7 +52,6 @@ const CheckQuestion = () => {
                 return false;
         }
 
-        console.log(typeState, scoreState);
         setQuestion(
             question.map(item =>
                 item.id === questionId
@@ -86,7 +90,7 @@ const CheckQuestion = () => {
     return (
         <div>
             {`선택한 점수의 아이디 : ${btnStateId}, 점수 아이디 - 4 : ${btnStateId - 4}, 선택한 점수 : ${scoreState},`}
-            {`문항 : ${console.log(question[questionId])}, 타입 : ${typeState}`}
+            {`문항 : ${question[questionId]}, 타입 : ${typeState}`}
             {question.map((item, itemIdx) => (
                 <A.CheckQABox key={item.id}>
                     <A.CheckQATop>
