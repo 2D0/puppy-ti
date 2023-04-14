@@ -228,6 +228,7 @@ export const Wrap = styled.div`
     position: relative;
     overflow: hidden;
     ${BgCommon}
+    ${({ percent }) => percent === 100 && BgBlack}
 `;
 export const Content = styled.div`
     height: calc(100vh - 85px);
@@ -332,17 +333,17 @@ export const PercentBarFill = styled.div`
     transition: all 1s ease;
     ${BgLightPurple}
 
-    ${({ typePercent }) =>
-        typePercent >= 100 - typePercent
+    ${({ percent }) =>
+        percent >= 100 - percent
             ? css`
                   left: 0;
                   right: initial;
-                  width: ${typePercent}%;
+                  width: ${percent}%;
               `
             : css`
                   left: initial;
                   right: 0;
-                  width: ${100 - typePercent}%;
+                  width: ${100 - percent}%;
               `};
 `;
 
@@ -350,7 +351,6 @@ export const PercentBarFill = styled.div`
 export const HeaderCont = styled.header`
     width: 100%;
     max-width: 750px;
-    height: 85px;
     position: fixed;
     top: 0;
     left: 50%;
@@ -358,30 +358,27 @@ export const HeaderCont = styled.header`
     z-index: 998;
     //padding-top: calc(env(safe-area-inset-bottom) + 10px);
 
-    ${({ bgColor }) => {
-        switch (bgColor) {
-            case 'purple':
+    ${({ scrollHeader }) =>
+        scrollHeader &&
+        css`
+            box-shadow: 0 0 7px #dcd5e8;
+        `};
+    ${({ location, percent }) => {
+        switch (location) {
+            case '/check':
+            case '/result':
+                return percent === 100 ? BgBlack : BgCommon;
+            default:
                 return BgLightPurple;
-            case 'black':
-                return BgBlack;
-            case 'noPurple':
-                return BgCommon;
         }
-    }}
-    ${({ scrollHeader, pageName }) =>
-        scrollHeader && pageName !== 'checkPage'
-            ? css`
-                  box-shadow: 0 0 7px #dcd5e8;
-              `
-            : css`
-                  box-shadow: none;
-              `};
+    }};
 `;
 export const HeaderInner = styled.div`
     justify-content: flex-end;
     width: calc(100% - 30px);
-    height: 100%;
+    height: 85px;
     margin: 0 auto;
+    position: relative;
     ${flexItemCenter}
 `;
 export const HeaderLogo = styled.h1`

@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import { gugiRegular } from '@/assets/fonts/gugi';
 import { spoqaRegularTtf, spoqaRegularOtf, spoqaMediumTtf, spoqaMediumOtf, spoqaBoldOtf, spoqaBoldTtf } from '@/assets/fonts/spoqa';
-
+import { BgCommon } from '@/style/CommonContents.jsx';
 const GlobalStyle = createGlobalStyle`
     // **************** 폰트 ****************
     //구기 (Gugi)
@@ -32,7 +32,6 @@ const GlobalStyle = createGlobalStyle`
     }
 
     
-    
     // **************** reset ****************
     * {
         box-sizing: border-box;
@@ -45,6 +44,11 @@ const GlobalStyle = createGlobalStyle`
     body{
         overflow-y: auto;
         background-color: #f4f2fa;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    ::-webkit-scrollbar {
+        display: none;
     }
     input:focus, select:focus, textarea:focus {
         outline: none;
