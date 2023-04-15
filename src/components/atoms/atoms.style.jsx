@@ -345,77 +345,41 @@ export const CheckFoot = styled.span`
             ${CheckFootBlank};
 
             //버튼 기본 디자인
-            ${({ defaultState }) => {
-                if (defaultState === 4) {
+            ${({ scoreIdx }) => {
+                if (scoreIdx === 3) {
                     return css`
                         stroke: #999;
                     `;
                 }
-                if (defaultState <= 4) {
+                if (scoreIdx <= 3) {
                     return css`
                         stroke: #7846d0;
                     `;
                 }
-                if (defaultState >= 2) {
+                if (scoreIdx >= 3) {
                     return css`
                         stroke: #9e446f;
                     `;
                 }
             }}
 
-            ${({ scoreState, scoreBtnId, typeState, checkState, btnStateId, defaultState }) => {
-                //console.log(scoreBtnId);
-                switch (btnStateId) {
-                    case 1:
-                        scoreBtnId = 3;
-                        break;
-                    case 2:
-                        scoreBtnId = 2;
-                        break;
-                    case 3:
-                        scoreBtnId = 1;
-                        break;
-                    case 4:
-                        scoreBtnId = 0;
-                        break;
-                    case 5:
-                        scoreBtnId = 1;
-                        break;
-                    case 6:
-                        scoreBtnId = 2;
-                        break;
-                    case 7:
-                        scoreBtnId = 3;
-                        break;
-                    default:
-                    //console.log('end');
-                }
-                if (checkState) {
-                    switch (typeState) {
-                        case 'yes':
-                            if (scoreState >= scoreBtnId) {
-                                console.log(scoreState, scoreBtnId);
-                                return css`
-                                    fill: #999;
-                                `;
-                            }
-                            break;
-                        case 'center':
-                            if (scoreState === 0) {
-                                return css`
-                                    fill: #7846d0;
-                                `;
-                            }
-                            break;
-                        case 'no':
-                            if (scoreState >= scoreBtnId) {
-                                return css`
-                                    fill: #9e446f;
-                                `;
-                            }
-                            break;
-                        default:
-                            return false;
+            ${({ itemCount, scoreCount, score, scoreType }) => {
+                if (itemCount) {
+                    if (scoreType === 'center' && scoreCount === 0) {
+                        console.log(scoreType === 'center');
+                        return css`
+                            fill: #999;
+                        `;
+                    } else if (scoreType === 'no' && scoreCount <= score) {
+                        // console.log(scoreIdx);
+                        return css`
+                            fill: #7846d0;
+                        `;
+                    } else if (scoreType === 'yes' && score <= 3) {
+                        // console.log(scoreIdx);
+                        return css`
+                            fill: #9e446f;
+                        `;
                     }
                 }
             }}
