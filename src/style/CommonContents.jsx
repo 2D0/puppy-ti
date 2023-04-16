@@ -327,24 +327,12 @@ export const PercentBar = styled.div`
 `;
 export const PercentBarFill = styled.div`
     height: 100%;
+    width: ${({ percent }) => percent}%;
     position: absolute;
     top: 0;
     left: 0;
     transition: all 1s ease;
     ${BgLightPurple}
-
-    ${({ percent }) =>
-        percent >= 100 - percent
-            ? css`
-                  left: 0;
-                  right: initial;
-                  width: ${percent}%;
-              `
-            : css`
-                  left: initial;
-                  right: 0;
-                  width: ${100 - percent}%;
-              `};
 `;
 
 // ********************** 헤더 **********************

@@ -363,19 +363,19 @@ export const CheckFoot = styled.span`
                 }
             }}
 
-            ${({ itemCount, scoreCount, score, scoreType }) => {
-                if (itemCount) {
-                    if (scoreType === 'center' && scoreCount === 0) {
-                        console.log(scoreType === 'center');
+            ${({ item, itemIdx, scoreCount, score, scoreIdx }) => {
+                if (item.id === itemIdx) {
+                    if (item.state.type === 'center' && scoreCount === 0) {
+                        // console.log(item.state.type === 'center');
                         return css`
                             fill: #999;
                         `;
-                    } else if (scoreType === 'no' && scoreCount <= score) {
+                    } else if (item.state.type === 'no' && scoreCount <= score[scoreIdx].score) {
                         // console.log(scoreIdx);
                         return css`
                             fill: #7846d0;
                         `;
-                    } else if (scoreType === 'yes' && score <= 3) {
+                    } else if (item.state.type === 'yes' && score[scoreIdx].score <= 3) {
                         // console.log(scoreIdx);
                         return css`
                             fill: #9e446f;
