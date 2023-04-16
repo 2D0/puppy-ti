@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useMemo, useEffect, useState } from 'react';
 import questionData from '@/assets/constants/questions.json';
 import { ReactComponent as Foot } from '@/assets/img/icons/ico-foot.svg';
 
@@ -23,7 +23,6 @@ const CheckQuestion = ({ setPercent }) => {
                 if (itemIdx === itemId) {
                     return {
                         ...item,
-
                         state: {
                             type: questionData.scoreType[scoreId].type,
                             score: questionData.scoreType[scoreId].score,
@@ -41,8 +40,143 @@ const CheckQuestion = ({ setPercent }) => {
         );
     };
 
+    const [mbtiEnergy, setMbtiEnergy] = useState(null);
+    const [mbtiInformation, setMbtiInformation] = useState(null);
+    const [mbtiDecisions, setMbtiDecisions] = useState(null);
+    const [mbtiLifestyle, setMbtiLifestyle] = useState(null);
+
+    let checkCount = 0; //선택한 문항 개수
+    let mbtiEnergyCount = 0; //I & E 개수
+    let mbtiInformationCount = 0; //S & N 개수
+    let mbtiDecisionsCount = 0; //T & F 개수
+    let mbtiLifestyleCount = 0; //J & P 개수
+
+    //선택한 문항의 점수가 null이 아닐 경우 checkCount 체크한 개수만큼 증가
+    const questionFilterScore = item => {
+        if (item.state.score !== null) {
+            switch (item.mbti) {
+                case 1:
+                    switch (item.state.type) {
+                        case 'yes':
+                            mbtiEnergyCount++;
+                            console.log(item);
+                            console.log(item.state.score * mbtiEnergyCount);
+                            checkCount++;
+                            break;
+                        case 'no':
+                            mbtiEnergyCount++;
+                            console.log(item);
+                            console.log(item.state.score * mbtiEnergyCount);
+                            checkCount++;
+                            break;
+                        case 'center':
+                            mbtiEnergyCount++;
+                            console.log(item);
+                            console.log(item.state.score * mbtiEnergyCount);
+                            checkCount++;
+                            break;
+                        default:
+                            mbtiEnergyCount++;
+                            console.log(item.state.score * mbtiEnergyCount);
+                            checkCount++;
+                            break;
+                    }
+                    break;
+                case 2:
+                    mbtiInformationCount++;
+                    checkCount++;
+                    switch (item.state.type) {
+                        case 'yes':
+                            console.log(item);
+                            console.log(item.state.score * mbtiInformationCount);
+                            break;
+                        case 'no':
+                            console.log(item);
+                            console.log(item.state.score * mbtiInformationCount);
+                            break;
+                        case 'center':
+                            console.log(item);
+                            console.log(item.state.score * mbtiInformationCount);
+                            break;
+                        default:
+                            console.log(item.state.score * mbtiInformationCount);
+                            break;
+                    }
+                    break;
+                case 3:
+                    mbtiDecisionsCount++;
+                    checkCount++;
+                    switch (item.state.type) {
+                        case 'yes':
+                            console.log(item);
+                            console.log(item.state.score * mbtiDecisionsCount);
+                            break;
+                        case 'no':
+                            console.log(item);
+                            console.log(item.state.score * mbtiDecisionsCount);
+                            break;
+                        case 'center':
+                            console.log(item);
+                            console.log(item.state.score * mbtiDecisionsCount);
+                            break;
+                        default:
+                            console.log(item.state.score * mbtiDecisionsCount);
+                            break;
+                    }
+                    break;
+                case 4:
+                    mbtiLifestyleCount++;
+                    checkCount++;
+                    switch (item.state.type) {
+                        case 'yes':
+                            console.log(item);
+                            console.log(item.state.score * mbtiLifestyleCount);
+                            break;
+                        case 'no':
+                            console.log(item);
+                            console.log(item.state.score * mbtiLifestyleCount);
+                            break;
+                        case 'center':
+                            console.log(item);
+                            console.log(item.state.score * mbtiLifestyleCount);
+                            break;
+                        default:
+                            console.log(item.state.score * mbtiLifestyleCount);
+                            break;
+                    }
+                    break;
+                default:
+                    return false;
+            }
+            /*if (item.state.type === 'yes') {
+                console.log(item.state.type);
+                mbtiEnergyCount++;
+                return checkCount++;
+            } else {
+                console.log(item.state.type);
+                mbtiEnergyCount++;
+                return checkCount++;
+            }*/
+        }
+    };
+
+    const questionOnePoint = 100 / question.length; //문항 1개의 점수
+    const filterScore = question.filter(questionFilterScore); //선택한 문항만 추출
+
+    useEffect(() => {
+        //체크 퍼센트 구하기 (문항 1개 점수 × 선택한 개수)
+        setCheckPercent(questionOnePoint * checkCount);
+
+        //체크 퍼센트 구하기 (문항 1개 점수 × 선택한 개수)
+        setMbtiEnergy(mbtiEnergyCount);
+        setMbtiInformation(mbtiInformationCount);
+        setMbtiDecisions(mbtiDecisionsCount);
+        setMbtiLifestyle(mbtiLifestyleCount);
+    }, [checkCount]);
+
     return (
         <div>
+            i,e:{mbtiEnergy}, s,n:{mbtiInformation}, t,f:{mbtiDecisions}, j,p:{mbtiLifestyle}
             {question.map((item, itemIdx) => (
                 <A.CheckQABox key={item.id}>
                     <A.CheckQATop>
@@ -60,18 +194,16 @@ const CheckQuestion = ({ setPercent }) => {
                                     key={scoreItem.id}
                                     onClick={() => {
                                         checkState(item.id, scoreItem.id);
-                                        console.log(score);
-                                        console.log(score.length, score[scoreIdx]);
+                                        // console.log(score.length, score[scoreIdx]);
                                     }}
                                     type="button"
                                 >
                                     <A.CheckFoot
-                                        itemCount={item.id === itemIdx}
+                                        item={item}
                                         itemIdx={itemIdx}
-                                        score={score[scoreIdx].score}
+                                        score={score}
                                         scoreIdx={scoreIdx}
                                         scoreCount={scoreItem.score}
-                                        scoreType={item.state.type}
                                     >
                                         <Foot />
                                     </A.CheckFoot>

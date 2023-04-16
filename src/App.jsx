@@ -17,6 +17,12 @@ function App() {
     const [name, setName] = useState(''); //강아지 이름
     const [bgSwitch, setBgSwitch] = useState(false); //배경 on off
 
+    //mbti 왼쪽(내향형, 직관형, 사고형, 계획형) 퍼센트
+    const [percentEnergy, setPercentEnergy] = useState(null);
+    const [percentInformation, setPercentInformation] = useState(null);
+    const [percentIDecisions, setPercentIDecisions] = useState(null);
+    const [percentLifestyle, setPercentLifestyle] = useState(null);
+
     //스크롤시 배경 on
     const handleScroll = () => {
         const scrollPosition = window.scrollY; //스크롤 위치
@@ -48,14 +54,39 @@ function App() {
 
     return (
         <C.Wrap>
-            <Header location={location.pathname} percent={percent} handleScroll={handleScroll} scrollHeader={scrollHeader} />
+            <Header location={location.pathname} percent={percent} scrollHeader={scrollHeader} />
 
             {bgSwitch === true && <Background />}
 
             <Routes>
                 <Route path="/" element={<Main setName={setName} />}></Route>
-                <Route path="/check" element={<Check percent={percent} setPercent={setPercent} scrollHeader={scrollHeader} />}></Route>
-                <Route path="/result" element={<Result name={name} />}></Route>
+                <Route
+                    path="/check"
+                    element={
+                        <Check
+                            percent={percent}
+                            setPercent={setPercent}
+                            scrollHeader={scrollHeader}
+                            setPercentEnergy={setPercentEnergy}
+                            setPercentInformation={setPercentInformation}
+                            setPercentIDecisions={setPercentIDecisions}
+                            setPercentLifestyle={setPercentLifestyle}
+                        />
+                    }
+                ></Route>
+                <Route
+                    path="/result"
+                    element={
+                        <Result
+                            name={name}
+                            location={location}
+                            percentEnergy={percentEnergy}
+                            percentInformation={percentInformation}
+                            percentIDecisions={percentIDecisions}
+                            percentLifestyle={percentLifestyle}
+                        />
+                    }
+                ></Route>
                 <Route path="/team_member" element={<TeamMember />}></Route>
                 <Route path="/inquiry" element={<Inquiry />}></Route>
                 <Route path="/source_license" element={<SourceLicense />}></Route>

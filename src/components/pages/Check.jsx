@@ -8,12 +8,12 @@ import CheckQuestion from '@/components/atoms/CheckQuestion.jsx';
 import * as C from '@/style/CommonContents';
 import * as S from '@components/check/Check.style.jsx';
 
-const Check = ({ percent, setPercent, scrollHeader }) => {
+const Check = ({ percent, setPercent }) => {
     const navigate = useNavigate(); //react router 페이지 핸들링하는 함수
 
     return (
         <S.CheckCont percent={percent}>
-            <S.CheckQACont scrollHeader={scrollHeader}>
+            <S.CheckQACont>
                 <CheckQuestion setPercent={setPercent} />
             </S.CheckQACont>
             <S.CheckBtn>
