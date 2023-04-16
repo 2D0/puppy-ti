@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 //스타일
 import * as C from '@/style/CommonContents.jsx';
 import * as S from '@components/result/Result.style.jsx';
-const ResultDetail = ({ detailItem, percentEnergy, percentInformation, percentIDecisions, percentLifestyle }) => {
+const ResultDetail = ({ detailItem, percentEnergy, percentInformation, percentIDecisions, percentLifestyle, location }) => {
     const [percent, setPercent] = useState(null); //문항 체크 퍼센트
     const [typeLeft, setTypeLeft] = useState(null); //왼쪽 타입
     const [typeRight, setTypeRight] = useState(null); //오른쪽 타입
@@ -38,7 +38,7 @@ const ResultDetail = ({ detailItem, percentEnergy, percentInformation, percentID
     }, []);
 
     return (
-        <S.ResultPercentList>
+        <S.ResultPercentList percent={percent}>
             <S.ResultPercentInfo>
                 <S.ResultPercentNames resultType={percent >= 100 - percent}>
                     <S.ResultPercentName>{typeLeft}</S.ResultPercentName>
@@ -50,7 +50,7 @@ const ResultDetail = ({ detailItem, percentEnergy, percentInformation, percentID
                 </S.ResultPercentNames>
             </S.ResultPercentInfo>
             <C.PercentBar>
-                <C.PercentBarFill percent={percent}>
+                <C.PercentBarFill>
                     <C.A11yHidden>{percent}%</C.A11yHidden>
                 </C.PercentBarFill>
             </C.PercentBar>

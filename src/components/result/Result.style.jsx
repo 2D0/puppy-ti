@@ -14,10 +14,10 @@ import {
     FontBigSize,
     defaultContMargin,
     subContMargin,
-    FontUnable,
     FontDarkPurple,
     flexItemCenter,
     FontGray,
+    PercentBarFill,
 } from '@/style/CommonContents.jsx';
 import device from '@/style/Device.jsx';
 
@@ -88,7 +88,22 @@ export const ResultPercentBox = styled.ul`
     gap: 40px;
     ${defaultContMargin}
 `;
-export const ResultPercentList = styled.li``;
+export const ResultPercentList = styled.li`
+    ${PercentBarFill} {
+        ${({ percent }) =>
+            percent >= 100 - percent
+                ? css`
+                      left: 0;
+                      right: initial;
+                      width: ${percent}%;
+                  `
+                : css`
+                      left: initial;
+                      right: 0;
+                      width: ${100 - percent}%;
+                  `};
+    }
+`;
 export const ResultPercentInfo = styled.div`
     display: flex;
     justify-content: space-between;

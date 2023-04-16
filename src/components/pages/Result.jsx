@@ -13,7 +13,7 @@ import * as S from '@components/result/Result.style.jsx';
 //이미지
 import { istj, istp, isfj, isfp, intj, intp, infj, infp, estj, estp, esfj, esfp, entj, entp, enfp, enfj } from '@/assets/img/mbti';
 
-const Result = ({ name }) => {
+const Result = ({ name, location, percentEnergy, percentInformation, percentIDecisions, percentLifestyle }) => {
     //mbti 이름
     const [mbtiName, setMbtiName] = useState(null);
     const [mbtiImg, setMbtiImg] = useState(null);
@@ -23,12 +23,6 @@ const Result = ({ name }) => {
     const [information, setInformation] = useState(null);
     const [decisions, setDecisions] = useState(null);
     const [lifestyle, setLifestyle] = useState(null);
-
-    //mbti 왼쪽(내향형, 직관형, 사고형, 계획형) 퍼센트
-    const [percentEnergy, setPercentEnergy] = useState(80);
-    const [percentInformation, setPercentInformation] = useState(33);
-    const [percentIDecisions, setPercentIDecisions] = useState(45);
-    const [percentLifestyle, setPercentLifestyle] = useState(73);
 
     useEffect(() => {
         handlerMbtiName(); //mbti 결과 내용 핸들러
@@ -152,6 +146,7 @@ const Result = ({ name }) => {
                                             percentInformation={percentInformation}
                                             percentIDecisions={percentIDecisions}
                                             percentLifestyle={percentLifestyle}
+                                            location={location}
                                         />
                                     ))}
                                 </S.ResultPercentBox>
