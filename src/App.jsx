@@ -23,6 +23,16 @@ function App() {
     const [percentIDecisions, setPercentIDecisions] = useState(null);
     const [percentLifestyle, setPercentLifestyle] = useState(null);
 
+    //mbti 점수
+    const [scoreI, setScoreI] = useState(null); //I
+    const [scoreE, setScoreE] = useState(null); //E
+    const [scoreS, setScoreS] = useState(null); //S
+    const [scoreN, setScoreN] = useState(null); //N
+    const [scoreT, setScoreT] = useState(null); //T
+    const [scoreF, setScoreF] = useState(null); //F
+    const [scoreJ, setScoreJ] = useState(null); //J
+    const [scoreP, setScoreP] = useState(null); //P
+
     //스크롤시 배경 on
     const handleScroll = () => {
         const scrollPosition = window.scrollY; //스크롤 위치
@@ -55,9 +65,7 @@ function App() {
     return (
         <C.Wrap>
             <Header location={location.pathname} percent={percent} scrollHeader={scrollHeader} />
-
             {bgSwitch === true && <Background />}
-
             <Routes>
                 <Route path="/" element={<Main setName={setName} />}></Route>
                 <Route
@@ -71,6 +79,22 @@ function App() {
                             setPercentInformation={setPercentInformation}
                             setPercentIDecisions={setPercentIDecisions}
                             setPercentLifestyle={setPercentLifestyle}
+                            setScoreI={setScoreI}
+                            setScoreE={setScoreE}
+                            setScoreS={setScoreS}
+                            setScoreN={setScoreN}
+                            setScoreT={setScoreT}
+                            setScoreF={setScoreF}
+                            setScoreJ={setScoreJ}
+                            setScoreP={setScoreP}
+                            scoreI={scoreI}
+                            scoreE={scoreE}
+                            scoreS={scoreS}
+                            scoreN={scoreN}
+                            scoreT={scoreT}
+                            scoreF={scoreF}
+                            scoreJ={scoreJ}
+                            scoreP={scoreP}
                         />
                     }
                 ></Route>
@@ -91,7 +115,6 @@ function App() {
                 <Route path="/inquiry" element={<Inquiry />}></Route>
                 <Route path="/source_license" element={<SourceLicense />}></Route>
             </Routes>
-
             <S.BackImgLinesTop src={Lines} />
             <S.BackImgLinesBottom src={Lines} />
             <Footer />

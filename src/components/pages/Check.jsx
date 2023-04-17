@@ -8,17 +8,61 @@ import CheckQuestion from '@/components/atoms/CheckQuestion.jsx';
 import * as C from '@/style/CommonContents';
 import * as S from '@components/check/Check.style.jsx';
 
-const Check = ({ percent, setPercent }) => {
+const Check = ({
+    percent,
+    setPercent,
+    setPercentEnergy,
+    setPercentInformation,
+    setPercentIDecisions,
+    setPercentLifestyle,
+    setScoreI,
+    setScoreE,
+    setScoreS,
+    setScoreN,
+    setScoreT,
+    setScoreF,
+    setScoreJ,
+    setScoreP,
+    scoreI,
+    scoreE,
+    scoreS,
+    scoreN,
+    scoreT,
+    scoreF,
+    scoreJ,
+    scoreP,
+}) => {
     const navigate = useNavigate(); //react router 페이지 핸들링하는 함수
 
     return (
         <S.CheckCont percent={percent}>
             <S.CheckQACont>
-                <CheckQuestion setPercent={setPercent} />
+                <CheckQuestion
+                    setPercent={setPercent}
+                    setPercentEnergy={setPercentEnergy}
+                    setPercentInformation={setPercentInformation}
+                    setPercentIDecisions={setPercentIDecisions}
+                    setPercentLifestyle={setPercentLifestyle}
+                    setScoreI={setScoreI}
+                    setScoreE={setScoreE}
+                    setScoreS={setScoreS}
+                    setScoreN={setScoreN}
+                    setScoreT={setScoreT}
+                    setScoreF={setScoreF}
+                    setScoreJ={setScoreJ}
+                    setScoreP={setScoreP}
+                    scoreI={scoreI}
+                    scoreE={scoreE}
+                    scoreS={scoreS}
+                    scoreN={scoreN}
+                    scoreT={scoreT}
+                    scoreF={scoreF}
+                    scoreJ={scoreJ}
+                    scoreP={scoreP}
+                />
             </S.CheckQACont>
             <S.CheckBtn>
                 <C.CommonBtn
-                    percent={percent}
                     onClick={() => {
                         navigate('/result');
                     }}
