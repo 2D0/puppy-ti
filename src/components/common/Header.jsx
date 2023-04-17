@@ -18,8 +18,10 @@ const Header = ({ location, percent, scrollHeader }) => {
     const switchColor = () => {
         switch (location) {
             case '/check':
-            case '/result':
                 percent === 100 ? setLogoColor(LogoWhite) : setLogoColor(LogoBlack);
+                break;
+            case '/result':
+                setLogoColor(LogoBlack);
                 break;
             default:
                 setLogoColor(LogoWhite);
