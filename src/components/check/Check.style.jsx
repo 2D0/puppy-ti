@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { Wrap } from '@/style/CommonContents.jsx';
+import { Wrap, CommonBtn, BgLightPurple, BgUnable } from '@/style/CommonContents.jsx';
 
 // ******************** 컨텐츠 ********************
 //컨텐츠
@@ -14,6 +14,18 @@ export const CheckCont = styled(Wrap)`
         css`
             background-color: #333;
         `}
+
+    ${CommonBtn} {
+        ${({ percent }) =>
+            percent === 100
+                ? css`
+                      box-shadow: none;
+                      ${BgLightPurple}
+                  `
+                : css`
+                      ${BgUnable}
+                  `}
+    }
 `;
 
 // ******************** 질문 박스 ********************

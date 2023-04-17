@@ -11,25 +11,25 @@ const CheckHead = ({ percent }) => {
     return (
         <A.CheckTop percent={percent}>
             <A.CheckTopInner>
-                <A.CheckTopChar percent={percent}>
+                <A.CheckTopChar>
                     <A.CheckTopRight>
-                        <A.CheckTopFireGreen src={FireWorkGreen} percent={percent} />
-                        <A.CheckTopFireRed src={FireWorkRed} percent={percent} />
-                        <A.CheckTopStarR1 src={FireWorkStar} percent={percent} />
-                        <A.CheckTopStarR2 src={FireWorkStar} percent={percent} />
-                        <A.CheckTopStarR3 src={FireWorkStar} percent={percent} />
-                        <A.CheckTopStarR4 src={FireWorkStar} percent={percent} />
+                        <A.CheckTopFireGreen src={FireWorkGreen} />
+                        <A.CheckTopFireRed src={FireWorkRed} />
+                        <A.CheckTopStarR1 src={FireWorkStar} />
+                        <A.CheckTopStarR2 src={FireWorkStar} />
+                        <A.CheckTopStarR3 src={FireWorkStar} />
+                        <A.CheckTopStarR4 src={FireWorkStar} />
                     </A.CheckTopRight>
                     <A.CheckTopLeft>
-                        <A.CheckTopStarL1 src={FireWorkStar} percent={percent} />
-                        <A.CheckTopStarL2 src={FireWorkStar} percent={percent} />
-                        <A.CheckTopStarL3 src={FireWorkStar} percent={percent} />
+                        <A.CheckTopStarL1 src={FireWorkStar} />
+                        <A.CheckTopStarL2 src={FireWorkStar} />
+                        <A.CheckTopStarL3 src={FireWorkStar} />
                     </A.CheckTopLeft>
                     <A.CheckTopCharImg src={PercentChar} />
                 </A.CheckTopChar>
                 <A.CheckTopBar>
-                    <C.PercentBar>
-                        <C.PercentBarFill percent={percent}>
+                    <C.PercentBar percent={percent}>
+                        <C.PercentBarFill>
                             <C.A11yHidden>{percent}%</C.A11yHidden>
                         </C.PercentBarFill>
                     </C.PercentBar>

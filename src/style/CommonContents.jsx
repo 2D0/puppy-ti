@@ -216,6 +216,12 @@ export const BackGroundShadow = `
         drop-shadow(-4px -4px 20px rgba(79, 0, 216, 0.3))
         drop-shadow(10px 2px 36px rgba(219, 206, 242, 0.3));
 `;
+export const BlackShadow = `
+    box-shadow: 
+    5px 5px 10px #666, 
+    4px 4px 30px #666, 
+    4px 4px 30px #444;
+`;
 
 // ******************** 컨텐츠 ********************
 //컨텐츠
@@ -304,63 +310,42 @@ export const CommonBtn = styled.button`
     ${CommonBox}
     ${CommonShadow}
 
-    ${({ startActive, percent }) => {
-        return startActive || percent === 100
+    ${({ startActive }) =>
+        startActive
             ? css`
                   ${BgLightPurple}
               `
             : css`
                   ${BgUnable}
-              `;
-    }}
+              `}
 `;
 
 // ********************* 퍼센트 바 ********************
-export const PercentBar = styled.div`
-    width: 100%;
-    height: 50px;
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    ${CommonShadow}
-    ${BgWhite}
-`;
 export const PercentBarFill = styled.div`
     height: 100%;
-    width: ${({ percent }) => percent}%;
     position: absolute;
     top: 0;
     left: 0;
     transition: all 1s ease;
     ${BgLightPurple}
 `;
+export const PercentBar = styled.div`
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    ${BgWhite}
+
+    ${({ percent }) => percent !== 100 && CommonShadow}
+    
+    ${PercentBarFill} {
+        width: ${({ percent }) => percent}%;
+    }
+`;
 
 // ********************** 헤더 **********************
-export const HeaderCont = styled.header`
-    width: 100%;
-    max-width: 750px;
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%);
-    z-index: 998;
-    //padding-top: calc(env(safe-area-inset-bottom) + 10px);
 
-    ${({ scrollHeader }) =>
-        scrollHeader &&
-        css`
-            box-shadow: 0 0 7px #dcd5e8;
-        `};
-    ${({ location, percent }) => {
-        switch (location) {
-            case '/check':
-            case '/result':
-                return percent === 100 ? BgBlack : BgCommon;
-            default:
-                return BgLightPurple;
-        }
-    }};
-`;
 export const HeaderInner = styled.div`
     justify-content: flex-end;
     width: calc(100% - 30px);
@@ -394,9 +379,38 @@ export const HeaderSwitchImg = styled.img`
     width: 35px;
     height: 35px;
     ${BoxCenter}
-    ${SmallIconShadow}
 `;
+export const HeaderCont = styled.header`
+    width: 100%;
+    max-width: 750px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 998;
+    //padding-top: calc(env(safe-area-inset-bottom) + 10px);
 
+    ${({ scrollHeader }) =>
+        scrollHeader &&
+        css`
+            box-shadow: 0 0 7px #dcd5e8;
+        `};
+
+    ${({ location, percent }) => {
+        switch (location) {
+            case '/check':
+                return percent === 100 ? BgBlack : BgCommon;
+            case '/result':
+                return BgCommon;
+            default:
+                return BgLightPurple;
+        }
+    }};
+
+    ${HeaderSwitchImg} {
+        ${({ percent }) => percent !== 100 && SmallIconShadow}
+    }
+`;
 // ********************** 푸터 **********************
 export const FooterTxt = `
     ${FontWhite}

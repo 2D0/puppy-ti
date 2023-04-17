@@ -42,10 +42,10 @@ const ResultDetail = ({ detailItem, percentEnergy, percentInformation, percentID
             <S.ResultPercentInfo>
                 <S.ResultPercentNames resultType={percent >= 100 - percent}>
                     <S.ResultPercentName>{typeLeft}</S.ResultPercentName>
-                    <S.ResultPercentNum>{percent}%</S.ResultPercentNum>
+                    <S.ResultPercentNum>{!percent ? 0 : percent}%</S.ResultPercentNum>
                 </S.ResultPercentNames>
                 <S.ResultPercentNames resultType={percent < 100 - percent}>
-                    <S.ResultPercentNum>{100 - percent}%</S.ResultPercentNum>
+                    <S.ResultPercentNum>{!percent ? 100 - percent : 0}%</S.ResultPercentNum>
                     <S.ResultPercentName>{typeRight}</S.ResultPercentName>
                 </S.ResultPercentNames>
             </S.ResultPercentInfo>
