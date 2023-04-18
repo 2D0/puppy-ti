@@ -31,12 +31,16 @@ const CheckQuestion = ({
     const [checkPercent, setCheckPercent] = useState(null); //문항 체크 진도율
     const [question, setQuestion] = useState(questionData.question); //질문 데이터
     const [score, setScore] = useState(questionData.scoreType);
-    const [scoreCount, setScoreCount] = useState(questionData.scoreCount);
 
-    //배경 색상 변경 감지
-    useEffect(() => {
-        setPercent(checkPercent);
-    }, [checkPercent]);
+    let checkCount = 0; //선택한 문항 개수
+    let mbtiCountI = 0; //I & E 개수
+    let mbtiCountE = 0; //I & E 개수
+    let mbtiCountS = 0; //S & N 개수
+    let mbtiCountN = 0; //S & N 개수
+    let mbtiCountT = 0; //T & F 개수
+    let mbtiCountF = 0; //T & F 개수
+    let mbtiCountJ = 0; //J & P 개수
+    let mbtiCountP = 0; //J & P 개수
 
     //현재 선택한 문항의 state 값 변경
     const checkState = (itemIdx, scoreId) => {
@@ -63,76 +67,23 @@ const CheckQuestion = ({
         );
     };
 
-    const [mbtiEnergy, setMbtiEnergy] = useState(null);
-    const [mbtiInformation, setMbtiInformation] = useState(null);
-    const [mbtiDecisions, setMbtiDecisions] = useState(null);
-    const [mbtiLifestyle, setMbtiLifestyle] = useState(null);
-
-    let checkCount = 0; //선택한 문항 개수
-    let mbtiCountI = 1; //I & E 개수
-    let mbtiCountS = 0; //S & N 개수
-    let mbtiCountT = 0; //T & F 개수
-    let mbtiCountJ = 0; //J & P 개수
-    let mbtiCountE = 0; //I & E 개수
-    let mbtiCountN = 0; //S & N 개수
-    let mbtiCountF = 0; //T & F 개수
-    let mbtiCountP = 0; //J & P 개수
-
     //선택한 문항의 점수가 null이 아닐 경우 checkCount 체크한 개수만큼 증가
     const questionFilterScore = item => {
         if (item.state.score !== null) {
             checkCount++;
         }
     };
-    const questionFilterScoreCount = item => {
-        switch (item.name) {
-            case 'energy':
-                switch (item.mbti.name) {
-                    case 'i':
-                        switch (item.mbti.type.name) {
-                            case 'no':
-                                item.mbti.score.score0 = mbtiCountI++;
-                        }
-                }
-        }
-    };
 
-    const questionAllScore = allScore => {
-        if (Array.isArray(allScore)) {
-            let sumI = 0;
-            let sumE = 0;
-            let sumS = 0;
-            let sumN = 0;
-            let sumT = 0;
-            let sumF = 0;
-            let sumJ = 0;
-            let sumP = 0;
-            // let score0 = 0;
-            // let score1 = 0;
-            // let score2 = 0;
-            // let score3 = 0;
-
-            allScore.map(item => {
-                // let item.state.score = item.state.score;
+    //MBTI 종류당 총 합계 점수
+    const totalScoreHandle = totalScore => {
+        if (Array.isArray(totalScore)) {
+            totalScore.map(item => {
                 switch (item.mbti) {
                     case 'I':
                         switch (item.state.type) {
                             case 'yes':
-                            case 'center':
                                 return (mbtiCountI = mbtiCountI += item.state.score);
-
-                            // switch (item.state.score) {
-                            //     case 0:
-                            //         return (score0 = score0++);
-                            //     case 1:
-                            //         return (score1 = score1++);
-                            //     case 2:
-                            //         return (score2 = score2++);
-                            //     case 3:
-                            //         return (score3 = score3++);
-                            //     default:
-                            //         return false;
-                            // }
+                            case 'center':
                             case 'no':
                                 return (mbtiCountE = mbtiCountE += item.state.score);
                             default:
@@ -215,32 +166,39 @@ const CheckQuestion = ({
         }
     };
 
-    const questionOnePoint = 100 / question.length; //문항 1개의 점수
+    const questionOnePoint = 100 / question.length; //문항 1개의 퍼센트
     const filterScore = question.filter(questionFilterScore); //선택한 문항만 추출
-    const filterScoreCount = scoreCount.filter(questionFilterScoreCount); //선택한 문항만 추출
 
+    //배경 색상 변경 감지
     useEffect(() => {
-        //체크 퍼센트 구하기 (문항 1개 점수 × 선택한 개수)
+        setPercent(checkPercent);
+    }, [checkPercent]);
+
+    //체크 퍼센트 구하기 (문항 1개 점수 × 선택한 개수)
+    useEffect(() => {
         setCheckPercent(questionOnePoint * checkCount);
     }, [checkCount]);
-    useEffect(() => {
-        //체크 퍼센트 구하기 (문항 1개 점수 × 선택한 개수)
-        console.log(mbtiCountI);
-    }, [mbtiCountI]);
 
+    //mbti당 총 점수 구하기
     useEffect(() => {
-        questionAllScore(question);
+        totalScoreHandle(question);
     }, [question]);
 
+    //체크 퍼센트 구하기 (문항 1개 점수 × 선택한 개수)
+    const scoreLength = score.length - 1;
+    const totalLength = question.length / 4;
+    const onePoint = 100 / totalLength / (scoreLength / 2);
+
+    //MBTI 퍼센트 state 변경
     useEffect(() => {
-        setScoreI(mbtiCountI);
-        setScoreE(mbtiCountE);
-        setScoreS(mbtiCountS);
-        setScoreN(mbtiCountN);
-        setScoreT(mbtiCountT);
-        setScoreF(mbtiCountF);
-        setScoreJ(mbtiCountJ);
-        setScoreP(mbtiCountP);
+        setScoreI(onePoint * mbtiCountI);
+        setScoreE(onePoint * mbtiCountE);
+        setScoreS(onePoint * mbtiCountS);
+        setScoreN(onePoint * mbtiCountN);
+        setScoreT(onePoint * mbtiCountT);
+        setScoreF(onePoint * mbtiCountF);
+        setScoreJ(onePoint * mbtiCountJ);
+        setScoreP(onePoint * mbtiCountP);
     }, [question]);
 
     return (
@@ -249,7 +207,6 @@ const CheckQuestion = ({
                 I:{scoreI} &nbsp; E:{scoreE} &nbsp; S:{scoreS} &nbsp; N:{scoreN} &nbsp; T:{scoreT} &nbsp; F:{scoreF} &nbsp; J:{scoreJ}{' '}
                 &nbsp; P:{scoreP}
             </h1>
-            i,e:{mbtiEnergy}, s,n:{mbtiInformation}, t,f:{mbtiDecisions}, j,p:{mbtiLifestyle}
             {question.map((item, itemIdx) => (
                 <A.CheckQABoxList key={item.id}>
                     <A.CheckQATop>
@@ -267,7 +224,6 @@ const CheckQuestion = ({
                                     key={scoreItem.id}
                                     onClick={() => {
                                         checkState(item.id, scoreItem.id);
-                                        // console.log(score.length, score[scoreIdx]);
                                     }}
                                     type="button"
                                 >
