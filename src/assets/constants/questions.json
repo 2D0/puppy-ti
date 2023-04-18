@@ -3,7 +3,7 @@
     {
       "id": 0,
       "mbti": "N",
-      "mbtiType": "2",
+      "mbtiType": "information",
       "text": "산책할 때 벌레 꽃 사람 등 지나가는 모든 것들에 관심을 가진다.",
       "state" : {
         "type" : null,
@@ -13,7 +13,7 @@
     {
       "id": 1,
       "mbti": "E",
-      "mbtiType": "1",
+      "mbtiType": "energy",
       "text": "산책하다 처음 보는 강아지를 보면 엉덩이 냄새를 맡으며 탐색한다.",
       "state" : {
         "type" : null,
@@ -23,7 +23,7 @@
     {
       "id": 2,
       "mbti": "P",
-      "mbtiType": "4",
+      "mbtiType": "lifestyle",
       "text": "간식을 주면 순식간에 그 자리에서 먹어치운다.",
       "state" : {
         "type" : null,
@@ -33,7 +33,7 @@
     {
       "id": 3,
       "mbti": "T",
-      "mbtiType": "3",
+      "mbtiType": "decisions",
       "text": "위기에 처한 다른 강아지의 울음소리를 들어도 무관심하다.",
       "state" : {
         "type" : null,
@@ -43,7 +43,7 @@
     {
       "id": 4,
       "mbti": "E",
-      "mbtiType": "1",
+      "mbtiType": "energy",
       "text": "집에 낯선 사람이 올 경우 꼬리를 흔들며 반갑게 맞이한다.",
       "state" : {
         "type" : null,
@@ -53,7 +53,7 @@
     {
       "id": 5,
       "mbti": "S",
-      "mbtiType": "2",
+      "mbtiType": "information",
       "text": "여러 개의 장난감을 줘도 특정한 장난감만 가지고 논다.",
       "state" : {
         "type" : null,
@@ -63,7 +63,7 @@
     {
       "id": 6,
       "mbti": "T",
-      "mbtiType": "3",
+      "mbtiType": "decisions",
       "text": "보호자가 집에 없어도 얌전히 잘 기다린다.",
       "state" : {
         "type" : null,
@@ -73,7 +73,7 @@
     {
       "id": 7,
       "mbti": "J",
-      "mbtiType": "4",
+      "mbtiType": "lifestyle",
       "text": "간식을 주면 그 자리에서 바로 먹는 게 아니라 자신이 편한 장소에 들고 가서 먹는다.",
       "state" : {
         "type" : null,
@@ -83,7 +83,7 @@
     {
       "id": 8,
       "mbti": "I",
-      "mbtiType": "",
+      "mbtiType": "energy",
       "text": "강아지 유치원 혹은 애견 카페에 갈 경우 다른 강아지가 다가오기 전까지 다른 강아지에게 관심을 보이지 않는다.",
       "state" : {
         "type" : null,
@@ -93,7 +93,7 @@
     {
       "id": 9,
       "mbti": "S",
-      "mbtiType": "2",
+      "mbtiType": "information",
       "text": "보호자의 말을 어느 정도 이해하고 잘 따른다.",
       "state" : {
         "type" : null,
@@ -103,7 +103,7 @@
     {
       "id": 10,
       "mbti": "F",
-      "mbtiType": "",
+      "mbtiType": "decisions",
       "text": "뛰어놀다 물건을 깨트리거나 실수할 경우 보호자의 눈치를 본다.",
       "state" : {
         "type" : null,
@@ -113,7 +113,7 @@
     {
       "id": 11,
       "mbti": "N",
-      "mbtiType": "2",
+      "mbtiType": "information",
       "text": "새로운 장난감이 아니면 흥미를 느끼지 않는다.",
       "state" : {
         "type" : null,
@@ -123,7 +123,7 @@
     {
       "id": 12,
       "mbti": "I",
-      "mbtiType": "",
+      "mbtiType": "energy",
       "text": "산책하는 것을 귀찮아한다.",
       "state" : {
         "type" : null,
@@ -133,7 +133,7 @@
     {
       "id": 13,
       "mbti": "P",
-      "mbtiType": "4",
+      "mbtiType": "lifestyle",
       "text": "보호자가 눈앞에 보이지 않으면 주변을 엉망으로 해놓거나 계속해서 짖는다.",
       "state" : {
         "type" : null,
@@ -143,7 +143,7 @@
     {
       "id": 14,
       "mbti": "F",
-      "mbtiType": "",
+      "mbtiType": "decisions",
       "text": "밥이나 간식보다 보호자의 칭찬에 더 크게 반응한다.",
       "state" : {
         "type" : null,
@@ -153,7 +153,7 @@
     {
       "id": 15,
       "mbti": "E",
-      "mbtiType": "1",
+      "mbtiType": "energy",
       "text": "애견 운동장 또는 애견 카페에서 뛰거나 장난치는 걸 좋아한다",
       "state" : {
         "type" : null,
@@ -163,7 +163,7 @@
     {
       "id": 16,
       "mbti": "N",
-      "mbtiType": "2",
+      "mbtiType": "information",
       "text": "산책할 늘 가던 곳이 아닌 때 새로운 곳으로 가길 원한다.",
       "state" : {
         "type" : null,
@@ -173,7 +173,7 @@
     {
       "id": 17,
       "mbti": "T",
-      "mbtiType": "3",
+      "mbtiType": "decisions",
       "text": "새로운 강아지를 만날 경우 자신을 무서워하지 않도록 적응할 때까지 조용히 기다린다.",
       "state" : {
         "type" : null,
@@ -183,7 +183,7 @@
     {
       "id": 18,
       "mbti": "J",
-      "mbtiType": "4",
+      "mbtiType": "lifestyle",
       "text": "보호자의 말대로 잘 이행하고 특기가 많다.",
       "state" : {
         "type" : null,
@@ -193,7 +193,7 @@
     {
       "id": 19,
       "mbti": "I",
-      "mbtiType": "",
+      "mbtiType": "energy",
       "text": "낯선 공간에 있을 때 평소보다 얌전해진다.",
       "state" : {
         "type" : null,
@@ -203,7 +203,7 @@
     {
       "id": 20,
       "mbti": "S",
-      "mbtiType": "2",
+      "mbtiType": "information",
       "text": "보호자가 없어도 불안함을 느끼지 않는다.",
       "state" : {
         "type" : null,
@@ -213,7 +213,7 @@
     {
       "id": 21,
       "mbti": "F",
-      "mbtiType": "",
+      "mbtiType": "decisions",
       "text": "보호자가 슬퍼하거나 위기에 처하면 안절부절못하며 곁을 떠나지 않는다.",
       "state" : {
         "type" : null,
@@ -223,7 +223,7 @@
     {
       "id": 22,
       "mbti": "P",
-      "mbtiType": "4",
+      "mbtiType": "lifestyle",
       "text": "실수를 해서 혼나도 개의치 않는다.",
       "state" : {
         "type" : null,
@@ -233,7 +233,7 @@
     {
       "id": 23,
       "mbti": "F",
-      "mbtiType": "",
+      "mbtiType": "decisions",
       "text": "다른 강아지가 짖을 경우 꼬리를 내리고 피한다.",
       "state" : {
         "type" : null,
@@ -243,7 +243,7 @@
     {
       "id": 24,
       "mbti": "S",
-      "mbtiType": "2",
+      "mbtiType": "information",
       "text": "거울을 보면 거울에 비친 모습이 자기 자신이라는 걸 인지하고 있다.",
       "state" : {
         "type" : null,
@@ -253,7 +253,7 @@
     {
       "id": 25,
       "mbti": "J",
-      "mbtiType": "4",
+      "mbtiType": "lifestyle",
       "text": "실내 배변일 경우 화장실이나 배변 패드에만 야외 배변을 할 경우 같은 장소에서만 배변한다.",
       "state" : {
         "type" : null,
@@ -263,7 +263,7 @@
     {
       "id": 26,
       "mbti": "I",
-      "mbtiType": "",
+      "mbtiType": "energy",
       "text": "여러 강아지들이 놀고 있어도 신경 쓰지 않는다.",
       "state" : {
         "type" : null,
@@ -273,7 +273,7 @@
     {
       "id": 27,
       "mbti": "J",
-      "mbtiType": "4",
+      "mbtiType": "lifestyle",
       "text": "늘 가던 산책로와 집 가는 길을 잘 알고 있다.",
       "state" : {
         "type" : null,
@@ -283,7 +283,7 @@
     {
       "id": 28,
       "mbti": "N",
-      "mbtiType": "2",
+      "mbtiType": "information",
       "text": "보호자가 안 된다 말해도 개의치 않고 마음대로 행동한다.",
       "state" : {
         "type" : null,
@@ -293,7 +293,7 @@
     {
       "id": 29,
       "mbti": "T",
-      "mbtiType": "3",
+      "mbtiType": "decisions",
       "text": "다른 강아지 혹은 동물의 간식을 뺏어 먹는다.",
       "state" : {
         "type" : null,
@@ -303,7 +303,7 @@
     {
       "id": 30,
       "mbti": "E",
-      "mbtiType": "1",
+      "mbtiType": "energy",
       "text": "보호자가 집에 들어오면 오랫동안 반갑게 맞이하며 곁을 떠나지 않는다.",
       "state" : {
         "type" : null,
@@ -313,7 +313,7 @@
     {
       "id": 31,
       "mbti": "P",
-      "mbtiType": "4",
+      "mbtiType": "lifestyle",
       "text": "특기를 교육해도 잘 이행하지 않거나 습득 속도가 느리다.",
       "state" : {
         "type" : null,
@@ -356,212 +356,6 @@
       "id" : 6,
       "type": "yes",
       "score": 3
-    }
-  ],
-  "scoreCount" : [
-    {
-      "name" : "energy",
-      "mbti" : [
-        {
-          "name" : "I",
-          "type": [
-            {
-              "name" : "no",
-              "score" : {
-                "score0": null,
-                "score1": null,
-                "score2": null,
-                "score3": null
-              }
-            },
-            {
-              "name" : "yes",
-              "score" : {
-                "score0": null,
-                "score1": null,
-                "score2": null,
-                "score3": null
-              }
-            }
-          ]
-        },
-        {
-          "name" : "E",
-          "type": [
-            {
-              "name" : "no",
-              "score" : {
-                "score0": null,
-                "score1": null,
-                "score2": null,
-                "score3": null
-              }
-            },
-            {
-              "name" : "yes",
-              "score" : {
-                "score0": null,
-                "score1": null,
-                "score2": null,
-                "score3": null
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name" : "information",
-      "mbti" : [
-        {
-          "name" : "S",
-          "type": [
-            {
-              "name" : "no",
-              "score" : {
-                "score0": null,
-                "score1": null,
-                "score2": null,
-                "score3": null
-              }
-            },
-            {
-              "name" : "yes",
-              "score" : {
-                "score0": null,
-                "score1": null,
-                "score2": null,
-                "score3": null
-              }
-            }
-          ]
-        },
-        {
-          "name" : "N",
-          "type": [
-            {
-              "name" : "no",
-              "score" : {
-                "score0": null,
-                "score1": null,
-                "score2": null,
-                "score3": null
-              }
-            },
-            {
-              "name" : "yes",
-              "score" : {
-                "score0": null,
-                "score1": null,
-                "score2": null,
-                "score3": null
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name" : "decisions",
-      "mbti" : [
-        {
-          "name" : "T",
-          "type": [
-            {
-              "name" : "no",
-              "score" : {
-                "score0": null,
-                "score1": null,
-                "score2": null,
-                "score3": null
-              }
-            },
-            {
-              "name" : "yes",
-              "score" : {
-                "score0": null,
-                "score1": null,
-                "score2": null,
-                "score3": null
-              }
-            }
-          ]
-        },
-        {
-          "name" : "F",
-          "type": [
-            {
-              "name" : "no",
-              "score" : {
-                "score0": null,
-                "score1": null,
-                "score2": null,
-                "score3": null
-              }
-            },
-            {
-              "name" : "yes",
-              "score" : {
-                "score0": null,
-                "score1": null,
-                "score2": null,
-                "score3": null
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name" : "lifestyle",
-      "mbti" : [
-        {
-          "name" : "J",
-          "type": [
-            {
-              "name" : "no",
-              "score" : {
-                "score0": null,
-                "score1": null,
-                "score2": null,
-                "score3": null
-              }
-            },
-            {
-              "name" : "yes",
-              "score" : {
-                "score0": null,
-                "score1": null,
-                "score2": null,
-                "score3": null
-              }
-            }
-          ]
-        },
-        {
-          "name" : "P",
-          "type": [
-            {
-              "name" : "no",
-              "score" : {
-                "score0": null,
-                "score1": null,
-                "score2": null,
-                "score3": null
-              }
-            },
-            {
-              "name" : "yes",
-              "score" : {
-                "score0": null,
-                "score1": null,
-                "score2": null,
-                "score3": null
-              }
-            }
-          ]
-        }
-      ]
     }
   ]
 }
