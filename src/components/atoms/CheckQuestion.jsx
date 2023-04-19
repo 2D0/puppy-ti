@@ -19,14 +19,6 @@ const CheckQuestion = ({
     setScoreF,
     setScoreJ,
     setScoreP,
-    scoreI,
-    scoreE,
-    scoreS,
-    scoreN,
-    scoreT,
-    scoreF,
-    scoreJ,
-    scoreP,
 }) => {
     const [checkPercent, setCheckPercent] = useState(null); //문항 체크 진도율
     const [question, setQuestion] = useState(questionData.question); //질문 데이터
@@ -199,29 +191,15 @@ const CheckQuestion = ({
 
     //MBTI 퍼센트 state 변경
     useEffect(() => {
-        setScoreI(Math.round(onePoint * mbtiCountI));
-        setScoreE(Math.round(onePoint * mbtiCountE));
-        setScoreS(Math.round(onePoint * mbtiCountS));
-        setScoreN(Math.round(onePoint * mbtiCountN));
-        setScoreT(Math.round(onePoint * mbtiCountT));
-        setScoreF(Math.round(onePoint * mbtiCountF));
-        setScoreJ(Math.round(onePoint * mbtiCountJ));
-        setScoreP(Math.round(onePoint * mbtiCountP));
         setPercent();
         setPercentEnergy(Math.round(onePoint * mbtiCountI));
         setPercentInformation(Math.round(onePoint * mbtiCountS));
         setPercentIDecisions(Math.round(onePoint * mbtiCountT));
         setPercentLifestyle(Math.round(onePoint * mbtiCountJ));
-
-        console.log(Math.round(onePoint * mbtiCountI));
     }, [question]);
 
     return (
         <A.CheckQABoxs>
-            <h1>
-                I:{scoreI} &nbsp; E:{scoreE} &nbsp; S:{scoreS} &nbsp; N:{scoreN} &nbsp; T:{scoreT} &nbsp; F:{scoreF} &nbsp; J:{scoreJ}{' '}
-                &nbsp; P:{scoreP}
-            </h1>
             {question.map((item, itemIdx) => (
                 <A.CheckQABoxList key={item.id}>
                     <A.CheckQATop>
