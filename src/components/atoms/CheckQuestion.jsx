@@ -199,14 +199,21 @@ const CheckQuestion = ({
 
     //MBTI 퍼센트 state 변경
     useEffect(() => {
-        setScoreI(onePoint * mbtiCountI);
-        setScoreE(onePoint * mbtiCountE);
-        setScoreS(onePoint * mbtiCountS);
-        setScoreN(onePoint * mbtiCountN);
-        setScoreT(onePoint * mbtiCountT);
-        setScoreF(onePoint * mbtiCountF);
-        setScoreJ(onePoint * mbtiCountJ);
-        setScoreP(onePoint * mbtiCountP);
+        setScoreI(Math.round(onePoint * mbtiCountI));
+        setScoreE(Math.round(onePoint * mbtiCountE));
+        setScoreS(Math.round(onePoint * mbtiCountS));
+        setScoreN(Math.round(onePoint * mbtiCountN));
+        setScoreT(Math.round(onePoint * mbtiCountT));
+        setScoreF(Math.round(onePoint * mbtiCountF));
+        setScoreJ(Math.round(onePoint * mbtiCountJ));
+        setScoreP(Math.round(onePoint * mbtiCountP));
+        setPercent();
+        setPercentEnergy(Math.round(onePoint * mbtiCountI));
+        setPercentInformation(Math.round(onePoint * mbtiCountS));
+        setPercentIDecisions(Math.round(onePoint * mbtiCountT));
+        setPercentLifestyle(Math.round(onePoint * mbtiCountJ));
+
+        console.log(Math.round(onePoint * mbtiCountI));
     }, [question]);
 
     return (
