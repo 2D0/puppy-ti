@@ -13,7 +13,27 @@ import * as S from '@components/result/Result.style.jsx';
 //이미지
 import { istj, istp, isfj, isfp, intj, intp, infj, infp, estj, estp, esfj, esfp, entj, entp, enfp, enfj } from '@/assets/img/mbti';
 
-const Result = ({ name, location, percentEnergy, percentInformation, percentIDecisions, percentLifestyle }) => {
+const Result = ({
+    name,
+    location,
+    percentEnergy,
+    percentInformation,
+    percentIDecisions,
+    percentLifestyle,
+    setPercent,
+    setPercentEnergy,
+    setPercentInformation,
+    setPercentIDecisions,
+    setPercentLifestyle,
+    scoreI,
+    scoreE,
+    scoreS,
+    scoreN,
+    scoreT,
+    scoreF,
+    scoreJ,
+    scoreP,
+}) => {
     //mbti 이름
     const [mbtiName, setMbtiName] = useState(null);
     const [mbtiImg, setMbtiImg] = useState(null);
@@ -142,11 +162,23 @@ const Result = ({ name, location, percentEnergy, percentInformation, percentIDec
                                         <ResultDetail
                                             key={detailItem.id}
                                             detailItem={detailItem}
+                                            setPercentEnergy={setPercentEnergy}
+                                            setPercentInformation={setPercentInformation}
+                                            setPercentIDecisions={setPercentIDecisions}
+                                            setPercentLifestyle={setPercentLifestyle}
                                             percentEnergy={percentEnergy}
                                             percentInformation={percentInformation}
                                             percentIDecisions={percentIDecisions}
                                             percentLifestyle={percentLifestyle}
                                             location={location}
+                                            scoreI={scoreI}
+                                            scoreE={scoreE}
+                                            scoreS={scoreS}
+                                            scoreN={scoreN}
+                                            scoreT={scoreT}
+                                            scoreF={scoreF}
+                                            scoreJ={scoreJ}
+                                            scoreP={scoreP}
                                         />
                                     ))}
                                 </S.ResultPercentBox>
