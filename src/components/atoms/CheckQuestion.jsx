@@ -84,6 +84,7 @@ const CheckQuestion = ({
                             case 'yes':
                                 return (mbtiCountI = mbtiCountI += item.state.score);
                             case 'center':
+                                return (mbtiCountI = mbtiCountI += scoreLength);
                             case 'no':
                                 return (mbtiCountE = mbtiCountE += item.state.score);
                             default:
@@ -92,8 +93,9 @@ const CheckQuestion = ({
                     case 'E':
                         switch (item.state.type) {
                             case 'yes':
-                            case 'center':
                                 return (mbtiCountE = mbtiCountE += item.state.score);
+                            case 'center':
+                                return (mbtiCountE = mbtiCountE += scoreLength);
                             case 'no':
                                 return (mbtiCountI = mbtiCountI += item.state.score);
                             default:
@@ -102,8 +104,9 @@ const CheckQuestion = ({
                     case 'S':
                         switch (item.state.type) {
                             case 'yes':
-                            case 'center':
                                 return (mbtiCountS = mbtiCountS += item.state.score);
+                            case 'center':
+                                return (mbtiCountS = mbtiCountS += scoreLength);
                             case 'no':
                                 return (mbtiCountN = mbtiCountN += item.state.score);
                             default:
@@ -112,8 +115,9 @@ const CheckQuestion = ({
                     case 'N':
                         switch (item.state.type) {
                             case 'yes':
-                            case 'center':
                                 return (mbtiCountN = mbtiCountN += item.state.score);
+                            case 'center':
+                                return (mbtiCountN = mbtiCountN += scoreLength);
                             case 'no':
                                 return (mbtiCountS = mbtiCountS += item.state.score);
                             default:
@@ -122,8 +126,9 @@ const CheckQuestion = ({
                     case 'T':
                         switch (item.state.type) {
                             case 'yes':
-                            case 'center':
                                 return (mbtiCountT = mbtiCountT += item.state.score);
+                            case 'center':
+                                return (mbtiCountT = mbtiCountT += scoreLength);
                             case 'no':
                                 return (mbtiCountF = mbtiCountF += item.state.score);
                             default:
@@ -132,8 +137,9 @@ const CheckQuestion = ({
                     case 'F':
                         switch (item.state.type) {
                             case 'yes':
-                            case 'center':
                                 return (mbtiCountF = mbtiCountF += item.state.score);
+                            case 'center':
+                                return (mbtiCountF = mbtiCountF += scoreLength);
                             case 'no':
                                 return (mbtiCountT = mbtiCountT += item.state.score);
                             default:
@@ -142,8 +148,9 @@ const CheckQuestion = ({
                     case 'J':
                         switch (item.state.type) {
                             case 'yes':
-                            case 'center':
                                 return (mbtiCountJ = mbtiCountJ += item.state.score);
+                            case 'center':
+                                return (mbtiCountJ = mbtiCountJ += scoreLength);
                             case 'no':
                                 return (mbtiCountP = mbtiCountP += item.state.score);
                             default:
@@ -152,8 +159,9 @@ const CheckQuestion = ({
                     case 'P':
                         switch (item.state.type) {
                             case 'yes':
-                            case 'center':
                                 return (mbtiCountP = mbtiCountP += item.state.score);
+                            case 'center':
+                                return (mbtiCountP = mbtiCountP += scoreLength);
                             case 'no':
                                 return (mbtiCountJ = mbtiCountJ += item.state.score);
                             default:
@@ -166,6 +174,8 @@ const CheckQuestion = ({
         }
     };
 
+    const scoreLength = (score.length - 1) / 2;
+    const totalLength = question.length / 4;
     const questionOnePoint = 100 / question.length; //문항 1개의 퍼센트
     const filterScore = question.filter(questionFilterScore); //선택한 문항만 추출
 
@@ -185,9 +195,7 @@ const CheckQuestion = ({
     }, [question]);
 
     //체크 퍼센트 구하기 (문항 1개 점수 × 선택한 개수)
-    const scoreLength = score.length - 1;
-    const totalLength = question.length / 4;
-    const onePoint = 100 / totalLength / (scoreLength / 2);
+    const onePoint = 100 / totalLength / scoreLength;
 
     //MBTI 퍼센트 state 변경
     useEffect(() => {

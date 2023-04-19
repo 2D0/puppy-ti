@@ -108,6 +108,14 @@ function App() {
                             percentInformation={percentInformation}
                             percentIDecisions={percentIDecisions}
                             percentLifestyle={percentLifestyle}
+                            scoreI={scoreI}
+                            scoreE={scoreE}
+                            scoreS={scoreS}
+                            scoreN={scoreN}
+                            scoreT={scoreT}
+                            scoreF={scoreF}
+                            scoreJ={scoreJ}
+                            scoreP={scoreP}
                         />
                     }
                 ></Route>
