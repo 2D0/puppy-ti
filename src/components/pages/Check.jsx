@@ -23,14 +23,6 @@ const Check = ({
     setScoreF,
     setScoreJ,
     setScoreP,
-    scoreI,
-    scoreE,
-    scoreS,
-    scoreN,
-    scoreT,
-    scoreF,
-    scoreJ,
-    scoreP,
 }) => {
     const navigate = useNavigate(); //react router 페이지 핸들링하는 함수
 
@@ -51,14 +43,6 @@ const Check = ({
                     setScoreF={setScoreF}
                     setScoreJ={setScoreJ}
                     setScoreP={setScoreP}
-                    scoreI={scoreI}
-                    scoreE={scoreE}
-                    scoreS={scoreS}
-                    scoreN={scoreN}
-                    scoreT={scoreT}
-                    scoreF={scoreF}
-                    scoreJ={scoreJ}
-                    scoreP={scoreP}
                 />
             </S.CheckQACont>
             <S.CheckBtn>

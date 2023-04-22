@@ -207,10 +207,7 @@ const CheckQuestion = ({
                         <A.CheckQATitR>그렇다</A.CheckQATitR>
                     </A.CheckQATop>
                     <A.CheckQACont>
-                        <A.CheckQATxt>
-                            {item.mbti} {item.state.score}점 <br />
-                            {item.text}
-                        </A.CheckQATxt>
+                        <A.CheckQATxt>{item.text}</A.CheckQATxt>
                         <A.CheckQABtns>
                             {questionData.scoreType.map((scoreItem, scoreIdx) => (
                                 <A.CheckQABtn
