@@ -18,21 +18,18 @@ const Header = ({ location, percent, scrollHeader }) => {
     const switchColor = () => {
         switch (location) {
             case '/check':
-                percent === 100 ? setLogoColor(LogoWhite) : setLogoColor(LogoBlack);
-                break;
+                return percent === 100 ? setLogoColor(LogoWhite) : setLogoColor(LogoBlack);
             case '/result':
-                setLogoColor(LogoBlack);
-                break;
+                return setLogoColor(LogoBlack);
             default:
-                setLogoColor(LogoWhite);
-                break;
+                return setLogoColor(LogoWhite);
         }
     };
 
     //배경 색상 변경 감지
     useEffect(() => {
         switchColor();
-    }, [percent || location]);
+    }, [percent, location]);
 
     return (
         <C.HeaderCont scrollHeader={scrollHeader} location={location} percent={percent}>
