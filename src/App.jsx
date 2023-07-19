@@ -9,6 +9,8 @@ import { Header, Footer, Background } from '@/components/common';
 import { Main, Check, Result, TeamMember, Inquiry, SourceLicense } from '@/components/pages';
 import * as S from '@/style/CommonContents.jsx';
 import { Lines } from '@/assets/img/background/index.js';
+// import {Layout} from "@components/template/Layout/Layout.jsx";
+// import TestPage from "@/pages/test.jsx";
 
 function App() {
     const location = useLocation(); //현재 주소
@@ -127,6 +129,11 @@ function App() {
             <S.BackImgLinesBottom src={Lines} />
             <Footer />
         </C.Wrap>
+        // <Layout>
+        //     <Routes>
+        //         <Route path='/' element={<TestPage />}/>
+        //     </Routes>
+        // </Layout>
     );
 }
 

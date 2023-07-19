@@ -1,7 +1,7 @@
 import React from 'react';
 
 //스타일
-import * as C from '@/style/CommonContents';
+import * as C from '@/style/CommonContents.jsx';
 
 const Footer = () => {
     return (
@@ -21,4 +21,4 @@ const Footer = () => {
         </C.Footer>
     );
 };
-export default Footer;
+export { Footer };

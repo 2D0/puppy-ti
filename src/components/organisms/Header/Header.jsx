@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 //컴포넌트
-import CheckHead from '@/components/atoms/CheckHead.jsx';
+import CheckHead from '@components/atoms/CheckHead.jsx';
 
 //스타일
-import * as C from '@/style/CommonContents';
+import * as C from '@/style/CommonContents.jsx';
 
 //이미지
-import { LogoBlack, LogoWhite } from '@/assets/img/logo';
-import { TransEn, TransKo } from '@/assets/img/icons';
+import { LogoBlack, LogoWhite } from '@/assets/img/logo/index.js';
+import { TransEn, TransKo } from '@/assets/img/icons/index.js';
 
 const Header = ({ location, percent, scrollHeader }) => {
     const [logoColor, setLogoColor] = useState(null); //로고 컬러 상태
@@ -54,4 +54,4 @@ const Header = ({ location, percent, scrollHeader }) => {
     );
 };
 
-export default Header;
+export { Header };
