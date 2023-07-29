@@ -23,7 +23,6 @@ const CheckQuestion = ({
     const [checkPercent, setCheckPercent] = useState(null); //문항 체크 진도율
     const [question, setQuestion] = useState(questionData.question); //질문 데이터
     const [score, setScore] = useState(questionData.scoreType);
-    const [questionIdx, setQuestionIdx] = useState();
 
     let checkCount = 0; //선택한 문항 개수
     let mbtiCountI = 0; //I & E 개수
@@ -58,7 +57,6 @@ const CheckQuestion = ({
                 return { ...item };
             }),
         );
-        setQuestionIdx(itemIdx);
     };
 
     //선택한 문항의 점수가 null이 아닐 경우 checkCount 체크한 개수만큼 증가
@@ -82,7 +80,7 @@ const CheckQuestion = ({
                             case 'no':
                                 return (mbtiCountE = mbtiCountE += item.state.score);
                             default:
-                                return;
+                                return false;
                         }
                     case 'E':
                         switch (item.state.type) {
@@ -93,7 +91,7 @@ const CheckQuestion = ({
                             case 'no':
                                 return (mbtiCountI = mbtiCountI += item.state.score);
                             default:
-                                return;
+                                return false;
                         }
                     case 'S':
                         switch (item.state.type) {
@@ -104,7 +102,7 @@ const CheckQuestion = ({
                             case 'no':
                                 return (mbtiCountN = mbtiCountN += item.state.score);
                             default:
-                                return;
+                                return false;
                         }
                     case 'N':
                         switch (item.state.type) {
@@ -115,7 +113,7 @@ const CheckQuestion = ({
                             case 'no':
                                 return (mbtiCountS = mbtiCountS += item.state.score);
                             default:
-                                return;
+                                return false;
                         }
                     case 'T':
                         switch (item.state.type) {
@@ -126,7 +124,7 @@ const CheckQuestion = ({
                             case 'no':
                                 return (mbtiCountF = mbtiCountF += item.state.score);
                             default:
-                                return;
+                                return false;
                         }
                     case 'F':
                         switch (item.state.type) {
@@ -137,7 +135,7 @@ const CheckQuestion = ({
                             case 'no':
                                 return (mbtiCountT = mbtiCountT += item.state.score);
                             default:
-                                return;
+                                return false;
                         }
                     case 'J':
                         switch (item.state.type) {
@@ -148,7 +146,7 @@ const CheckQuestion = ({
                             case 'no':
                                 return (mbtiCountP = mbtiCountP += item.state.score);
                             default:
-                                return;
+                                return false;
                         }
                     case 'P':
                         switch (item.state.type) {
@@ -159,10 +157,10 @@ const CheckQuestion = ({
                             case 'no':
                                 return (mbtiCountJ = mbtiCountJ += item.state.score);
                             default:
-                                return;
+                                return false;
                         }
                     default:
-                        return;
+                        return false;
                 }
             });
         }
@@ -220,8 +218,8 @@ const CheckQuestion = ({
                                     type="button"
                                 >
                                     <A.CheckFoot
-                                        questionItem={item}
-                                        questionIdx={questionIdx}
+                                        item={item}
+                                        itemIdx={itemIdx}
                                         score={score}
                                         scoreIdx={scoreIdx}
                                         scoreCount={scoreItem.score}

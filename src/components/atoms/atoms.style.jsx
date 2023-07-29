@@ -355,11 +355,6 @@ export const CheckFootBlank = `
 export const CheckFoot = styled.span`
     svg {
         ${CheckFootShape}
-        ${({ scoreIdx }) =>
-            scoreIdx === 3 &&
-            css`
-                height: 60px;
-            `};
         > path {
             ${CheckFootBlank};
 
@@ -382,53 +377,26 @@ export const CheckFoot = styled.span`
                 }
             }}
 
-            ${({ questionItem, questionIdx, score }) => {
-                /*if (questionItem.id === questionIdx) {
-                    for (let i = 0; questionItem.state.type !== 'center' && i <= questionItem.state.score; i++) {
-                        console.log(score[i]);
-                        if (questionItem.state.type === 'center' && score.type === 'center') {
-                            console.log(i);
-                            return css`
-                                fill: #999;
-                            `;
-                        } else if (
-                            questionItem.state.type === 'no' &&
-                            score[i].type === 'no' &&
-                            questionItem.state.score === score[i].score
-                        ) {
-                            console.log(i);
-                            return css`
-                                fill: #7846d0;
-                            `;
-                        } else if (questionItem.state.type === 'yes' && score[i].type === 'yes' && score[i].score <= 3) {
-                            console.log(i);
-                            return css`
-                                fill: #9e446f;
-                            `;
-                        }
+            ${({ item, itemIdx, scoreCount, score, scoreIdx }) => {
+                if (item.id === itemIdx) {
+                    if (item.state.type === 'center' && scoreCount === 0) {
+                        // console.log(item.state.type === 'center');
+                        return css`
+                            fill: #999;
+                        `;
+                    } else if (item.state.type === 'no' && scoreCount <= score[scoreIdx].score) {
+                        // console.log(scoreIdx);
+                        return css`
+                            fill: #7846d0;
+                        `;
+                    } else if (item.state.type === 'yes' && score[scoreIdx].score <= 3) {
+                        // console.log(scoreIdx);
+                        return css`
+                            fill: #9e446f;
+                        `;
                     }
-                }*/
+                }
             }}
-            
-            
-                            ${({ questionItem, questionIdx, scoreCount, scoreIdx }) => {
-                                if (questionItem.id === questionIdx && questionItem.state.score === scoreCount) {
-                                    if (questionItem.state.type === 'center' && scoreIdx === 3) {
-                                        // console.log(item.state.type === 'center');
-                                        return css`
-                                            fill: #999;
-                                        `;
-                                    } else if (questionItem.state.type === 'no' && scoreIdx <= 3) {
-                                        // console.log(scoreIdx);
-                                        return css`
-                                            fill: #7846d0;
-                                        `;
-                                    } else if (questionItem.state.type === 'yes' && scoreIdx >= 3) {
-                                        // console.log(scoreIdx);
-                                        return css`
-                                            fill: #9e446f;
-                                        `;
-                                    }
-                                }
-                            }}
+        }
+    }
 `;
