@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
 //컴포넌트
@@ -28,7 +28,6 @@ function Main({ setName }) {
         dogName !== '' && setName(dogName);
         startActive && navigate('/check');
     };
-
     return (
         <C.Content>
             <S.MainCont>

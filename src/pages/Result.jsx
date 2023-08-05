@@ -130,7 +130,7 @@ const Result = ({
             case 'ENFP':
                 return setMbtiImg(enfp);
             default:
-                return console.log('mbti error');
+                return;
         }
     };
     return (
