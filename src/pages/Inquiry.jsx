@@ -1,0 +1,27 @@
+import React, { useState } from 'react';
+
+//컴포넌트
+import NameCover from '@components/atoms/NameCover.jsx';
+import TextBox from '@components/atoms/TextBox.jsx';
+import BackButton from '@components/atoms/BackButton.jsx';
+
+//스타일
+import * as C from '@/style/CommonContents';
+import * as S from '@components/inquiry/Inquiry.style.jsx';
+
+const Inquiry = () => {
+    const [coverName, setCoverName] = useState('광고 및 후원 문의');
+    const [inquiryData, setInquiryData] = useState(null);
+
+    return (
+        <C.Content>
+            <S.InquiryCont>
+                <NameCover coverName={coverName} />
+                <TextBox inquiryData={inquiryData} />
+                <C.CommonBtn type="submit">전송하기</C.CommonBtn>
+                <BackButton />
+            </S.InquiryCont>
+        </C.Content>
+    );
+};
+export default Inquiry;
