@@ -9,15 +9,6 @@ const ResultDetail = ({
     percentInformation,
     percentIDecisions,
     percentLifestyle,
-    location,
-    scoreI,
-    scoreE,
-    scoreS,
-    scoreN,
-    scoreT,
-    scoreF,
-    scoreJ,
-    scoreP,
 }) => {
     const [percent, setPercent] = useState(null); //문항 체크 퍼센트
     const [typeLeft, setTypeLeft] = useState(null); //왼쪽 타입

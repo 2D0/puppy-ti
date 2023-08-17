@@ -8,6 +8,8 @@ import * as A from '@components/atoms/atoms.style';
 import { FireWorkGreen, FireWorkRed, FireWorkStar, PercentChar } from '@/assets/img/icons';
 
 const CheckHead = ({ percent }) => {
+    console.log("CheckHead")
+    console.log(percent)
     return (
         <A.CheckTop percent={percent}>
             <A.CheckTopInner>
