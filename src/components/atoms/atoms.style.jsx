@@ -357,7 +357,6 @@ export const CheckFoot = styled.span`
         ${CheckFootShape}
         > path {
             ${CheckFootBlank};
-
             //버튼 기본 디자인
             ${({ scoreIdx }) => {
                 if (scoreIdx === 3) {
@@ -377,24 +376,63 @@ export const CheckFoot = styled.span`
                 }
             }}
 
-            ${({ item, itemIdx, scoreCount, score, scoreIdx }) => {
-                if (item.id === itemIdx) {
-                    if (item.state.type === 'center' && scoreCount === 0) {
-                        // console.log(item.state.type === 'center');
-                        return css`
+            ${({ score, scoreIdx}) => {
+                if (score === null) {
+                    return
+                }
+                switch (scoreIdx) {
+                    case 0: 
+                        if (score === -3) {
+                            return css`
+                                fill: #7846d0;
+                            `;
+                        }
+                        break;
+                    case 1: 
+                        if (score <= -2) {
+                            return css`
+                                fill: #7846d0;
+                            `;
+                        }
+                        break;
+                    case 2: 
+                        if (score <= -1) {
+                            return css`
+                                fill: #7846d0;
+                            `;
+                        }
+                        break;
+                    case 3: 
+                        if (score !== null) {
+                            return css`
                             fill: #999;
-                        `;
-                    } else if (item.state.type === 'no' && scoreCount <= score[scoreIdx].score) {
-                        // console.log(scoreIdx);
-                        return css`
-                            fill: #7846d0;
-                        `;
-                    } else if (item.state.type === 'yes' && score[scoreIdx].score <= 3) {
-                        // console.log(scoreIdx);
-                        return css`
-                            fill: #9e446f;
-                        `;
-                    }
+                            `;
+                        }
+                        break;
+                    case 4: 
+                        if (score >= 1) {
+                            return css`
+                                fill: #9e446f;
+                            `;
+                        }
+                        break;
+                    
+                    case 5: 
+                    
+                        if (score >= 2) {
+                            return css`
+                                fill: #9e446f;
+                            `;
+                        }
+                        break;
+                    case 6: 
+                    
+                        if (score >= 3) {
+                            return css`
+                                fill: #9e446f;
+                            `;
+                        }
+                        break;
                 }
             }}
         }

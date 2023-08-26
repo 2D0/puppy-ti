@@ -31,7 +31,7 @@ export const BgPurple = `
     background-color: #7846D0;
 `;
 export const BgLightPurple = `
-    background-color: #C4A5FA;
+    background-color: #C4A5FA !important;
 `;
 export const BgDarkPurple = `
     background-color: #1C0E35;
@@ -396,15 +396,17 @@ export const HeaderCont = styled.header`
             box-shadow: 0 0 7px #dcd5e8;
         `};
 
-    ${({ location, percent }) => {
-        switch (location) {
-            case '/check':
-                return percent === 100 ? BgBlack : BgCommon;
-            case '/result':
-                return BgCommon;
-            default:
-                return BgLightPurple;
-        }
+    ${({ bgColor }) => {
+
+        return bgColor;
+        // switch (location) {
+        //     case '/check':
+        //         return percent === 100 ? BgBlack : BgCommon;
+        //     case '/result':
+        //         return BgCommon;
+        //     default:
+        //         return BgLightPurple;
+        // }
     }};
 
     ${HeaderSwitchImg} {

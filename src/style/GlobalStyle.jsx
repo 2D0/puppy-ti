@@ -3,34 +3,6 @@ import { gugiRegular } from '@/assets/fonts/gugi';
 import { spoqaRegularTtf, spoqaRegularOtf, spoqaMediumTtf, spoqaMediumOtf, spoqaBoldOtf, spoqaBoldTtf } from '@/assets/fonts/spoqa';
 import { BgCommon } from '@/style/CommonContents.jsx';
 const GlobalStyle = createGlobalStyle`
-    // **************** 폰트 ****************
-    //구기 (Gugi)
-    @font-face {
-        font-family: 'gugi';
-        font-weight: 400;
-        src: url(${gugiRegular}) format('truetype');
-    }
-    
-    //스포카한산스 (SpoqaHanSansNeo)
-    @font-face {
-        font-family: 'SpoqaHan';
-        font-weight: 400;
-        src: url(${spoqaRegularTtf}) format('truetype'),
-        url(${spoqaRegularOtf}) format('opentype');
-    }
-    @font-face {
-        font-family: 'SpoqaHan';
-        font-weight: 500;
-        src: url(${spoqaMediumTtf}) format('truetype'),
-        url(${spoqaMediumOtf}) format('opentype');
-    }
-    @font-face {
-        font-family: 'SpoqaHan';
-        font-weight: 700;
-        src: url(${spoqaBoldOtf}) format('truetype'),
-        url(${spoqaBoldTtf}) format('opentype');
-    }
-
     
     // **************** reset ****************
     * {

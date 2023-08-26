@@ -21,4 +21,4 @@ const Footer = () => {
         </C.Footer>
     );
 };
-export { Footer };
+export default Footer;

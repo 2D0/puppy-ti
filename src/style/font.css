@@ -1,0 +1,25 @@
+
+@font-face {
+    font-family: 'gugi';
+    font-weight: 400;
+    src: url('@/assets/fonts/gugi/gugiRegular') format('truetype');
+}
+
+@font-face {
+    font-family: 'SpoqaHan';
+    font-weight: 400;
+    src: url('@/assets/fonts/spoqa/spoqaRegularTtf') format('truetype'),
+    url('@/assets/fonts/spoqa/spoqaRegularOtf') format('opentype');
+}
+@font-face {
+    font-family: 'SpoqaHan';
+    font-weight: 500;
+    src: url('@/assets/fonts/spoqa/spoqaMediumTtf') format('truetype'),
+    url('@/assets/fonts/spoqa/spoqaMediumOtf') format('opentype');
+}
+@font-face {
+    font-family: 'SpoqaHan';
+    font-weight: 700;
+    src: url('@/assets/fonts/spoqa/spoqaBoldOtf') format('truetype'),
+    url('@/assets/fonts/spoqa/spoqaBoldTtf') format('opentype');
+}

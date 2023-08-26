@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import resultData from '@/assets/constants/result.json';
 
+import { Header } from '@components/common';
 //컴포넌트
 import ShareCont from '@components/atoms/ShareCont.jsx';
 import ResultDetail from '@components/atoms/ResultDetail.jsx';
@@ -13,26 +14,16 @@ import * as S from '@components/result/Result.style.jsx';
 //이미지
 import { istj, istp, isfj, isfp, intj, intp, infj, infp, estj, estp, esfj, esfp, entj, entp, enfp, enfj } from '@/assets/img/mbti';
 
+import {  BgCommon } from '@/style/CommonContents.jsx';
+import { LogoBlack} from '@/assets/img/logo/index.js';
+
 const Result = ({
     name,
-    location,
     percentEnergy,
     percentInformation,
     percentIDecisions,
     percentLifestyle,
-    setPercent,
-    setPercentEnergy,
-    setPercentInformation,
-    setPercentIDecisions,
-    setPercentLifestyle,
-    scoreI,
-    scoreE,
-    scoreS,
-    scoreN,
-    scoreT,
-    scoreF,
-    scoreJ,
-    scoreP,
+    scrollHeader
 }) => {
     //mbti 이름
     const [mbtiName, setMbtiName] = useState(null);
@@ -130,76 +121,67 @@ const Result = ({
             case 'ENFP':
                 return setMbtiImg(enfp);
             default:
-                return;
+                return console.log('mbti error');
         }
     };
+    // bgColor
     return (
-        <C.Content>
-            {resultData.result.map(item => {
-                if (item.mbti === mbtiName) {
-                    return (
-                        <S.ResultCont key={item.id}>
-                            <S.ResultPuppyName>
-                                <S.ResultPuppyNamePoint>
-                                    &quot;<span>{name}</span>&quot;
-                                </S.ResultPuppyNamePoint>
-                                는(은)
-                            </S.ResultPuppyName>
-                            <S.ResultPercentCont>
-                                <S.ResultCharBox>
-                                    <S.ResultCharBoxInner>
-                                        <S.ResultBoxMbtiName>{item.mbti}</S.ResultBoxMbtiName>
-                                        <S.ResultBoxChar>
-                                            <S.ResultBoxCharInner>
-                                                <S.ResultBoxCharImg src={mbtiImg} />
-                                            </S.ResultBoxCharInner>
-                                        </S.ResultBoxChar>
-                                    </S.ResultCharBoxInner>
-                                </S.ResultCharBox>
+        <>
+            <Header location={'/result'} scrollHeader={scrollHeader} logoColor={LogoBlack} bgColor={BgCommon}/>
+            <C.Content>
+                {resultData.result.map(item => {
+                    if (item.mbti === mbtiName) {
+                        return (
+                            <S.ResultCont key={item.id}>
+                                <S.ResultPuppyName>
+                                    <S.ResultPuppyNamePoint>
+                                        &quot;<span>{name}</span>&quot;
+                                    </S.ResultPuppyNamePoint>
+                                    는(은)
+                                </S.ResultPuppyName>
+                                <S.ResultPercentCont>
+                                    <S.ResultCharBox>
+                                        <S.ResultCharBoxInner>
+                                            <S.ResultBoxMbtiName>{item.mbti}</S.ResultBoxMbtiName>
+                                            <S.ResultBoxChar>
+                                                <S.ResultBoxCharInner>
+                                                    <S.ResultBoxCharImg src={mbtiImg} />
+                                                </S.ResultBoxCharInner>
+                                            </S.ResultBoxChar>
+                                        </S.ResultCharBoxInner>
+                                    </S.ResultCharBox>
 
-                                <S.ResultPercentBox>
-                                    {resultData.resultDetail.map(detailItem => (
-                                        <ResultDetail
-                                            key={detailItem.id}
-                                            detailItem={detailItem}
-                                            setPercentEnergy={setPercentEnergy}
-                                            setPercentInformation={setPercentInformation}
-                                            setPercentIDecisions={setPercentIDecisions}
-                                            setPercentLifestyle={setPercentLifestyle}
-                                            percentEnergy={percentEnergy}
-                                            percentInformation={percentInformation}
-                                            percentIDecisions={percentIDecisions}
-                                            percentLifestyle={percentLifestyle}
-                                            location={location}
-                                            scoreI={scoreI}
-                                            scoreE={scoreE}
-                                            scoreS={scoreS}
-                                            scoreN={scoreN}
-                                            scoreT={scoreT}
-                                            scoreF={scoreF}
-                                            scoreJ={scoreJ}
-                                            scoreP={scoreP}
-                                        />
-                                    ))}
-                                </S.ResultPercentBox>
-                                <S.ResultTxtBox>
-                                    <S.ResultTxt>{item.msg.interpretation}</S.ResultTxt>
-                                </S.ResultTxtBox>
-                                <S.ResultTxtBox>
-                                    <S.ResultTxt>{item.msg.advice}</S.ResultTxt>
-                                </S.ResultTxtBox>
-                            </S.ResultPercentCont>
-                            <S.RestartBtn>
-                                <C.CommonBtn as={Link} to={'/'}>
-                                    다시하기
-                                </C.CommonBtn>
-                            </S.RestartBtn>
-                        </S.ResultCont>
-                    );
-                }
-            })}
-            <ShareCont />
-        </C.Content>
+                                    <S.ResultPercentBox>
+                                        {resultData.resultDetail.map(detailItem => (
+                                            <ResultDetail
+                                                key={detailItem.id}
+                                                detailItem={detailItem}
+                                                percentEnergy={percentEnergy}
+                                                percentInformation={percentInformation}
+                                                percentIDecisions={percentIDecisions}
+                                                percentLifestyle={percentLifestyle}
+                                            />
+                                        ))}
+                                    </S.ResultPercentBox>
+                                    <S.ResultTxtBox>
+                                        <S.ResultTxt>{item.msg.interpretation}</S.ResultTxt>
+                                    </S.ResultTxtBox>
+                                    <S.ResultTxtBox>
+                                        <S.ResultTxt>{item.msg.advice}</S.ResultTxt>
+                                    </S.ResultTxtBox>
+                                </S.ResultPercentCont>
+                                <S.RestartBtn>
+                                    <C.CommonBtn as={Link} to={'/'}>
+                                        다시하기
+                                    </C.CommonBtn>
+                                </S.RestartBtn>
+                            </S.ResultCont>
+                        );
+                    }
+                })}
+                <ShareCont />
+            </C.Content>
+        </>
     );
 };
 export default Result;

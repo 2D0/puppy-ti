@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 
 //컴포넌트
@@ -8,54 +8,46 @@ import CheckQuestion from '@/components/atoms/CheckQuestion.jsx';
 import * as C from '@/style/CommonContents';
 import * as S from '@components/check/Check.style.jsx';
 
+import { LogoBlack, LogoWhite } from '@/assets/img/logo/index.js';
+
+import {  BgBlack, BgCommon } from '@/style/CommonContents.jsx';
+import { Header, Footer, Background } from '@components/common';
+
 const Check = ({
-    percent,
-    setPercent,
-    setPercentEnergy,
-    setPercentInformation,
-    setPercentIDecisions,
-    setPercentLifestyle,
-    setScoreI,
-    setScoreE,
-    setScoreS,
-    setScoreN,
-    setScoreT,
-    setScoreF,
-    setScoreJ,
-    setScoreP,
+    finished,
+    setScoreSheet,
+    scrollHeader
 }) => {
     const navigate = useNavigate(); //react router 페이지 핸들링하는 함수
 
+    const headerRef = useRef(null);
+    
+    const setScoreSheetEvent = (index, value) => {
+        setScoreSheet(index, value, headerRef)
+    }
+    
     return (
-        <S.CheckCont percent={percent}>
-            <S.CheckQACont>
-                <CheckQuestion
-                    setPercent={setPercent}
-                    setPercentEnergy={setPercentEnergy}
-                    setPercentInformation={setPercentInformation}
-                    setPercentIDecisions={setPercentIDecisions}
-                    setPercentLifestyle={setPercentLifestyle}
-                    setScoreI={setScoreI}
-                    setScoreE={setScoreE}
-                    setScoreS={setScoreS}
-                    setScoreN={setScoreN}
-                    setScoreT={setScoreT}
-                    setScoreF={setScoreF}
-                    setScoreJ={setScoreJ}
-                    setScoreP={setScoreP}
-                />
-            </S.CheckQACont>
-            <S.CheckBtn>
-                <C.CommonBtn
-                    onClick={() => {
-                        navigate('/result');
-                    }}
-                    type="submit"
-                >
-                    결과보기
-                </C.CommonBtn>
-            </S.CheckBtn>
-        </S.CheckCont>
+        <>
+            <Header ref= {headerRef} location={'/check'} scrollHeader={scrollHeader} logoColor={LogoBlack} bgColor={finished ? BgBlack : BgCommon }/>
+            <S.CheckCont finished={finished}>
+                <S.CheckQACont>
+                    <CheckQuestion
+                        setScoreSheet = {setScoreSheetEvent}
+                    />
+                </S.CheckQACont>
+                <S.CheckBtn>
+                    <C.CommonBtn
+                        onClick={() => {
+                            navigate('/result');
+                        }}
+                        type="submit"
+                        startActive={finished}
+                    >
+                        결과보기
+                    </C.CommonBtn>
+                </S.CheckBtn>
+            </S.CheckCont>
+        </>
     );
 };
 
